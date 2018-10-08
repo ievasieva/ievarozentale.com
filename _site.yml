@@ -1,0 +1,24 @@
+name: "Ieva Rozentale"
+output_dir: "."
+navbar:
+  title: "Ieva Rozentale"
+  left:
+    - text: "P2"
+      href: P2analysis.html
+    - text: "P3"
+      href: P3analysis.html
+    - text: "Survey measures"
+      href: surveyquestions.nb.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: contact.html
+    - icon: fa-github fa-lg
+      href: http://github.com/ievasieva
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/iev_a
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/ieva-rozentale-83446739
+output:
+  html_document:
+    theme: paper
+    css: 'styles.css'
