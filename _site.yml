@@ -4,14 +4,14 @@ navbar:
   title: "Ieva Rozentale"
   left:
     - text: "P2"
-      href: P2analysis.html
+      href: P2analysis.nb.html
     - text: "P3"
       href: P3analysis.html
     - text: "Survey measures"
       href: surveyquestions.nb.html
   right:
     - icon: fa-envelope fa-lg
-      href: contact.html
+      href: mailto:ieva@nebetja.eu?Subject=Hello%20there
     - icon: fa-github fa-lg
       href: http://github.com/ievasieva
     - icon: fa-twitter fa-lg

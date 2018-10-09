@@ -1,0 +1,112 @@
+---
+title: "Paper 2 Measures and Analysis"
+output: html_notebook
+---
+
+There are **6 independent variables and 2 dependent variables** specified by the conceptual framework:   
+
+* Business model level:  
+    + Value proposition differentiation  
+    + Client segmentation  
+    + Network differentiation  
+    + Revenue model differentiation  
+* Contextual level:   
+    + Venture separation  
+    + Integrated organizational culture  
+* Performance:   
+    + Creative performance  
+    + Business performance  
+
+These are **the items used** in order to measure them:   
+
+| Variable | Survey items used | 
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| **Value proposition differentiation** (VPDIF) | Some types of our services and products help reaching our financial and business goals, while others contribute to our creative goals.  |
+| **Client segmentation** (SEGM) | Some client segments are commercial and bring in money, while others secure creative work, reputation and exposure. |
+| **Network differentiation** (NETWDIF) | We make a clear distinction between creative and business partners. |
+|**Diversification of revenue models** (REVDIF) | Different revenue models and conditions are used for commercial projects and the projects we perceive as creative and/or challenging. | 
+| **Venture separation** (SPINDIF) |           |
+|  *Composite measure (creative OR commercial affiliate venture Y/N, minimum of the following items).* | The other venture(s) connected to our firm focus(es) on the more commercial and/or entrepreneurial work. |
+|     | The other venture(s) connected to our firm focus(es) on the more creative projects, as opposed to the commercial and entrepreneurial work. |  
+| **Integrated culture** (INTCULT)|     |
+| *Composite measure (the mean of the following items).* | When it comes to our activities and processes, we always try to develop synergies and interactions between the creative and business-related aspects.  | 
+|     | When making decisions within our company, we seek synergies, integration, and compromises between our creative and commercial ambitions.  |  
+| **Business performance** (BP)|       |
+| *Composite measure (the mean of the following items, compared to main competotors).*   | Gross profits per partner | 
+|     | Gross margin on provided services |  
+|     | Growth in profits | 
+| **Creative performance** (CP)|          |
+| *Composite measure (the mean of the following items, compared to main competotors).*   | Producing highly innovative work | 
+|     | Working on projects that challenge the boundaries of the field |  
+|     | Working on projects that match the firm's creative and professional aspirations |   
+|     | Creating the desired impact with its work |  
+
+These are **the descriptive statistics** for each variable: 
+```{r setup data, echo=FALSE, warning=FALSE}
+bots<- read.csv("~/Dropbox/1PhD/Articles/Survey Data/bots_renamed.csv") 
+myraw <- bots[,c("X1", "paradox_DIF1", "paradox_DIF3", "paradox_DIF4", 
+               "paradox_DIF5", "spin_Commercial", "spin_Creative", "paradox_INT6", "paradox_INT2","CP", "BP")]
+myraw$INTCULT <- rowMeans(myraw[,c("paradox_INT6", "paradox_INT2")])
+myraw$SPINDIF <- pmax(myraw$spin_Commercial, myraw$spin_Creative)
+newnames <- c("ID", "VPDIF", "SEGM", "NETWDIF", "REVDIF") 
+colnames(myraw)[1:5] <- newnames
+psych::describe(myraw[,c("VPDIF", "SEGM", "NETWDIF", "REVDIF", "SPINDIF", "INTCULT", "CP", "BP")])
+```
+
+This is **the correlation matrix** for all variables used: 
+
+```{r correlation matrix, echo=FALSE, warning=FALSE}
+
+corstars <-function(x, method=c("pearson", "spearman"), removeTriangle=c("upper", "lower"),
+                    result=c("none", "html", "latex")){
+ 
+   #Compute correlation matrix
+  require(Hmisc)
+  x <- as.matrix(x)
+  correlation_matrix<-rcorr(x, type=method[1])
+  R <- correlation_matrix$r # Matrix of correlation coeficients
+  p <- correlation_matrix$P # Matrix of p-value 
+  
+  ## Define notions for significance levels; spacing is important.
+  mystars <- ifelse(p < .0001, "****", ifelse(p < .001, "*** ", ifelse(p < .01, "**  ", ifelse(p < .05, "*   ", "    "))))
+  
+  ## trunctuate the correlation matrix to two decimal
+  R <- format(round(cbind(rep(-1.11, ncol(x)), R), 2))[,-1]
+  
+  ## build a new matrix that includes the correlations with their apropriate stars
+  Rnew <- matrix(paste(R, mystars, sep=""), ncol=ncol(x))
+  diag(Rnew) <- paste(diag(R), " ", sep="")
+  rownames(Rnew) <- colnames(x)
+  colnames(Rnew) <- paste(colnames(x), "", sep="")
+  
+  ## remove upper triangle of correlation matrix
+  if(removeTriangle[1]=="upper"){
+    Rnew <- as.matrix(Rnew)
+    Rnew[upper.tri(Rnew, diag = TRUE)] <- ""
+    Rnew <- as.data.frame(Rnew)
+  }
+  
+  ## remove lower triangle of correlation matrix
+  else if(removeTriangle[1]=="lower"){
+    Rnew <- as.matrix(Rnew)
+    Rnew[lower.tri(Rnew, diag = TRUE)] <- ""
+    Rnew <- as.data.frame(Rnew)
+  }
+  
+  ## remove last column and return the correlation matrix
+  Rnew <- cbind(Rnew[1:length(Rnew)-1])
+  if (result[1]=="none") return(Rnew)
+  else{
+    if(result[1]=="html") print(xtable(Rnew), type="html")
+    else print(xtable(Rnew), type="latex") 
+  }
+} 
+
+knitr::kable(
+  corstars(myraw[,c("VPDIF", "SEGM", "NETWDIF", "REVDIF", "SPINDIF", "INTCULT", "CP", "BP")]), booktabs = TRUE, 
+  caption = "Correlation table, all variables (condition)."
+)
+
+```
+  
+  
