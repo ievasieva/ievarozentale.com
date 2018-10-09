@@ -6,7 +6,7 @@ navbar:
     - text: "P2"
       href: P2analysis.nb.html
     - text: "P3"
-      href: P3analysis.html
+      href: P3analysis.nb.html
     - text: "Survey measures"
       href: surveyquestions.nb.html
   right:
