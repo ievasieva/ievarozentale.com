@@ -9,6 +9,8 @@ navbar:
       href: P3analysis.nb.html
     - text: "Survey measures"
       href: surveyquestions.nb.html
+    - text: "Presentation RSM"
+      href: botsrsm.html
   right:
     - icon: fa-envelope fa-lg
       href: mailto:ieva@nebetja.eu?Subject=Hello%20there
