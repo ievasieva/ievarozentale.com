@@ -80,38 +80,31 @@ knitr::kable(corstars(values), booktabs = TRUE,
 ```
 
 
-```{r findingfactors, warning=FALSE, echo=FALSE, message=FALSE}
+```{r findingfactors, warning=FALSE, echo=FALSE}
 #Finding the number of factors
 par <- fa.parallel(values) #analysis suggests 3 factors 
 ```
 
-```{r EFA graph, warning=FALSE, echo=FALSE}
+```{r EFA graph, warning=FALSE, echo=FALSE, message=FALSE, results='hide',fig.keep='all'}
 #CFA using the psych package
 test.simple <- fa(r=cor(values, use="complete.obs"), nfactors=3, fm="ml", rotate="oblimin")
 fa.diagram(test.simple, cut = .4, digits = 2)
 ```
 
-```{r EFA loadings, warning=FALSE, echo=FALSE}
-test.simple$loadings
-```
 
 These are the Gris (2001) validity scores: 
 ```{r valid, echo=F, warning=F}
-test.simple$valid
-```
-
-These are the Gris (2001) validity scores: 
-```{r iclust, echo=F, warning=F}
-iclust(values)
+print(as.data.frame(test.simple$valid, row.names = c("ML1", "ML2", "ML3")))
 ```
 
 
-```{r iclust2, echo=F, warning=F}
+
+```{r iclust2, echo=F, warning=F, message=FALSE, results='hide',fig.keep='all'}
 fa.diagram(ICLUST(values,2,title="Two cluster solution"),main="Input from ICLUST")
 ```
 
 
-```{r omega, echo=FALSE, warning=FALSE}
+```{r omega, echo=FALSE, warning=FALSE, message=FALSE, results='hide',fig.keep='all'}
 omega(values)
 ```
 
