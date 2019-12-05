@@ -1,0 +1,21 @@
+"0","bots<- read_csv(""~/Dropbox/1PhD/Articles/Survey Data/bots_renamed.csv"") 
+"
+"2","Parsed with column specification:
+cols(
+  .default = col_integer(),
+  Company = col_character(),
+  Position = col_character(),
+  ActivityDescription = col_character(),
+  FTE = col_double(),
+  Location = col_character(),
+  perf_InternationalIncome = col_double(),
+  perf_Turnover = col_double(),
+  size = col_character(),
+  sector = col_character(),
+  CP = col_double(),
+  BP = col_double(),
+  performance = col_character()
+)
+"
+"2","See spec(...) for full column specifications.
+"

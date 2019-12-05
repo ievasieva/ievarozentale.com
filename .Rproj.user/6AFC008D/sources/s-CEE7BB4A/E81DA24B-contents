@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Survey questions and variable names</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ieva Rozentale</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="P2analysis.html">P2</a>
+</li>
+<li>
+  <a href="P3analysis.html">P3</a>
+</li>
+<li>
+  <a href="surveymeasures.html">Survey measures</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="contact.html">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/ievasieva">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/iev_a">
+    <span class="fa fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/ieva-rozentale-83446739">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Survey questions and variable names</h1>
+
+</div>
+
+
+<pre><code>## Loading required package: kableExtra</code></pre>
+<pre><code>## Loading required package: knitr</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Original.name
+</th>
+<th style="text-align:left;">
+Recoded.name
+</th>
+<th style="text-align:left;">
+Question.asked
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Q1_1
+</td>
+<td style="text-align:left;">
+Company
+</td>
+<td style="text-align:left;">
+Company name
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_2
+</td>
+<td style="text-align:left;">
+Position
+</td>
+<td style="text-align:left;">
+Position of the respondent
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_3
+</td>
+<td style="text-align:left;">
+ActivityDescription
+</td>
+<td style="text-align:left;">
+Description of firm’s activity
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_4
+</td>
+<td style="text-align:left;">
+Employees
+</td>
+<td style="text-align:left;">
+Nr. of employees
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_8
+</td>
+<td style="text-align:left;">
+FTE
+</td>
+<td style="text-align:left;">
+Nr. of FTEs
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_5
+</td>
+<td style="text-align:left;">
+Year
+</td>
+<td style="text-align:left;">
+Founding year
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_6
+</td>
+<td style="text-align:left;">
+NrOffices
+</td>
+<td style="text-align:left;">
+Nr. of Office
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_7
+</td>
+<td style="text-align:left;">
+Location
+</td>
+<td style="text-align:left;">
+Location of Offices
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q2_BM1_1
+</td>
+<td style="text-align:left;">
+bm1_SpecificCreative
+</td>
+<td style="text-align:left;">
+Our firm offers services based on knowledge and expertise in a specific creative sub-discipline (for instance, graphic design, audiovisual services)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q2_BM1_2
+</td>
+<td style="text-align:left;">
+bm1_CreativeCombi
+</td>
+<td style="text-align:left;">
+Our firm offers services based on knowledge and expertise in a combination of several creative sub-disciplines (an all-around creative agency)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q2_BM1_3
+</td>
+<td style="text-align:left;">
+bm1_CreativeNoncreative
+</td>
+<td style="text-align:left;">
+OUr firm offers services based on a combination of creative and non-creative disciplines (e.g. data analysis, manufacturing)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q3_BM2_1
+</td>
+<td style="text-align:left;">
+bm2_ResearchStrategy
+</td>
+<td style="text-align:left;">
+We offer services that include research and strategy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q3_BM2_2
+</td>
+<td style="text-align:left;">
+bm2_ConceptDev
+</td>
+<td style="text-align:left;">
+We offer services that include creative concept development
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q3_BM2_3
+</td>
+<td style="text-align:left;">
+bm2_ProductionImplementation
+</td>
+<td style="text-align:left;">
+We offer services that include production and/or implementation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q3_BM2_4
+</td>
+<td style="text-align:left;">
+bm2_Marketing
+</td>
+<td style="text-align:left;">
+We offer services that include sales, marketing and/or distribution
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q4_BM3_1
+</td>
+<td style="text-align:left;">
+bm3_OwnProducts
+</td>
+<td style="text-align:left;">
+We offer own products
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q4_BM3_2
+</td>
+<td style="text-align:left;">
+bm3_Services
+</td>
+<td style="text-align:left;">
+We offer services
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q4_BM3_3
+</td>
+<td style="text-align:left;">
+bm3_Platforms
+</td>
+<td style="text-align:left;">
+We offer service platforms (bringing several parties together)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q5_BM4_1
+</td>
+<td style="text-align:left;">
+bm4_Customized
+</td>
+<td style="text-align:left;">
+Our service offering consists of highly customized services and products
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q5_BM4_2
+</td>
+<td style="text-align:left;">
+bm4_Modular
+</td>
+<td style="text-align:left;">
+Our service offering consists of modular services and products (can be broken down into smaller components, offered separately, mixed and matched)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q5_BM4_3
+</td>
+<td style="text-align:left;">
+bm4_Maintenance
+</td>
+<td style="text-align:left;">
+Our service offering consists of maintenance and service-level agreements
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q6_BM5_1
+</td>
+<td style="text-align:left;">
+bm5_OperationalExellence
+</td>
+<td style="text-align:left;">
+We differentiate ourselves from our competitors with image of operational excellence
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q6_BM5_2
+</td>
+<td style="text-align:left;">
+bm5_Quality
+</td>
+<td style="text-align:left;">
+We differentiate ourselves from our competitors with product and/ or service quality
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q6_BM5_3
+</td>
+<td style="text-align:left;">
+bm5_Innovation
+</td>
+<td style="text-align:left;">
+We differentiate ourselves from our competitors with leadership in innovation and/or creativity
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q6_BM5_4
+</td>
+<td style="text-align:left;">
+bm5_LowCost
+</td>
+<td style="text-align:left;">
+We differentiate ourselves from our competitors with low cost/ efficiency
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q6_BM5_5
+</td>
+<td style="text-align:left;">
+bm5_CustomerRelations
+</td>
+<td style="text-align:left;">
+We differentiate ourselves from our competitors with close customer relationships
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q8_BM7_1
+</td>
+<td style="text-align:left;">
+bm6_Niche
+</td>
+<td style="text-align:left;">
+We create value for niche markets (applying our expertise in particular client sectors, segments)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q8_BM7_2
+</td>
+<td style="text-align:left;">
+bm6_GenMarkets
+</td>
+<td style="text-align:left;">
+We create value for general markets with no specific specialization
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q8_BM7_3
+</td>
+<td style="text-align:left;">
+bm6_B2B
+</td>
+<td style="text-align:left;">
+We create value for business-to-business
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q8_BM7_4
+</td>
+<td style="text-align:left;">
+bm6_B2C
+</td>
+<td style="text-align:left;">
+We create value for business-to-consumer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q8_BM7_5
+</td>
+<td style="text-align:left;">
+bm6_B2G
+</td>
+<td style="text-align:left;">
+We create value for business-to-government
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q9_BM8_1
+</td>
+<td style="text-align:left;">
+bm7_InHouse
+</td>
+<td style="text-align:left;">
+In order to deliver our services/ products, we acquire and develop the resources needed in-house
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q9_BM8_2
+</td>
+<td style="text-align:left;">
+bm7_Outsource
+</td>
+<td style="text-align:left;">
+In order to deliver our services/ products, we outsource the resources that are needed to external parties
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q10_BM9_1
+</td>
+<td style="text-align:left;">
+bm8_Suppliers
+</td>
+<td style="text-align:left;">
+The key partners need in order to create our offering are suppliers
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q10_BM9_2
+</td>
+<td style="text-align:left;">
+bm8_Complementors
+</td>
+<td style="text-align:left;">
+The key partners need in order to create our offering are complementors, (companies that sell products or services that complement ours, e.g. front-end development)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q10_BM9_3
+</td>
+<td style="text-align:left;">
+bm8_Competitors
+</td>
+<td style="text-align:left;">
+The key partners need in order to create our offering are competitors
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q10_BM9_4
+</td>
+<td style="text-align:left;">
+bm8_CustomersCo
+</td>
+<td style="text-align:left;">
+The key partners need in order to create our offering are customers as co-creators
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q10_BM9_5
+</td>
+<td style="text-align:left;">
+bm8_ScalingPartners
+</td>
+<td style="text-align:left;">
+The key partners need in order to create our offering are partners for scaling up our business
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q11_BM10_1
+</td>
+<td style="text-align:left;">
+bm9_HourlyRates
+</td>
+<td style="text-align:left;">
+Hourly rates are an important part of our revenue model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q11_BM10_2
+</td>
+<td style="text-align:left;">
+bm9_Royalties
+</td>
+<td style="text-align:left;">
+Royalties are an important part of our revenue model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q11_BM10_3
+</td>
+<td style="text-align:left;">
+bm9_ProductSales
+</td>
+<td style="text-align:left;">
+Product sales are an important part of our revenue model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q11_BM10_4
+</td>
+<td style="text-align:left;">
+bm9_Subscriptions
+</td>
+<td style="text-align:left;">
+Licenses, subsriptions and usage fees are an important part of our revenue model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q11_BM10_5
+</td>
+<td style="text-align:left;">
+bm9_MarkUp
+</td>
+<td style="text-align:left;">
+Mark up (margins on reselling) are an important part of our revenue model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q11_BM10_7
+</td>
+<td style="text-align:left;">
+bm9_NoCure
+</td>
+<td style="text-align:left;">
+No cure, no pay arrangements are an important part of our revenue model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q11_BM10_8
+</td>
+<td style="text-align:left;">
+bm9_Investment
+</td>
+<td style="text-align:left;">
+Investing our time or money in other enterprises are an important part of our revenue model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q12_BM11_1
+</td>
+<td style="text-align:left;">
+bm10_OwnRevenue
+</td>
+<td style="text-align:left;">
+The income needed to operate our business comes from revenue generated by our own activities
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q12_BM11_2
+</td>
+<td style="text-align:left;">
+bm10_OtherFirms
+</td>
+<td style="text-align:left;">
+The income needed to operate our business comes from revenue from other affiliated firms
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q12_BM11_3
+</td>
+<td style="text-align:left;">
+bm10_Subsidies
+</td>
+<td style="text-align:left;">
+The income needed to operate our business comes from subsidies and grants
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q12_BM11_4
+</td>
+<td style="text-align:left;">
+bm10_Loans
+</td>
+<td style="text-align:left;">
+The income needed to operate our business comes from loans
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q12_BM11_5
+</td>
+<td style="text-align:left;">
+bm10_ROI
+</td>
+<td style="text-align:left;">
+The income needed to operate our business comes from returns on external investments
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q12_BM11_6
+</td>
+<td style="text-align:left;">
+bm10_Other
+</td>
+<td style="text-align:left;">
+The income needed to operate our business comes from other sources
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q13_1
+</td>
+<td style="text-align:left;">
+bmspin_Complementary
+</td>
+<td style="text-align:left;">
+Next to our enteprise, we have spinout and/or affiliate enteprises that offer complementary services (indicate the number)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q13_3
+</td>
+<td style="text-align:left;">
+bmspin_Products
+</td>
+<td style="text-align:left;">
+Next to our enteprise, we have spinout and/or affiliate enteprises that create and market their own products (indicate the number)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q13_4
+</td>
+<td style="text-align:left;">
+bmspin_Invest
+</td>
+<td style="text-align:left;">
+Next to our enteprise, we have spinout and/or affiliate enteprises that invest in other enteprises (indicate the number)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q13_5
+</td>
+<td style="text-align:left;">
+bmspin_Other
+</td>
+<td style="text-align:left;">
+Next to our enteprise, we have spinout and/or affiliate enteprises that… Other (indicate the number)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q14_SPSEP_1
+</td>
+<td style="text-align:left;">
+spin_Commercial
+</td>
+<td style="text-align:left;">
+The other enteprise(s) connected to our firm focus(es) on the more commercial and/or entrepreneurial work
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q14_SPSEP_2
+</td>
+<td style="text-align:left;">
+spin_Creative
+</td>
+<td style="text-align:left;">
+The other enteprise(s) connected to our firm focus(es) on the more creative projects, as opposed to the commercial and entrepreneurial work
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q14_SPINT
+</td>
+<td style="text-align:left;">
+spin_Both
+</td>
+<td style="text-align:left;">
+The other enteprise(s) connected to our firm share(s) the same commercial and creative goals and contribute to achieving them in the same way as we do
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VC_1
+</td>
+<td style="text-align:left;">
+values_Creative1
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to encourage employees to challenge the boundaries of our field
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VC_2
+</td>
+<td style="text-align:left;">
+values_Creative2
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to produce very innovative goods and services
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VC_3
+</td>
+<td style="text-align:left;">
+values_Creative3
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to work on creative and/or challenging projects
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VA_1
+</td>
+<td style="text-align:left;">
+values_Achievement1
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to deliver goods or services that are publicly recognized for their excellence
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VA_2
+</td>
+<td style="text-align:left;">
+values_Achievement2
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to rceive awards for our work
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VA_3
+</td>
+<td style="text-align:left;">
+values_Achievement3
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to deliver goods or services recognized for their contribution to the field
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VS_1
+</td>
+<td style="text-align:left;">
+values_Social1
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to offer new perspectives and knowledge to the society
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VS_2
+</td>
+<td style="text-align:left;">
+values_Social2
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to contribute to solving societal challenges
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VS_3
+</td>
+<td style="text-align:left;">
+values_Social3
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to be a good company
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VF_1
+</td>
+<td style="text-align:left;">
+values_Financial1
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to expand turnover
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VF_2
+</td>
+<td style="text-align:left;">
+values_Financial2
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to secure future profitability
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VF_3
+</td>
+<td style="text-align:left;">
+values_Financial3
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to work on projects that bring in money
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VM_1
+</td>
+<td style="text-align:left;">
+values_Market1
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to commit to customer satisfaction
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VM_2
+</td>
+<td style="text-align:left;">
+values_Market2
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to provide good value for our customers
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VM_3
+</td>
+<td style="text-align:left;">
+values_Market3
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to take customer expectations into account
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VE_1
+</td>
+<td style="text-align:left;">
+values_Entrepreneurial1
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to ensure that our unique advantages can withstand the changes in the industry
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VE_2
+</td>
+<td style="text-align:left;">
+values_Entrepreneurial2
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to pro-actively face the challenges brought by technological development for us and our clients
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VE_3
+</td>
+<td style="text-align:left;">
+values_Entrepreneurial3
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to take entrepreneurial risks to prepare for the changes brought by the market
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q15_VF_4
+</td>
+<td style="text-align:left;">
+values_Financial4
+</td>
+<td style="text-align:left;">
+It is important for our firm’s identity to grow in terms of size
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_INT1
+</td>
+<td style="text-align:left;">
+paradox_INT1
+</td>
+<td style="text-align:left;">
+Our creative and commercial ambitions are always equally reflected in all types of services and products we offer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_DIF1
+</td>
+<td style="text-align:left;">
+paradox_DIF1
+</td>
+<td style="text-align:left;">
+Some types of our services and products help reaching our financial and business goals, while others contribute to our creative goals
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_INT2
+</td>
+<td style="text-align:left;">
+paradox_INT2
+</td>
+<td style="text-align:left;">
+When it comes to our activities and processes, we always try to develop synergies and interactions between the creative and business-related aspects
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_DIF2
+</td>
+<td style="text-align:left;">
+paradox_DIF2
+</td>
+<td style="text-align:left;">
+We strongly emphasize the differences between creative aspects of our service delivery process, and the aspects related to our business performance
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_INT3
+</td>
+<td style="text-align:left;">
+paradox_INT3
+</td>
+<td style="text-align:left;">
+All the projects that we take up have to be both creatively and commercially interesting, otherwise we will not do them
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_DIF3
+</td>
+<td style="text-align:left;">
+paradox_DIF3
+</td>
+<td style="text-align:left;">
+Some client segments are commercial and bring in money, while others secure creative work, reputation and exposure
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_DIF4
+</td>
+<td style="text-align:left;">
+paradox_DIF4
+</td>
+<td style="text-align:left;">
+We make a clear distinction between creative and business partners
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_INT4
+</td>
+<td style="text-align:left;">
+paradox_INT4
+</td>
+<td style="text-align:left;">
+We share a common creative vision, as well as equal entrepreneurial risks with our main partners
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_INT5
+</td>
+<td style="text-align:left;">
+paradox_INT5
+</td>
+<td style="text-align:left;">
+We use the same rates and payment types for all our projects
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_DIF5
+</td>
+<td style="text-align:left;">
+paradox_DIF5
+</td>
+<td style="text-align:left;">
+Different revenue models and conditions are used for commercial projects and the projects we perceive as creative and/or challenging
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_DIF6
+</td>
+<td style="text-align:left;">
+paradox_DIF6
+</td>
+<td style="text-align:left;">
+We clearly separate which decisions in our company are made to target our creative and professional ambitions, and which help to fulfill our commercial and entrepreneurial aspirations
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q16_Q16_INT6
+</td>
+<td style="text-align:left;">
+paradox_INT6
+</td>
+<td style="text-align:left;">
+When making decisions within our company, we seek synergies, integration, and compromises between our creative and commercial ambitions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q17_6
+</td>
+<td style="text-align:left;">
+perf_NewProjects
+</td>
+<td style="text-align:left;">
+Number of new projects per year
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q17_8
+</td>
+<td style="text-align:left;">
+perf_InternationalIncome
+</td>
+<td style="text-align:left;">
+Percentage of yearly income from international projects
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q17_9
+</td>
+<td style="text-align:left;">
+perf_HourlyRates
+</td>
+<td style="text-align:left;">
+Average hourly rates (currently)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q17_10
+</td>
+<td style="text-align:left;">
+perf_ProfitMargin
+</td>
+<td style="text-align:left;">
+Profit margins on projects, %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q17_12
+</td>
+<td style="text-align:left;">
+perf_Turnover2
+</td>
+<td style="text-align:left;">
+Average annual turnover
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_12
+</td>
+<td style="text-align:left;">
+NrOwners
+</td>
+<td style="text-align:left;">
+Number of owners
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_13
+</td>
+<td style="text-align:left;">
+CreativeDirectors
+</td>
+<td style="text-align:left;">
+Number of creative directors
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q1_14
+</td>
+<td style="text-align:left;">
+FinancialDirectors
+</td>
+<td style="text-align:left;">
+Number of financial / managing directors
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_1
+</td>
+<td style="text-align:left;">
+perf_BP_1
+</td>
+<td style="text-align:left;">
+Gross profits per partner
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_2
+</td>
+<td style="text-align:left;">
+perf_BP_2
+</td>
+<td style="text-align:left;">
+Competitive hourly fee
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_3
+</td>
+<td style="text-align:left;">
+perf_BP_3
+</td>
+<td style="text-align:left;">
+Gross margin on provided services
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_4
+</td>
+<td style="text-align:left;">
+perf_BP_4
+</td>
+<td style="text-align:left;">
+Competitive cost structure
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_5
+</td>
+<td style="text-align:left;">
+perf_BP_5
+</td>
+<td style="text-align:left;">
+Overhead percentage
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_6
+</td>
+<td style="text-align:left;">
+perf_BP_6
+</td>
+<td style="text-align:left;">
+Retention of the largest clients
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_7
+</td>
+<td style="text-align:left;">
+perf_BP_7
+</td>
+<td style="text-align:left;">
+Implementing new business models
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_8
+</td>
+<td style="text-align:left;">
+perf_BP_8
+</td>
+<td style="text-align:left;">
+Retention of clients
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_9
+</td>
+<td style="text-align:left;">
+perf_BP_9
+</td>
+<td style="text-align:left;">
+Attracting new clients
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_10
+</td>
+<td style="text-align:left;">
+perf_BP_10
+</td>
+<td style="text-align:left;">
+Growth in profits
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_11
+</td>
+<td style="text-align:left;">
+perf_BP_11
+</td>
+<td style="text-align:left;">
+Growth in staff
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_BP_12
+</td>
+<td style="text-align:left;">
+perf_BP_12
+</td>
+<td style="text-align:left;">
+Efficient firm organization
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_1
+</td>
+<td style="text-align:left;">
+perf_CP_1
+</td>
+<td style="text-align:left;">
+Producing highly innovative work
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_2
+</td>
+<td style="text-align:left;">
+perf_CP_2
+</td>
+<td style="text-align:left;">
+Working on projects that challenge the boundaries of the field
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_3
+</td>
+<td style="text-align:left;">
+perf_CP_3
+</td>
+<td style="text-align:left;">
+Attracting the best creative professionals
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_4
+</td>
+<td style="text-align:left;">
+perf_CP_4
+</td>
+<td style="text-align:left;">
+Reputation on the labor market
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_5
+</td>
+<td style="text-align:left;">
+perf_CP_5
+</td>
+<td style="text-align:left;">
+Reputation among peers
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_6
+</td>
+<td style="text-align:left;">
+perf_CP_6
+</td>
+<td style="text-align:left;">
+Receiving good critic’s reviews for its work
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_7
+</td>
+<td style="text-align:left;">
+perf_CP_7
+</td>
+<td style="text-align:left;">
+Receiving industry awards for its work
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_8
+</td>
+<td style="text-align:left;">
+perf_CP_8
+</td>
+<td style="text-align:left;">
+Delivering work that is relevant for the society
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_9
+</td>
+<td style="text-align:left;">
+perf_CP_9
+</td>
+<td style="text-align:left;">
+Working on projects that match the firm’s creative and professional aspirations
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_10
+</td>
+<td style="text-align:left;">
+perf_CP_10
+</td>
+<td style="text-align:left;">
+Creating the desired impact with its work
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q20_CP_11
+</td>
+<td style="text-align:left;">
+perf_CP_11
+</td>
+<td style="text-align:left;">
+Keeping the employees challenged and satisfied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sample
+</td>
+<td style="text-align:left;">
+Sample
+</td>
+<td style="text-align:left;">
+The sample from which the respondent comes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q17_1
+</td>
+<td style="text-align:left;">
+perf_Turnover
+</td>
+<td style="text-align:left;">
+Turnover sample 1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Q17_13
+</td>
+<td style="text-align:left;">
+perf_Turnover3
+</td>
+<td style="text-align:left;">
+Turnover 3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+size
+</td>
+<td style="text-align:left;">
+size
+</td>
+<td style="text-align:left;">
+Size (categorical)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sector
+</td>
+<td style="text-align:left;">
+sector
+</td>
+<td style="text-align:left;">
+Sector of activity (coded by the researcher)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CP
+</td>
+<td style="text-align:left;">
+CP
+</td>
+<td style="text-align:left;">
+Mean creative performance
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BP
+</td>
+<td style="text-align:left;">
+BP
+</td>
+<td style="text-align:left;">
+Mean business performance
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+performance
+</td>
+<td style="text-align:left;">
+performance
+</td>
+<td style="text-align:left;">
+Performance (categorical, coded by the researcher)
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

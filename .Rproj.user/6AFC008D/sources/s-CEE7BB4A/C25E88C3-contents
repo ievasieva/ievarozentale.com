@@ -1,0 +1,403 @@
+###############################################################################
+##                                                                           ##
+##  Title       : Replication material for tidying BOTS survey data          ##
+##                                                                           ##
+##  Author      : Ieva Rozentale                                             ##
+##  Affiliation : Amsterdam Business School, UvA                             ##
+##  Version     : 01/10/2018                                                 ##
+##  Description : -Joining different data sets                               ## 
+##                -Preparing the data for further analysis per papers        ## 
+##                                                                           ## 
+##                                                                           ## 
+###############################################################################
+
+##TO DO 
+#HOW TO COMPARE SAMPLES BETWEEN THE FIRST AND THE SECOND SURVEY? 
+
+
+# List of packages required for this analysis
+pkg <- c("corrr", "readr", "tidyr", "devtools", "dplyr", "plyr", "tidyselect", "e1071", "purrr", "psy", "psych", "GPArotation", "tibble", "boot", "ltm", "xtable", "kableExtra", "sem", "lavaan", "irr", "QCA", "SetMethods")
+
+# Check if packages are not installed and assign the
+# names of the packages not installed to the variable new.pkg
+new.pkg <- pkg[!(pkg %in% installed.packages())]
+
+# If there are any packages in the list that aren't installed,
+# install them
+if (length(new.pkg)) {
+  install.packages(new.pkg, repos = "http://cran.rstudio.com")
+}
+
+# Load the packages into R
+library(dplyr)
+library(knitr)
+library(corrr)
+library(xtable)
+library(readr)
+library(tidyr)
+library(devtools)
+library(plyr)
+library(tidyselect)
+library(e1071)
+library(purrr)
+library(psy)
+library(psych)
+library(GPArotation)
+library(tibble)
+library(boot)
+library(ltm)
+library(kableExtra)
+library(sem)
+library(lavaan)
+library(irr)
+library(QCA)
+library(SetMethods)
+
+
+#WINDOWNS
+setwd("C:/Users/irozent1/Dropbox/1PhD/Articles/Survey Data")
+bots_1 <- read_csv("C:/Users/irozent1/Dropbox/1PhD/Articles/Survey Data/sample1_bno_anonymous.csv", col_types = "ddnnnnndcccccnncccccnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnnncnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+bots_2 <- read_csv("C:/Users/irozent1/Dropbox/1PhD/Articles/Survey Data/sample2_personal_junsep2017.csv", col_types = "ddnnnnndcccccnncccccnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnnncnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+bots_3 <-read_csv("C:/Users/irozent1/Dropbox/1PhD/Articles/Survey Data/sample3_final120618.csv", col_types = "ddnnnnndcccccnncccccnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnnncnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+
+#MAC
+setwd("~/Dropbox/1PhD/Articles/Survey Data")
+bots_1 <- read_csv("~/Dropbox/1PhD/Articles/Survey Data/sample1_bno_anonymous.csv", col_types = "ddnnnnndcccccnncccccnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnnncnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+bots_2 <- read_csv("~/Dropbox/1PhD/Articles/Survey Data/sample2_personal_junsep2017.csv", col_types = "ddnnnnndcccccnncccccnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnnncnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+bots_3 <-read_csv("~/Dropbox/1PhD/Articles/Survey Data/final011018.csv", col_types = "ddnnnnndcccccnncccccnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnnncnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+
+
+#The first data collection was done as a tryout in June, sent anonymously to the bno sample
+#The second was based on existing email samples - my own from cases, and the bno members, and extra
+#email addresses provided by contacts. The survey questions in first two collections moments are identical.
+#The third data collection was done both anonymously through labour unions and via emails acquired through 
+#a marketing agency. After the pre-test of the first two samples, 
+
+
+
+#=====================
+#MERGING THE DATAFILES
+#=====================
+
+#ADD IDENTIFIER COLUMNS FOR UNDERSTANDING WHICH SAMPLE IT COMES FROM 
+bots_1$Sample <- rep(1, nrow(bots_1))
+bots_2$Sample <- rep(2, nrow(bots_2))
+bots_3$Sample <- rep(3, nrow(bots_3))
+
+
+botsinterim <- merge(bots_1, bots_2, all = T)
+
+colnames1 <- as.list(colnames(botsinterim))
+colnames2 <- as.list(colnames(bots_3))
+colcompare <- do.call(rbind, Map(data.frame, A=colnames1, B=colnames2))
+
+#Rename columns for merging that correspond to the same questions, but have different names
+
+#Questions on the number of managers
+names(botsinterim)[names(botsinterim) == 'Q25_11'] <- 'Q1_12'
+names(botsinterim)[names(botsinterim) == 'Q25_12'] <- 'Q1_13'
+names(botsinterim)[names(botsinterim) == 'Q25_13'] <- 'Q1_14'
+
+#PARADOX QUESTIONS
+names(botsinterim)[names(botsinterim) == 'Q16_Q16_13'] <- 'Q16_Q16_INT1'
+names(botsinterim)[names(botsinterim) == 'Q16_Q16_14'] <- 'Q16_Q16_DIF1'
+names(botsinterim)[names(botsinterim) == 'Q16_Q16_15'] <- 'Q16_Q16_INT2'
+names(botsinterim)[names(botsinterim) == 'Q16_Q16_16'] <- 'Q16_Q16_DIF2'
+
+#Q16_INT_4 --> The employees work together in an integrated manner (deleted in final)
+#Q16_DIF_4 --> The employees work separately (deleted in final)
+names(botsinterim)[names(botsinterim) == 'Q16_INT_4'] <- 'Q16_INT_EMPL'
+names(botsinterim)[names(botsinterim) == 'Q16_DIF_4'] <- 'Q16_DIF_EMPL'
+
+names(botsinterim)[names(botsinterim) == 'Q16_DIF_3'] <- 'Q16_Q16_DIF3'
+names(botsinterim)[names(botsinterim) == 'Q16_INT_3'] <- 'Q16_Q16_INT3'
+
+names(botsinterim)[names(botsinterim) == 'Q16_DIF_5'] <- 'Q16_Q16_DIF4'
+names(botsinterim)[names(botsinterim) == 'Q16_INT_5'] <- 'Q16_Q16_INT4'
+names(botsinterim)[names(botsinterim) == 'Q16_Q16_17'] <- 'Q16_Q16_INT5'
+names(botsinterim)[names(botsinterim) == 'Q16_Q16_18'] <- 'Q16_Q16_DIF5'
+names(botsinterim)[names(botsinterim) == 'Q19_DIF_VAL'] <- 'Q16_Q16_DIF6'
+names(botsinterim)[names(botsinterim) == 'Q19_INT_VAL'] <- 'Q16_Q16_INT6'
+
+#PERFORMANCE QUESTIONS
+names(botsinterim)[names(botsinterim) == 'Q25_5'] <- 'Q17_9'
+names(botsinterim)[names(botsinterim) == 'Q25_9'] <- 'Q17_10'
+names(botsinterim)[names(botsinterim) == 'Q25_10'] <- 'Q17_12'
+
+
+#Extra questions in the initial data set
+#Q7 ON THE GEOGRAPHY
+#Q13_1 & 2 ARE COMBINED IN THE NEW VERSION AS THE SAME QUESTION
+as.numeric(botsinterim$Q13_1)
+as.numeric(botsinterim$Q13_2)
+botsinterim$Q13_1 <- as.numeric(botsinterim$Q13_1) + botsinterim$Q13_2
+
+names(botsinterim)[names(botsinterim) == 'Q17_1'] <- 'Q17_TURN'
+names(botsinterim)[names(botsinterim) == 'Q17_2'] <- 'Q17_TURNGROWTH'
+names(botsinterim)[names(botsinterim) == 'Q17_3'] <- 'Q17_PROFIT'
+names(botsinterim)[names(botsinterim) == 'Q17_4'] <- 'Q17_PROFITGROWTH'
+names(botsinterim)[names(botsinterim) == 'Q17_7'] <- 'Q17_INVESTMENT'
+
+#Extra questions in the final version
+#Q4_Q4_4 --> OFFER THE SERVICES OF OTHERS, RENAME
+names(bots_3)[names(bots_3) == 'Q4_Q4_4'] <- 'Q4_BM3_4' 
+
+#Q11_Q11_8--> PARTICIPATE IN OTHER COMPANIES IN CASH OR KIND, RENAME
+names(bots_3)[names(bots_3) == 'Q11_Q11_8'] <- 'Q11_BM10_9'
+
+#+ WERE ADDED THE QUESTIONS ON PARADOX EXPERIENCE
+
+remove(colnames1, colnames2)
+
+#Merge the data set and clean from the rows that didn't fill in anything or are 
+bots_full<-merge(botsinterim, bots_3, all = T)
+bots_full <-subset(bots_full, bots_full$DistributionChannel!="preview")
+bots_full <- bots_full[!grepl("Response ID", bots_full$ResponseId),]
+bots_full <- bots_full[!grepl("ImportId", bots_full$ResponseId),]
+
+##substracting the rows that don't have answers to performance question - all the rows that are NA
+bots_unfinished <- bots_full[is.na(bots_full$Q20_CP_10),]
+
+#the complete working data frame
+bots <- bots_full[!is.na(bots_full$Q2_BM1_1),]
+bots<- bots[!is.na(bots$Q20_CP_10),]
+bots<- bots[!grepl("nebetja", bots$ExternalReference),]
+bots<- bots[!grepl("Hooggevoelig", bots$Q1_1),]
+bots<- bots[!grepl("Vicoma", bots$Q1_1),]
+bots<- bots[!grepl("Sherlocked", bots$Q1_1),]
+bots<- bots[!grepl("2moso", bots$Q1_1),]
+
+write.csv(bots, file="bots_clean_full.csv")
+
+#Subset data set without useless columns
+drop <- c("StartDate","EndDate", "Status", "IPAddress", "Progress", "Duration (in sexonds)", "Finished", "RecordedDate", "ResponseId", 
+          "ExternalReference", "LocationLatitude", "LocationLongitude", "DistributionChannel", "UserLanguage", "Q1_7_Topics")
+bots2 <- bots[,!(names(bots) %in% drop)]
+bots2 <- bots2[!grepl("TEXT", names(bots2))]
+write.csv(bots2, file="bots_clean_small.csv")
+
+###############
+## DATA TIDY ##
+###############
+
+#ADDING DATA AFTER THE LAST CODE HAS BEEN RUN IN THE TIDY DATA R CODE FILE
+bots<- read_csv("~/Dropbox/1PhD/Articles/Survey Data/bots_clean_small.csv") #MAC
+bots <- bots[,-c(127:146)]
+bots <- bots[!grepl("Duration", names(bots))]
+bots <- bots[!grepl("Recipient", names(bots))]
+bots <- bots[!grepl("Topics", names(bots))]
+
+
+#make a grouping variable - by size
+bots$size <- class(factor)
+bots$size[bots$Q1_4 >= 250] = "Large"
+bots$size[bots$Q1_4 < 250] = "Medium"
+bots$size[bots$Q1_4 < 50] = "Small"
+bots$size[bots$Q1_4 < 10] = "Micro"
+bots$size <- factor(bots$size, levels=c("Micro", "Small", "Medium", "Large"))
+
+#make a sector variable (9 - levels)
+
+bots$sector <- bots$Q1_3
+bots$sector[grepl("*arketing", bots$Q1_3)]=5
+bots$sector[grepl("*eclam*", bots$Q1_3)]=5
+bots$sector[grepl("*edia", bots$Q1_3)]=5
+bots$sector[grepl("*dvert*", bots$Q1_3)]=5
+bots$sector[grepl("*randing", bots$Q1_3)]=5
+bots$sector[grepl("Retail", bots$Q1_3)]=5
+
+bots$sector[grepl("*nteri*", bots$Q1_3)]=6
+bots$sector[grepl("*patial", bots$Q1_3)]=6
+bots$sector[grepl("*uimtelijk*", bots$Q1_3)]=6
+bots$sector[grepl("inrichting*", bots$Q1_3)]=6
+bots$sector[grepl("sfeer", bots$Q1_3)]=6
+
+bots$sector[grepl("*roduct", bots$Q1_3)]=2
+bots$sector[grepl("3D*", bots$Q1_3)]=2
+bots$sector[grepl("*eubel*", bots$Q1_3)]=2
+bots$sector[grepl("*ashion", bots$Q1_3)]=2
+bots$sector[grepl("bomen", bots$Q1_3)]=2
+bots$sector[grepl("Additive", bots$Q1_3)]=2
+bots$sector[grepl("hoeden", bots$Q1_3)]=2
+bots$sector[grepl("kleding", bots$Q1_3)]=2
+bots$sector[grepl("mode", bots$Q1_3)]=2
+
+bots$sector[grepl("*rafisch", bots$Q1_3)]=4
+bots$sector[grepl("*raphic", bots$Q1_3)]=4
+bots$sector[grepl("*ebdesign", bots$Q1_3)]=4
+bots$sector[grepl("*uisstijl*", bots$Q1_3)]=4
+bots$sector[grepl("signing", bots$Q1_3)]=4
+bots$sector[grepl("Signing", bots$Q1_3)]=4
+bots$sector[grepl("wayfinding", bots$Q1_3)]=4
+bots$sector[grepl("sign industry", bots$Q1_3)]=4
+bots$sector[grepl("*ignaleer", bots$Q1_3)]=4
+bots$sector[grepl("*ommunicat*", bots$Q1_3)]=4
+bots$sector[grepl("*rint", bots$Q1_3)]=4
+bots$sector[grepl("*ormgeving", bots$Q1_3)]=4
+bots$sector[grepl("packaging", bots$Q1_3)]=4
+
+bots$sector[grepl("*ndustrial", bots$Q1_3)]=7
+
+bots$sector[grepl("*rchitectuur", bots$Q1_3)]=1
+bots$sector[grepl("*rchite*", bots$Q1_3)]=1
+
+bots$sector[grepl("Game", bots$Q1_3)]=8
+bots$sector[grepl("applicaties", bots$Q1_3)]=8
+
+bots$sector[grepl("*nimati*", bots$Q1_3)]=3
+bots$sector[grepl("foto*", bots$Q1_3)]=3
+bots$sector[grepl("*llustrat*", bots$Q1_3)]=3
+
+bots$sector[grepl("*trateg*", bots$Q1_3)]=9
+bots$sector[grepl("*ervice", bots$Q1_3)]=9
+bots$sector[grepl("thinking", bots$Q1_3)]=9
+
+#based on the q1_2
+bots$sector[grepl("*rchitect", bots$Q1_2)]=1
+
+#specific enterprises assign
+bots$sector[grepl("npk", bots$Q1_1)]=7
+bots$sector[grepl("ilionx", bots$Q1_1)]=9
+bots$sector[grepl("Bourne", bots$Q1_1)]=9
+bots$sector[grepl("Arttenders", bots$Q1_1)]=9
+bots$sector[grepl("Pinar", bots$Q1_1)]=9
+bots$sector[grepl("Cue", bots$Q1_1)]=3
+bots$sector[grepl("Riesen", bots$Q1_1)]=4
+bots$sector[grepl("Art fact*", bots$Q1_1)]=9
+bots$sector[grepl("Teldesign", bots$Q1_1)]=4
+bots$sector[grepl("Grrr", bots$Q1_1)]=4
+bots$sector[grepl("SILO", bots$Q1_1)]=9
+bots$sector[grepl("Van Lennep", bots$Q1_1)]=4
+bots$sector[grepl("Davero", bots$Q1_1)]=6
+bots$sector[grepl("Urban", bots$Q1_1)]=1
+bots$sector[grepl("OPERA", bots$Q1_1)]=6
+bots$sector[grepl("Superlatief", bots$Q1_1)]=5
+bots$sector[grepl("Northern", bots$Q1_1)]=9
+bots$sector[grepl("film", bots$Q1_1)]=3
+bots$sector[grepl("Wolsink", bots$Q1_1)]=5
+bots$sector[grepl("Reclame", bots$Q1_1)]=5
+bots$sector[grepl("Merchandise", bots$Q1_1)]=5
+bots$sector[grepl("UNStudio", bots$Q1_1)]=1
+bots$sector[grepl("B&B", bots$Q1_1)]=5
+bots$sector[grepl("Link", bots$Q1_1)]=9
+bots$sector[grepl("Mind", bots$Q1_1)]=5
+bots$sector[grepl("Scotch", bots$Q1_1)]=4
+bots$sector[grepl("Toer", bots$Q1_1)]=9
+bots$sector[grepl("kubik", bots$Q1_1)]=6
+bots$sector[grepl("Letter", bots$Q1_1)]=2
+bots$sector[grepl("CHRIST", bots$Q1_1)]=2
+bots$sector[grepl("envisions", bots$Q1_1)]=9
+bots$sector[grepl("Zuider", bots$Q1_1)]=4
+bots$sector[grepl("exelle", bots$Q1_1)]=2
+bots$sector[grepl("Smelt", bots$Q1_1)]=9
+bots$sector[grepl("Ehio", bots$Q1_1)]=5
+bots$sector[grepl("New Chique", bots$Q1_1)]=3
+bots$sector[grepl("surf", bots$Q1_1)]=2
+bots$sector[grepl("Sjansen", bots$Q1_1)]=4
+
+bots$sector[bots$sector == 1] = "Architecture & urban planning"
+bots$sector[bots$sector == 2] = "Products"
+bots$sector[bots$sector == 3] = "Audiovisual services & animation"
+bots$sector[bots$sector == 4] = "Graphic, communication & digital design"
+bots$sector[bots$sector == 5] = "Advertisement & marketing"
+bots$sector[bots$sector == 6] = "Spatial design & interior architecture"
+bots$sector[bots$sector == 7] = "Industrial design"
+bots$sector[bots$sector == 8] = "Game and app design"
+bots$sector[bots$sector == 9] = "Mixed creative services & strategy"
+bots$sector <- as.factor(bots$sector)
+
+#Adding performance variables
+bots$CP <- rowMeans(bots[,c("Q20_CP_1", "Q20_CP_2", "Q20_CP_9", "Q20_CP_10")]) ##Adding creative performance to data frame
+bots$BP <- rowMeans(bots[,  c("Q20_BP_1", "Q20_BP_3", "Q20_BP_10")]) ##Adding business performance to data frame
+
+#Grouping variable for performance based on Likert categories
+bots$performance <- class(factor)
+bots$performance[bots$CP > 4 & bots$BP >4 ] = "Both high"
+bots$performance[bots$CP <= 4 & bots$BP <= 4 ] = "Both low"
+bots$performance[bots$CP > 4 & bots$BP <= 4 ] = "High creative"
+bots$performance[bots$CP <= 4 & bots$BP > 4 ] = "High business"
+bots$performance <- factor(bots$performance, 
+                           levels=c("Both high", "Both low", "High creative", "High business"))
+tibble(bots$sector, bots$performance)
+
+
+######################
+## RENAME VARIABLES ##
+######################
+
+namestable <- as.data.frame(colnames(bots))
+
+colnames(bots) <- sub("Q1_12", "NrOwners", colnames(bots))
+colnames(bots) <- sub("Q1_13", "CreativeDirectors", colnames(bots))
+colnames(bots) <- sub("Q1_14", "FinancialDirectors", colnames(bots))
+
+
+#vector of new names starting from Q1w_1
+newnamesQ1 <- c("Company", "Position", "ActivityDescription", "Employees", "FTE", "Year", "NrOffices", "Location")
+names(bots)[grepl("Q1_", names(bots))]<-newnamesQ1
+
+newnamesQ2 <- c("bm1_SpecificCreative", "bm1_CreativeCombi", "bm1_CreativeNoncreative")
+names(bots)[grepl("Q2_", names(bots))]<-newnamesQ2
+
+newnamesQ3 <- c("bm2_ResearchStrategy", "bm2_ConceptDev", "bm2_ProductionImplementation", "bm2_Marketing")
+names(bots)[grepl("Q3", names(bots))]<-newnamesQ3
+
+newnamesQ4 <- c("bm3_OwnProducts", "bm3_Services", "bm3_Platforms", "bm3_Broker")
+names(bots)[grepl("Q4", names(bots))]<-newnamesQ4
+
+newnamesQ5 <- c("bm4_Customized", "bm4_Modular", "bm4_Maintenance")
+names(bots)[grepl("Q5", names(bots))]<-newnamesQ5
+
+newnamesQ6 <- c("bm5_OperationalExellence", "bm5_Quality", "bm5_Innovation", "bm5_LowCost", "bm5_CustomerRelations")
+names(bots)[grepl("Q6", names(bots))]<-newnamesQ6
+
+newnamesQ8 <- c("bm6_Niche", "bm6_GenMarkets", "bm6_B2B", "bm6_B2C", "bm6_B2G")
+names(bots)[grepl("Q8", names(bots))]<-newnamesQ8
+
+newnamesQ9 <- c("bm7_InHouse", "bm7_Outsource")
+names(bots)[grepl("Q9", names(bots))]<-newnamesQ9
+
+newnamesQ10 <- c("bm8_Suppliers", "bm8_Complementors", "bm8_Competitors", "bm8_CustomersCo", "bm8_ScalingPartners")
+names(bots)[grepl("Q10_", names(bots))]<-newnamesQ10
+
+newnamesQ11 <- c("bm9_HourlyRates", "bm9_Royalties", "bm9_ProductSales", "bm9_Subscriptions", "bm9_MarkUp", "bm9_NoCure", "bm9_Investment")
+names(bots)[grepl("Q11_", names(bots))]<-newnamesQ11
+
+newnamesQ12 <- c("bm10_OwnRevenue", "bm10_OtherFirms", "bm10_Subsidies", "bm10_Loans", "bm10_ROI", "bm10_Other")
+names(bots)[grepl("Q12_", names(bots))]<-newnamesQ12
+
+newnamesQ13 <- c("bmspin_Complementary", "bmspin_Products", "bmspin_Invest", "bmspin_Other")
+names(bots)[grepl("Q13_", names(bots))]<-newnamesQ13
+
+newnamesQ14 <- c("spin_Commercial", "spin_Creative", "spin_Both")
+names(bots)[grepl("Q14_", names(bots))]<-newnamesQ14
+
+newnamesQ15 <- c("values_Creative1", "values_Creative2","values_Creative3",
+                 "values_Achievement1", "values_Achievement2", "values_Achievement3",
+                 "values_Social1","values_Social2","values_Social3",
+                 "values_Financial1", "values_Financial2", "values_Financial3",
+                 "values_Market1", "values_Market2", "values_Market3",
+                 "values_Entrepreneurial1", "values_Entrepreneurial2", "values_Entrepreneurial3",
+                 "values_Financial4")
+
+names(bots)[grepl("Q15_", names(bots))]<-newnamesQ15
+
+colnames(bots) <- sub("Q17_10", "perf_ProfitMargin", colnames(bots))
+colnames(bots) <- sub("Q17_1", "perf_Turnover", colnames(bots))
+colnames(bots) <- sub("Q17_6", "perf_NewProjects", colnames(bots))
+colnames(bots) <- sub("Q17_8", "perf_InternationalIncome", colnames(bots))
+colnames(bots) <- sub("Q17_5", "perf_Awards", colnames(bots))
+colnames(bots) <- sub("Q17_9", "perf_HourlyRates", colnames(bots))
+
+colnames(bots) <- sub("Q20_", "perf_", colnames(bots))
+colnames(bots) <- sub("Q16_Q16_", "paradox_", colnames(bots))
+
+
+namestable2 <- as.data.frame(colnames(bots))
+surveyvariables <- cbind(namestable, namestable2)
+
+bots <- bots[!grepl("Turnover2", names(bots))]
+bots <- bots[!grepl("Turnover3", names(bots))]
+
+write.csv(bots, file="bots_renamed.csv")
+write.csv(surveyvariables, file="surveyvariables.csv")

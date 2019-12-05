@@ -1,0 +1,326 @@
+###############################################################################
+##                                                                           ##
+##  Title       : Replication material for BOTS survey descriptives          ##
+##                                                                           ##
+##  Author      : Ieva Rozentale                                             ##
+##  Affiliation : Amsterdam Business School                                  ##
+##  Version     : 10/09/2018                                                 ##
+##  N           : 179                                                        ## 
+##  Description : Code for generating sample descriptives for articles       ## 
+##                and other interesting insights for reports                 ## 
+##                                                                           ## 
+##                                                                           ## 
+###############################################################################
+
+
+#############################
+### FUNCTIONS AND PACKAGES ##
+#############################
+
+install("install.load")
+library(install.load)
+install_load(c("corrr", "readr", "tidyr", "devtools", "dplyr", 
+               "plyr", "tidyselect", "e1071", "purrr", "psy", 
+               "psych", "GPArotation", "tibble", "boot", "ltm", 
+               "xtable", "kableExtra", "sem", "lavaan", "irr", 
+               "QCA", "SetMethods", "venn", "Hmisc", 
+               "janitor", "DiagrammeR", "rsvg", "htmlwidgets", 
+               "DiagrammeRsvg", "ggplot2"))
+
+# Load the packages into R manually, if the install_load doesn't work
+library(knitr)
+library(corrr)
+library(xtable)
+library(readr)
+library(tidyr)
+library(devtools)
+library(plyr)
+library(dplyr)
+library(tidyselect)
+library(e1071)
+library(purrr)
+library(psy)
+library(psych)
+library(GPArotation)
+library(tibble)
+library(boot)
+library(ltm)
+library(kableExtra)
+library(sem)
+library(lavaan)
+library(irr)
+library(QCA)
+library(SetMethods)
+library(venn)
+library(Hmisc)
+library(janitor)
+library(DiagrammeR)
+library(rsvg)
+library(htmlwidgets)
+library(DiagrammeRsvg)
+library(ggplot2)
+
+##FUNCTION FOR A CORRELATIONAL MATRIX
+##====================================
+
+# x is a matrix containing the data
+# method : correlation method. "pearson"" or "spearman"" is supported
+# removeTriangle : remove upper or lower triangle
+# results :  if "html" or "latex"
+# the results will be displayed in html or latex format
+corstars <-function(x, method=c("pearson", "spearman"), removeTriangle=c("upper", "lower"),
+                    result=c("none", "html", "latex")){
+  #Compute correlation matrix
+  require(Hmisc)
+  x <- as.matrix(x)
+  correlation_matrix<-rcorr(x, type=method[1])
+  R <- correlation_matrix$r # Matrix of correlation coeficients
+  p <- correlation_matrix$P # Matrix of p-value 
+  
+  ## Define notions for significance levels; spacing is important.
+  mystars <- ifelse(p < .0001, "****", ifelse(p < .001, "*** ", ifelse(p < .01, "**  ", ifelse(p < .05, "*   ", "    "))))
+  
+  ## trunctuate the correlation matrix to two decimal
+  R <- format(round(cbind(rep(-1.11, ncol(x)), R), 2))[,-1]
+  
+  ## build a new matrix that includes the correlations with their apropriate stars
+  Rnew <- matrix(paste(R, mystars, sep=""), ncol=ncol(x))
+  diag(Rnew) <- paste(diag(R), " ", sep="")
+  rownames(Rnew) <- colnames(x)
+  colnames(Rnew) <- paste(colnames(x), "", sep="")
+  
+  ## remove upper triangle of correlation matrix
+  if(removeTriangle[1]=="upper"){
+    Rnew <- as.matrix(Rnew)
+    Rnew[upper.tri(Rnew, diag = TRUE)] <- ""
+    Rnew <- as.data.frame(Rnew)
+  }
+  
+  ## remove lower triangle of correlation matrix
+  else if(removeTriangle[1]=="lower"){
+    Rnew <- as.matrix(Rnew)
+    Rnew[lower.tri(Rnew, diag = TRUE)] <- ""
+    Rnew <- as.data.frame(Rnew)
+  }
+  
+  ## remove last column and return the correlation matrix
+  Rnew <- cbind(Rnew[1:length(Rnew)-1])
+  if (result[1]=="none") return(Rnew)
+  else{
+    if(result[1]=="html") print(xtable(Rnew), type="html")
+    else print(xtable(Rnew), type="latex") 
+  }
+} 
+
+
+##FUNCTION FOR EXTRACTING DATA BASED ON NAMES
+##===========================================
+
+createdata <- function(x) {
+  bots %>%
+    dplyr::select(grep(x, names(bots)))
+}
+
+#LOAD DATA
+bots<- read_csv("~/Dropbox/1PhD/Articles/Survey Data/bots_renamed.csv")
+surveyvariables<- read_csv("~/Dropbox/1PhD/Articles/Survey Data/surveyvariables.csv")
+
+######################
+##   DESCRIPTIVES   ##
+######################
+
+
+
+
+
+
+
+###Correlate performances with objective measures
+objectiveperformance <- as.data.frame(createdata("perf_"))
+perf <- cbind(objectiveperformance[,c(1:5, 11:13)], bots[,c("CP","BP")])
+
+cor(perf, use = "complete.obs") %>% round(2)
+
+x <- corstars(perf)
+#It looks like the only significant performance is between CP and BP, 
+#and between the BP and Q17_8 - the "percentage of yearly income from international projects"  
+
+
+
+#Grouping variable for performance based on percentiles
+Percentile_00  = min(bots$CP)
+Percentile_50  = quantile(bots$CP, 0.5)
+Percentile_100 = max(bots$CP)
+
+RB = rbind(Percentile_00, Percentile_50, Percentile_100)
+
+dimnames(RB)[[2]] = "Value"
+
+RB
+
+bots$CPGroup <- class(factor)
+bots$CPGroup[bots$CP >= Percentile_00 & bots$CP <  Percentile_50]  = "Lower_half"
+bots$CPGroup[bots$CP >= Percentile_50 & bots$CP <= Percentile_100] = "Upper_half"
+bots$CPGroup = factor(bots$CPGroup,
+                    levels=c("Lower_half", "Upper_half"))
+
+Percentile_00  = min(bots$BP)
+Percentile_50  = quantile(bots$BP, 0.5)
+Percentile_100 = max(bots$BP)
+
+RB = rbind(Percentile_00, Percentile_50, Percentile_100)
+
+dimnames(RB)[[2]] = "Value"
+
+RB
+
+bots$BPGroup <- class(factor)
+bots$BPGroup[bots$BP >= Percentile_00 & bots$BP <  Percentile_50]  = "Lower_half"
+bots$BPGroup[bots$BP >= Percentile_50 & bots$BP <= Percentile_100] = "Upper_half"
+bots$BPGroup = factor(bots$BPGroup,
+                      levels=c("Lower_half", "Upper_half"))
+
+tibble(bots$CPGroup, bots$BPGroup, bots$performance)
+
+rm("RB", "Percentile_00", "Percentile_50", "Percentile_50", "sectors2")
+
+##Judging from the first ten rows of the tibble both categorization strategies give the same results 
+##(good for my calibration scores - a conclusion that can be used in robustness tests).
+
+#Compare both 
+
+
+#Validity of integration/differentiation scale
+paradox <- bots[,grepl("paradox", names(bots))]
+mydata2 <- paradox[,1:12]
+colnames(mydata2) <- paste("X", 1:12, sep="")
+
+## MODEL specification
+HS.modelPAR <- 'integration  =~ X1 + X3 + X5 +  X8 + X9 + X12
+differentiation =~ X2 + X4 + X6 + X7 + X10 + X11'
+
+fitPAR <- cfa(HS.modelPAR, data=mydata2)
+summary(fitPAR, fit.measures=TRUE)
+
+model.reliabilityPAR <- round(reliability(fitPAR), digits = 3)
+print(model.reliabilityPAR)
+
+parameterEstimates(fitPAR)
+inspect(fitPAR,what="std")$lambda
+
+#Removing the items that don't perform well enough
+HS.modelPAR2 <- 'int  =~ X1 + X3 + X12 
+                dif =~ X4 + X7 + X11'
+
+fitPAR2 <- cfa(HS.modelPAR2, data=mydata2)
+summary(fitPAR2, fit.measures=TRUE)
+
+model.reliabilityPAR2 <- round(reliability(fitPAR2), digits = 3)
+print(model.reliabilityPAR2)
+
+parameterEstimates(fitPAR2)
+inspect(fitPAR2,what="std")$lambda
+
+#these match with general approaches (would it be valid to say that the rest can be seen as individual approaches
+#to paradox management?) 
+#int - 2,6
+#bp - 2,4,6
+
+
+#Finding clusters of 
+
+Data.num = Data[c("Happy", "Tired")]
+
+
+#Code for plotting the distribution of the variables 
+densityplot(~Q2_BM1_1+Q2_BM1_2+Q2_BM1_3, data=bots, 
+            plot.points=FALSE, ref=TRUE, 
+            xlab="Distribution of offering related variables",
+            auto.key = list(space = "right"))
+
+#================================================
+#VIZUALIZATIONS THAT WOULD BE INTERESTING TO SEE
+#================================================
+
+
+#COLOUR SCHEME
+myscheme <- c("#F7F0D4", "#FCCB1A", "#347B98", "#C21460", "#092834")
+myscheme2 <- c("#d2ab99", "#721817", "#fa9f42", "#2b4162", "#04724d")
+mycolors <- c("#344454", "#873D48", "#0A0908", "#6b717e", "#36413e", "#561d25" , "#ce8147" , "#edbfc6")
+
+#BARPLOT SECTOR BY PERFORMANCE
+counts <- table(bots$performance, bots$sector)
+barplot(counts, main="Performance distribution by Sector",
+        xlab="Sector", col=mycolors[4:7],
+        legend = rownames(counts))
+
+
+#Code for vizualizing data per groups (e.g. high performing / low performing )
+bots[c("Q2_BM1_1", "Q2_BM1_2", "Q2_BM1_3")] <- lapply(bots[c("Q2_BM1_1", "Q2_BM1_2", "Q2_BM1_3")], factor, levels=1:7)
+tryout <-as.data.frame(bots[c("Q2_BM1_1", "Q2_BM1_2", "Q2_BM1_3", "performance")])
+tryout[1:3] <- lapply(tryout[1:3], factor, levels=1:7)
+likt <- likert(tryout[1:3], grouping = tryout$performance)
+plot(likt)
+
+bots[c("Q3_BM2_1", "Q3_BM2_2", "Q3_BM2_3")] <- lapply(bots[c("Q3_BM2_1", "Q3_BM2_2", "Q3_BM2_3")], factor, levels=1:7)
+tryout <-as.data.frame(bots[c("Q3_BM2_1", "Q3_BM2_2", "Q3_BM2_3","Q3_BM2_4","performance")])
+tryout[1:4] <- lapply(tryout[1:4], factor, levels=1:7)
+likt <- likert(tryout[1:4], grouping = tryout$performance)
+plot(likt)
+
+
+#Pie chart per dominant business model (according to the memberships to )
+
+#
+tab <- corstars(fsq[,2:9])
+
+
+
+# x is a matrix containing the data
+# method : correlation method. "pearson"" or "spearman"" is supported
+# removeTriangle : remove upper or lower triangle
+# results :  if "html" or "latex"
+# the results will be displayed in html or latex format
+corstars <-function(x, method=c("pearson", "spearman"), removeTriangle=c("upper", "lower"),
+                    result=c("none", "html", "latex")){
+  #Compute correlation matrix
+  require(Hmisc)
+  x <- as.matrix(x)
+  correlation_matrix<-rcorr(x, type=method[1])
+  R <- correlation_matrix$r # Matrix of correlation coeficients
+  p <- correlation_matrix$P # Matrix of p-value 
+  
+  ## Define notions for significance levels; spacing is important.
+  mystars <- ifelse(p < .0001, "****", ifelse(p < .001, "*** ", ifelse(p < .01, "**  ", ifelse(p < .05, "*   ", "    "))))
+  
+  ## trunctuate the correlation matrix to two decimal
+  R <- format(round(cbind(rep(-1.11, ncol(x)), R), 2))[,-1]
+  
+  ## build a new matrix that includes the correlations with their apropriate stars
+  Rnew <- matrix(paste(R, mystars, sep=""), ncol=ncol(x))
+  diag(Rnew) <- paste(diag(R), " ", sep="")
+  rownames(Rnew) <- colnames(x)
+  colnames(Rnew) <- paste(colnames(x), "", sep="")
+  
+  ## remove upper triangle of correlation matrix
+  if(removeTriangle[1]=="upper"){
+    Rnew <- as.matrix(Rnew)
+    Rnew[upper.tri(Rnew, diag = TRUE)] <- ""
+    Rnew <- as.data.frame(Rnew)
+  }
+  
+  ## remove lower triangle of correlation matrix
+  else if(removeTriangle[1]=="lower"){
+    Rnew <- as.matrix(Rnew)
+    Rnew[lower.tri(Rnew, diag = TRUE)] <- ""
+    Rnew <- as.data.frame(Rnew)
+  }
+  
+  ## remove last column and return the correlation matrix
+  Rnew <- cbind(Rnew[1:length(Rnew)-1])
+  if (result[1]=="none") return(Rnew)
+  else{
+    if(result[1]=="html") print(xtable(Rnew), type="html")
+    else print(xtable(Rnew), type="latex") 
+  }
+} 

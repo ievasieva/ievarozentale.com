@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539000455135.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1525091127",
+    "id" : "D02ADE4",
+    "lastKnownWriteTime" : 1539024257,
+    "last_content_update" : 1539024257298,
+    "path" : "~/Documents/ievarozentale.com/surveyquestions.Rmd",
+    "project_path" : "surveyquestions.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "19,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 14,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

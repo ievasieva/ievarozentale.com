@@ -1,0 +1,11 @@
+"0","```r
+model.reliabilityEFA <- round(reliability(fitEFA), digits = 3)
+print(model.reliabilityEFA)
+```"
+"1","       creative financial total
+alpha     0.777     0.663 0.665
+omega     0.790     0.669 0.761
+omega2    0.790     0.669 0.761
+omega3    0.784     0.670 0.736
+avevar    0.499     0.407 0.463
+"

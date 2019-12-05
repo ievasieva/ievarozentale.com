@@ -1,0 +1,157 @@
+---
+title: "Paper 3 results"
+output: html_notebook
+---
+
+```{r setup, echo=FALSE, warning=FALSE}
+setwd("~/Dropbox/1PhD/Articles/Survey Data")
+install.packages("install.load")
+library(install.load)
+pkg <- c("corrr", "readr", "tidyr", "devtools", "dplyr", "plyr", "tidyselect", "e1071", "purrr", "FactoMineR", "psy", "psych", "GPArotation", "tibble", "boot", "ltm", "xtable", "kableExtra", "sem", "lavaan", "irr", "QCA", "SetMethods", "corrplot", "ggpubr", "mclust", 
+         "semTools")
+install_load(pkg)
+new.pkg <- pkg[!(pkg %in% installed.packages())]
+if (length(new.pkg)) {
+  install_load(new.pkg, repos = "http://cran.rstudio.com") 
+}
+new.pkg
+
+#========================
+#GETTING THE SURVEY DATA 
+#========================
+
+bots<- read_csv("~/Dropbox/1PhD/Articles/Survey Data/bots_renamed.csv") 
+
+bots2 <- bots[,c(1)] #creating the future QCA data frame
+
+createdata <- function(x) {
+  bots %>%
+    dplyr::select(grep(x, names(bots)))
+}
+```
+
+
+#ORIENTATIONS MEASURES CFA
+
+
+```{r CFA model loadings}
+
+#CONFIRMATORY FACTOR ANALYSIS VALUES
+#------------------------------------
+
+#Make a data frame that only includes data for values variables
+values <- bots[,grepl("values", names(bots))]
+
+#After the examination, we took out the market value data, since they were highly skewed. 
+values <- values[,!grepl("Market", names(values))]
+
+mydata <- values
+colnames(mydata) <- paste("X", 1:16, sep="")
+
+## MODEL specification
+HS.model <- ' artistic  =~ X1 + X2 + X3
+achievement =~ X4 + X5 + X6
+social   =~ X7 + X8 + X9 
+financial =~ X10 + X11 + X12 + X16
+entrepreneurial =~ X13 + X14 + X15'
+
+fit <- cfa(HS.model, data=mydata)
+inspect(fit,what="std")$lambda
+```
+ 
+```{r CFA model reliability}
+
+model.reliability <- round(reliability(fit), digits = 3)
+print(model.reliability)
+```
+
+
+
+```{r EFA model loadings}
+HS.modelEFA <- ' creative  =~ X2 + X6 +  X7 + X8
+financial =~ X10 + X11 + X16'
+
+fitEFA <- cfa(HS.modelEFA, data=mydata)
+inspect(fitEFA,what="std")$lambda
+
+```
+
+```{r EFA model reliability}
+model.reliabilityEFA <- round(reliability(fitEFA), digits = 3)
+print(model.reliabilityEFA)
+```
+
+```{r add means orientations, echo=FALSE}
+
+##From the pre-test we retained two orientations - creative and financial.
+#We excluded market orientation due to the very skewed responses on the items. 
+bots2$MeanCO <- rowMeans(bots[,c("values_Creative2", "values_Achievement3", "values_Social1", "values_Social2")]) 
+bots2$MeanBO <- rowMeans(bots[,  c("values_Financial1", "values_Financial2", "values_Financial4")])
+```
+
+#PERFORMANCE MEASURES CFA
+
+```{r perf CFA loadings, echo=F, warning=F, message=F}
+performance <- bots[,grepl("perf", names(bots))]
+mydata2 <- performance[5:27]
+colnames(mydata2) <- paste("X", 1:23, sep="")
+
+## MODEL specification
+HS.modelPER <- 'business  =~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8 + X9 + X10 + X11 + X12
+creative =~ X13 + X14 + X15 + X16 + X17 + X18 + X19 + X20 + X21 + X22 + X23'
+
+fitPER <- cfa(HS.modelPER, data=mydata2)
+inspect(fitPER,what="std")$lambda
+```
+
+
+```{r perf CFA reliability, echo=F, warning=F, message=F}
+model.reliabilityPER <- round(reliability(fitPER), digits = 3)
+print(model.reliabilityPER)
+```
+
+
+
+```{r perf CFA2 loadings, echo=F, warning=F, message=F}
+#Removing the items that don't perform well enough
+HS.modelPER2 <- 'business  =~ X1 + X3 + X10 
+creative =~ X13 + X14 + X21 + X22'
+
+fitPER2 <- cfa(HS.modelPER2, data=mydata2)
+inspect(fitPER2,what="std")$lambda
+```
+
+
+```{r perf CFA2 reliability, echo=F, warning=F, message=F}
+model.reliabilityPER2 <- round(reliability(fitPER2), digits = 3)
+print(model.reliabilityPER2)
+```
+
+
+```{r add perf, echo=FALSE, warning=FALSE, message=F}
+#cp - 1,2,9,10
+#bp - 1,3,10 
+
+##From the pre-test I can conclude that there are four performance dimensions in our scales, not two. 
+##For this paper two of them are used. The other measures deal with employee satisfaction and client retention. 
+bots2$CP <- rowMeans(bots[,c("perf_CP_1", "perf_CP_2", "perf_CP_9", "perf_CP_10")]) ##Adding creative performance to data frame
+bots2$BP <- rowMeans(bots[,  c("perf_BP_1", "perf_BP_3", "perf_BP_10")]) ##Adding business performance to data frame
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+

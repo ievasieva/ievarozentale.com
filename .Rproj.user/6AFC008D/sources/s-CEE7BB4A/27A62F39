@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539000415178.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1656677130",
+    "id" : "27A62F39",
+    "lastKnownWriteTime" : 1539065208,
+    "last_content_update" : 1539065208808,
+    "path" : "~/Dropbox/1PhD/Articles/Survey Data/P3 Analysis Notebook.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "48,44",
+        "last_setup_crc32" : "CEE7BB4Aa5b7802d",
+        "scrollLine" : "44"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

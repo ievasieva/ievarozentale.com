@@ -1,0 +1,15 @@
+"0","```r
+HS.modelEFA <- ' creative  =~ X2 + X6 +  X7 + X8
+financial =~ X10 + X11 + X16'
+fitEFA <- cfa(HS.modelEFA, data=mydata)
+inspect(fitEFA,what=\"std\")$lambda
+```"
+"1","    creatv finncl
+X2   0.606  0.000
+X6   0.526  0.000
+X7   0.874  0.000
+X8   0.716  0.000
+X10  0.000  0.604
+X11  0.000  0.740
+X16  0.000  0.556
+"

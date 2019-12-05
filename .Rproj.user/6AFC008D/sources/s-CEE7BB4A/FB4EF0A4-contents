@@ -1,0 +1,427 @@
+s##################################################################################
+##                                                                              ##
+##  Title       : Values, business modelling and performance:                   ##
+##                A configurational exploration                                 ##
+##  Description : Replication code, P3 Thesis Version                           ##
+##                                                                              ##
+##  Author      : Ieva Rozentale                                                ##
+##  Affiliation : Amsterdam Business School, UvA                                ##
+##  Version     : 01/10/2018                                                    ##
+##  RQ          : What combinations of business models and orientations lead to ## 
+##                superior performance in pluralistics settings?                ## 
+##                                                                              ## 
+##                                                                              ## 
+##################################################################################
+
+setwd("~/Dropbox/1PhD/Articles/Paper3/Survey Data")
+install.packages("install.load")
+library(install.load)
+pkg <- c("corrr", "readr", "tidyr", "devtools", "dplyr", "plyr", "tidyselect", "e1071", "purrr", "FactoMineR", "psy", "psych", "GPArotation", "tibble", "boot", "ltm", "xtable", "kableExtra", "sem", "lavaan", "irr", "QCA", "SetMethods", "corrplot", "ggpubr", "mclust", 
+         "semTools")
+install_load(pkg)
+new.pkg <- pkg[!(pkg %in% installed.packages())]
+if (length(new.pkg)) {
+  install_load(new.pkg, repos = "http://cran.rstudio.com") 
+}
+new.pkg
+
+#========================
+#GETTING THE SURVEY DATA 
+#========================
+
+bots<- read_csv("~/Dropbox/1PhD/Articles/Survey Data/bots_renamed.csv") 
+
+bots2 <- bots[,c(1)] #creating the future QCA data frame
+
+# a function for subsetting columns based on character vectors in column names
+createdata <- function(x) {
+  bots %>%
+    dplyr::select(grep(x, names(bots)))
+}
+
+#in case I want to take out the firms that don't have more than 1 employee: 
+#newdata <- subset(bots, bots$FTE >= 2 | bots$Employees >= 2 )
+
+#=================
+# PRE-QCA ANALYSES
+#================= 
+
+
+#CONFIRMATORY FACTOR ANALYSIS VALUES
+#------------------------------------
+
+#Make a data frame that only includes data for values variables
+values <- bots[,grepl("values", names(bots))]
+
+#Check the distributions for non-normalities
+apply(values, 2, hist, xlab= "Likert score")
+
+#After the examination, we took out the market value data, since they were highly skewed. 
+values <- values[,!grepl("Market", names(values))]
+
+#In order to run the CFA on values set, we replicate the data in a new data frame and rename the
+#variables to easier names. 
+mydata <- values
+colnames(mydata) <- paste("X", 1:16, sep="")
+
+## MODEL specification based on the orginal by Voss, Cable, and Voss (2000) minus the market values, 
+##with the entrepreneurial values instead. 
+HS.model <- ' artistic  =~ X1 + X2 + X3
+achievement =~ X4 + X5 + X6
+social   =~ X7 + X8 + X9 
+financial =~ X10 + X11 + X12 + X16
+entrepreneurial =~ X13 + X14 + X15'
+
+#Print parameters of fit
+fit <- cfa(HS.model, data=mydata)
+summary(fit, fit.measures=TRUE)
+
+inspect(fit,what="std")$lambda #loadings of inidivudal items on the scales
+
+model.reliability <- round(reliability(fit), digits = 3)
+print(model.reliability) #model reliability with AVEVAR and CRONBACH'S ALPHAS
+
+#Since the loadings and scale reliability measures are not that good, we test the 
+#specify another model that is based on ane earlier exploratpry factor analysis. 
+#In that case, only 2 higher order variables could be specified - creative and
+#financial orientations. 
+
+HS.modelEFA <- ' creative  =~ X2 + X6 + X7 + X8
+financial =~ X10 + X11 + X16'
+
+#Parameters of fit 
+fitEFA <- cfa(HS.modelEFA, data=mydata)
+summary(fitEFA, fit.measures=TRUE)
+
+model.reliabilityEFA <- round(reliability(fitEFA), digits = 3)
+print(model.reliabilityEFA) #model reliability with AVEVAR and CRONBACH'S ALPHAS
+
+parameterEstimates(fitEFA)
+inspect(fitEFA,what="std")$lambda #loadings of inidivudal items on the scales
+
+#In the further analyses we will use these items, although the results of the validity 
+#tests are not ideal. 
+
+#Adding the means of the items to the new data set that will be later used for QCA calibration.
+bots2$MeanCO <- rowMeans(bots[,c("values_Creative3", "values_Achievement3", "values_Social1", "values_Social2")]) 
+bots2$MeanBO <- rowMeans(bots[,  c("values_Financial1", "values_Financial2", "values_Financial4")])
+
+
+#CONFIRMATORY FACTOR ANALYSIS PERFORMANCE
+#--------------------------------------
+
+#Subsetting the data that deals  with performance
+performance <- bots[,grepl("perf", names(bots))]
+mydata2 <- performance[5:27] #selecting only the subjective measure items
+colnames(mydata2) <- paste("X", 1:23, sep="") #renaming the column names for easier CFA analysis
+
+## MODEL specification
+HS.modelPER <- 'business  =~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8 + X9 + X10 + X11 + X12
+creative =~ X13 + X14 + X15 + X16 + X17 + X18 + X19 + X20 + X21 + X22 + X23'
+
+fitPER <- cfa(HS.modelPER, data=mydata2)
+summary(fitPER, fit.measures=TRUE)
+
+model.reliabilityPER <- round(reliability(fitPER), digits = 3)
+print(model.reliabilityPER)
+
+parameterEstimates(fitPER)
+inspect(fitPER,what="std")$lambda
+
+#Removing the items that don't perform well enough
+HS.modelPER2 <- 'business  =~ X1 + X3 + X10 
+creative =~ X13 + X14 + X21 + X22'
+
+fitPER2 <- cfa(HS.modelPER2, data=mydata2)
+summary(fitPER2, fit.measures=TRUE)
+
+model.reliabilityPER2 <- round(reliability(fitPER2), digits = 3)
+print(model.reliabilityPER2)
+
+parameterEstimates(fitPER2)
+inspect(fitPER2,what="std")$lambda
+
+#cp - 1,2,9,10
+#bp - 1,3,10 
+
+##From the pre-test I can conclude that there are four performance dimensions in our scales, not two. 
+##For this paper two of them are used. The other measures deal with employee satisfaction and client retention. 
+bots2$CP <- rowMeans(bots[,c("perf_CP_1", "perf_CP_2", "perf_CP_9", "perf_CP_10")]) ##Adding creative performance to data frame
+bots2$BP <- rowMeans(bots[,  c("perf_BP_1", "perf_BP_3", "perf_BP_10")]) ##Adding business performance to data frame
+
+####################
+# BUSINESS MODELS ##
+#################### 
+
+businessmodels <- bots[,grepl("bm", names(bots))] #selecting only business model questions
+businessmodels[businessmodels == '-99'] <- 1 #recode the bug in answers to low 
+#businessmodels2 <- businessmodels[,colSums(is.na(businessmodels)) == 0] #remove columns that have NA's
+businessmodels <- businessmodels[,!grepl("Other", names(businessmodels))]
+businessmodels <- businessmodels[,1:41]
+####====================================================================================
+#### PCA using the pca function in pysch package that is based on correlational matrix
+####====================================================================================
+
+#First we conducetd a "parallel" analysis in order to to determine the number of components in a data matrix. 
+pcadat <- cor(businessmodels, use = "complete.obs") #correlation matrix
+parallel <- fa.parallel(pcadat, fm = 'minres', fa = 'both', n.obs = 190)
+
+#based on the results we retain 6 principal? components
+pca <- PCA(pcadat, ncp=6, graph = FALSE)  ###tried inserting the correlation matrix instead
+summary(pca)
+pca$eig
+#90 % cumulative variance at the 30th component 
+# 6 components explain 45,5 %
+
+#The loadings matrices 
+loadingspca <- pca$var$cor # 6 is all components, because that was suggested by the analysis 
+
+#The scores matrices 
+scorespca <- pca$ind$coord#for 6 components 
+
+###Component loadings on 
+varcontributions <- as.data.frame(loadingspca)
+
+comp1 <- subset(varcontributions, Dim.1 >= 0.7)
+comp1 <- as.vector(rownames(comp1))
+comp2 <- subset(varcontributions, Dim.2 >= 0.5)
+comp2 <- as.vector(rownames(comp2))
+comp3 <- subset(varcontributions, Dim.3 >= 0.5)
+comp3 <- as.vector(rownames(comp3))
+comp4 <- subset(varcontributions, Dim.4 >= 0.45)
+comp4 <- as.vector(rownames(comp4))
+comp5 <- subset(varcontributions, Dim.5 >= 0.40)
+comp5 <- as.vector(rownames(comp5))
+comp6 <- subset(varcontributions, Dim.6 >= 0.40)
+comp6 <- as.vector(rownames(comp6))
+
+#MAKE A TABLE OF THE RELEVANT COMPONENTS
+x <- as.data.frame(cbind(comp1, comp2, comp3, comp4, comp5, comp6))
+x$comp2[8] <- "-"
+x$comp3[5:8] <- "-"
+x$comp4[3:8] <- "-"
+x$comp5[2:8] <- "-"
+x$comp6[3:8] <- "-"
+
+####TABLE SHOWING WHICH VARIABLES ACCOUNT THE MOST FOR THE FEATURES OF EACH COMPONENT 
+print(x)
+
+
+#AVERAGES OF COMPONENTS 
+bots2$BM1 <- rowMeans(bots[,comp1]) 
+bots2$BM2 <- rowMeans(bots[,comp2]) 
+bots2$BM3 <- rowMeans(bots[,comp3]) 
+bots2$BM4 <- rowMeans(bots[,comp4]) 
+bots2$BM5 <- rowMeans(bots[,comp5]) 
+bots2$BM6 <- rowMeans(bots[,comp6]) 
+
+
+#COLOUR SCHEME
+myscheme <- c("#F7F0D4", "#FCCB1A", "#347B98", "#C21460", "#092834")
+
+#BARPLOT SECTOR BY PERFORMANCE
+counts <- table(bots2$BM1, bots2$BM2)
+barplot(counts, main="Performance distribution by Sector",
+        xlab="Sector", col=myscheme[2:5],
+        legend = rownames(counts))
+
+
+###Leave out certain items that are not relevant for anythig ???
+
+pcascores <- round(as.data.frame(pca$ind$coord), 2) #using coordinates as membership scores to pca
+
+##also based on the scores, there's a lot of information that is lost and cannot be
+##explained by its belonging to the components 
+
+
+
+
+####=====================================================================================
+#### PCA using the prcomp function in stats package that uses the original score as input
+####=====================================================================================
+pca2<- prcomp(businessmodels)
+summary(pca2)
+
+#90 % cumulative variance at the 25th component 
+# 6 components explain 54,9 %
+
+#The loadings matrices 
+loadingstwo6 <- pca2$rotation[,1:6] #for 6 components 
+loadingstwo25<- pca2$rotation[,1:25] #for 25 components 
+loadingstwoall<- pca2$rotation #for all components 
+
+#The scores matrices 
+scorestwo6 <- as.data.frame(pca2$x[,1:6]) #for 6 components 
+scorestwo25<- pca2$x[,1:25] #for 25 components 
+scorestwoall<- pca2$x #for all components 
+
+#Kmeans clustering based on the scores of pca 
+#cl <- kmeans(scorestwo6[-c(162),],6)
+#cl$cluster
+#plot(scorestwo6$PC3, scorestwo6$PC2,col=cl$cluster)
+#points(cl$centers, pch=16)
+#cl$centers
+
+
+#===========================================
+# CALIBRATION OF BUSINESS MODEL DATA FOR QCA
+#===========================================   
+
+## using the TFR methods (total fuzzy relative) to calibrate PCA memberships into QCA memberships.
+## it uses the empirical cumulative distribution formula to compute the maximum an minimum membershisp
+##thos are then transformed into fuzzy set memberships
+
+E <- ecdf(bots2$BM1)
+bots2$BM1fs <- pmax(0, (E(bots2$BM1) - E(1)) / (1 - E(1)))
+E <- ecdf(bots2$BM2)
+bots2$BM2fs <- pmax(0, (E(bots2$BM2) - E(1)) / (1 - E(1)))
+E <- ecdf(bots2$BM3)
+bots2$BM3fs <- pmax(0, (E(bots2$BM3) - E(1)) / (1 - E(1)))
+E <- ecdf(bots2$BM4)
+bots2$BM4fs <- pmax(0, (E(bots2$BM4) - E(1)) / (1 - E(1)))
+E <- ecdf(bots2$BM5)
+bots2$BM5fs <- pmax(0, (E(bots2$BM5) - E(1)) / (1 - E(1)))
+E <- ecdf(bots2$BM6)
+bots2$BM6fs <- pmax(0, (E(bots2$BM6) - E(1)) / (1 - E(1)))
+
+E <- ecdf(bots2$MeanCO)
+bots2$MeanCOfs <- pmax(0, (E(bots2$MeanCO) - E(1)) / (1 - E(1)))
+
+E <- ecdf(bots2$MeanBO)
+bots2$MeanBOfs <- pmax(0, (E(bots2$MeanBO) - E(1)) / (1 - E(1)))
+E <- ecdf(bots2$CP)
+bots2$MeanCPfs <- pmax(0, (E(bots2$CP) - E(1)) / (1 - E(1)))
+E <- ecdf(bots2$BP)
+bots2$MeanBPfs <- pmax(0, (E(bots2$BP) - E(1)) / (1 - E(1)))
+
+fsq <- bots2[grep("fs", names(bots2))]
+
+fsq$BALfs <- fuzzyand(fsq$MeanCPfs, fsq$MeanBPfs)
+fsq$NOBPfs <- fuzzyand(fsq$MeanCPfs, 1-fsq$MeanBPfs)
+fsq$NOCPfs <- fuzzyand(1-fsq$MeanCPfs, fsq$MeanBPfs)
+fsq$BOTHLOWfs <- fuzzyand(1-fsq$MeanCPfs, 1-fsq$MeanBPfs)
+
+fsq <- round(fsq ,2)
+
+fsq$MeanCOfs <- mapvalues(fsq$MeanCOfs, from = c(0.5), to = c(0.51))
+fsq$MeanBOfs <- mapvalues(fsq$MeanBOfs, from = c(0.5), to = c(0.51))
+fsq$BM1fs <- mapvalues(fsq$BM1fs, from = c(0.5000), to = c(0.51))
+fsq$BM2fs <- mapvalues(fsq$BM2fs, from = c(0.5000), to = c(0.51))
+fsq$BM3fs <- mapvalues(fsq$BM3fs, from = c(0.5000), to = c(0.51))
+fsq$BM4fs <- mapvalues(fsq$BM4fs, from = c(0.5000), to = c(0.51))
+fsq$BM5fs <- mapvalues(fsq$BM5fs, from = c(0.5000), to = c(0.51))
+fsq$BM6fs <- mapvalues(fsq$BM6fs, from = c(0.5000), to = c(0.51))
+fsq$BALfs <- mapvalues(fsq$BALfs, from = c(0.5000), to = c(0.51))
+fsq$NOBPfs <- mapvalues(fsq$NOBPfs, from = c(0.5000), to = c(0.51))
+fsq$NOCPfs <- mapvalues(fsq$NOCPfs, from = c(0.5000), to = c(0.51))
+fsq$BOTHLOWfs <- mapvalues(fsq$BOTHLOWfs, from = c(0.5000), to = c(0.51))
+
+
+names(fsq)[1:10]<- c("BM1", "BM2", "BM3", "BM4", "BM5", "BM6", "CO", "BO", "CP", "BP")
+
+fsq[is.na(fsq)] <- 0
+
+#----------
+#NECCESSITY
+#----------
+
+conds <- c("CO", "BO", "BM1", "BM2", "BM3", "BM4", "BM5", "BM6")
+
+nec1 <- pof(fsq[,c(1:8)], as.numeric(fsq$BALfs), relation = "nec")
+#nec2 <- pof(fsq[,c(1:8)], as.numeric(fsq$NOBPfs), relation = "nec")
+#nec3 <- pof(fsq[,c(1:8)], as.numeric(fsq$NOCPfs), relation = "nec")
+nec4 <- pof(fsq[,c(1:8)], as.numeric(fsq$BOTHLOWfs), relation = "nec")
+
+nec1N <- pof(1-fsq[,c(1:8)], as.numeric(fsq$BALfs), relation = "nec", use.tilde=TRUE)
+#nec2N <- pof(1-fsq[,c(1:8)], as.numeric(fsq$NOBPfs), relation = "nec", use.tilde=TRUE)
+#nec3N <- pof(1-fsq[,c(1:8)], as.numeric(fsq$NOCPfs), relation = "nec", use.tilde=TRUE)
+nec4N <- pof(1-fsq[,c(1:8)], as.numeric(fsq$BOTHLOWfs), relation = "nec", use.tilde=TRUE)
+
+
+#Making tables for the paper
+kable(nec1$incl.cov, format = "html")
+
+kable(nec4$incl.cov, format = "html")
+
+kable(nec1N$incl.cov, format = "html")
+
+kable(nec4N$incl.cov, format = "html")
+
+#--------------------------------------------------------------
+#Analysis of sufficiency: BALANCE - both performacne dim. high 
+#--------------------------------------------------------------
+
+TTBAL <- truthTable(fsq, outcome = "BALfs", 
+                    conditions = conds, 
+                    incl.cut = 0.85, 
+                    n.cut=2,
+                    sort.by = "out, incl, n", 
+                    show.cases = TRUE, complete = TRUE)
+TTBAL
+
+sol_c_bal <- minimize(TTBAL, details =T, all.sol=T)
+sol_c_bal
+
+sol_p_bal <- minimize(TTBAL, include = "?", details = T)
+sol_p_bal
+
+Inters <- minimize(TTBAL, details = TRUE, dir.exp = "1, 1, 1, 1, 1, 1, 1, 1", include="?", row.dom=TRUE, show.cases = TRUE)
+Inters
+
+#---------------------------------------------------------------
+# ANALYSIS OF SUFFICIENCY - ABSENCE OF CREATIVE PERFORMANCE
+# --------------------------------------------------------------
+
+TTBP <- truthTable(fsq, outcome = "NOCPfs", 
+                   conditions = conds, 
+                   incl.cut = 0.8,
+                   n.cut=2,
+                   sort.by = "out, incl, n", 
+                   show.cases = TRUE, complete = TRUE)
+TTBP
+
+sol_c_bp <- minimize(TTBP, details = T, all.sol = TRUE)
+sol_c_bp
+
+sol_p_bp <- minimize(TTBP, include = "?", details = T, all.sol = TRUE)
+sol_p_bp
+
+
+2# ---------------------------------------------
+# ANALYSIS OF SUFFICIENCY - ABSENCE OF BUSINESS
+# ---------------------------------------------
+
+TTCP <- truthTable(fsq, outcome = "NOBPfs", 
+                   conditions = conds, 
+                   incl.cut = 0.8, 
+                   sort.by = "out, incl, n", 
+                   show.cases = TRUE, complete = TRUE)
+TTCP
+
+sol_c_cp <- minimize(TTCP, details = T, all.sol = TRUE)
+sol_c_cp
+
+sol_p_cp <- minimize(TTCP, include = "?", details = T, all.sol = TRUE)
+sol_p_cp
+
+
+
+# ---------------------------------------------
+# ANALYSIS OF SUFFICIENCY - ABSENCE OF OUTCOME
+# ---------------------------------------------
+
+TTn <- truthTable(fsq, outcome = "BOTHLOWfs", 
+                  conditions = conds,
+                  show.cases = TRUE,
+                  incl.cut1 = 0.75,
+                  sort.by = "out, incl, n", 
+                  complete = TRUE)
+TTn
+
+sol_cn <- minimize(TTn, details = T, all.sol = TRUE)
+sol_cn
+
+sol_pn <- minimize(TTn, include = "?", details = T, all.sol = TRUE)
+sol_pn
+
+

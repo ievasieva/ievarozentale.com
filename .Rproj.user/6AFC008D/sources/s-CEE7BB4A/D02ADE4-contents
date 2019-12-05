@@ -1,0 +1,19 @@
+---
+title: 'Survey questions and variable names '
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r surveyvariables, echo=FALSE, warning=FALSE}
+require(kableExtra)
+require(knitr)
+require(dplyr)
+
+surveyvariables<- read.csv("~/Dropbox/1PhD/Articles/Survey Data/surveyquestions.csv") 
+
+surveyvariables[,-1] %>%
+  kable(row.names = F)
+```
+
+

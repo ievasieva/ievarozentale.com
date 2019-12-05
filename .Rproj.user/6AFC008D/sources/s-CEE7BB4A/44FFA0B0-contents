@@ -1,0 +1,44 @@
+---
+title: "Paper 2 results"
+output: html_notebook
+---
+
+There are *6 independent variables and 2 dependent variables* specified by the conceptual framework:   
++Business model level:  
+  +Value proposition differentiation  
+  +Client segmentation  
+  +Network differentiation  
+  +Revenue model differentiation  
++Contextual level:   
+  +Venture separation  
+  +Integrated organizational culture  
++Performance:   
+  +Creative performance  
+  +Business performance  
+
+These are the items used in order to measure them:   
+
+| Variable | Survey items used | 
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| **Value proposition differentiation** (VPDIF) | Some types of our services and products help reaching our financial and business goals, while others contribute to our creative goals.  |
+| **Client segmentation** (SEGM) | Some client segments are commercial and bring in money, while others secure creative work, reputation and exposure. |
+| **Network differentiation** (NETWDIF) | We make a clear distinction between creative and business partners. |
+|**Diversification of revenue models** (REVDIF) | Different revenue models and conditions are used for commercial projects and the projects we perceive as creative and/or challenging. | 
+| **Venture separation** (SPINDIF) |           |
+|  *Composite measure (creative OR commercial affiliate venture Y/N, minimum of the following items).* | The other venture(s) connected to our firm focus(es) on the more commercial and/or entrepreneurial work. |
+|     | The other venture(s) connected to our firm focus(es) on the more creative projects, as opposed to the commercial and entrepreneurial work. |  
+| **Integrated culture** (INTCULT)|     |
+| *Composite measure (the mean of the following items).* | When it comes to our activities and processes, we always try to develop synergies and interactions between the creative and business-related aspects.  | 
+|     | When making decisions within our company, we seek synergies, integration, and compromises between our creative and commercial ambitions.  |  
+| **Business performance** (BP)|       |
+| *Composite measure (the mean of the following items, compared to main competotors).*   | Gross profits per partner | 
+|     | Gross margin on provided services |  
+|     | Growth in profits | 
+| **Creative performance** (CP)|          |
+| *Composite measure (the mean of the following items, compared to main competotors).*   | Producing highly innovative work | 
+|     | Working on projects that challenge the boundaries of the field |  
+|     | Working on projects that match the firm's creative and professional aspirations |   
+|     | Creating the desired impact with its work |  
+  
+
+  
