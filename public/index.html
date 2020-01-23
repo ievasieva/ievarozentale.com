@@ -1,334 +1,812 @@
-<!DOCTYPE html>
-    
 
- <html lang="en"> 
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.58.3" />
-        <title></title>
-    
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hugo Responsive Resume/CV Theme for Developers">
-    <meta name="author" content="Pavel Kanyshev">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    
-    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.css">
+	<meta name="generator" content="Hugo 0.62.2" />
+
+    <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=GTM-000000' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-000000');
+</script>
+
+
+<title>Home | Raditian</title>
+<style>
+     
+    .rad-fade-in {
+        will-change: opacity, transform;
+        animation-name: rad-fade-in-fallback;
+        animation-duration: 5s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes rad-fade-in-fallback {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .fonts-loaded .rad-fade-in.rad-waiting {
+        animation-name: none;
+        opacity: 0;
+    }
+
+    .fonts-loaded .rad-fade-in.rad-animate {
+        animation-name: rad-fade-in;
+        animation-duration: 1.1s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes rad-fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+     
+    .rad-fade-in-long {
+        will-change: opacity, transform;
+        animation-name: rad-fade-in-long-fallback;
+        animation-duration: 8s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes rad-fade-in-long-fallback {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .fonts-loaded .rad-fade-in-long.rad-waiting {
+        animation-name: none;
+        opacity: 0;
+    }
+
+    .fonts-loaded .rad-fade-in-long.rad-animate {
+        animation-name: rad-fade-in-long;
+        animation-duration: 2s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes rad-fade-in-long {
+        0% {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+     
+    .rad-fade-down {
+        will-change: opacity, transform;
+        animation-name: rad-fade-down-fallback;
+        animation-duration: 5s;
+        animation-fill-mode: both;
+        transform: translateY(-30px);
+    }
+
+    @keyframes rad-fade-down-fallback {
+        0% {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        75% {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fonts-loaded .rad-fade-down.rad-waiting {
+        animation-name: none;
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    .fonts-loaded .rad-fade-down.rad-animate {
+        animation-name: rad-fade-down;
+        animation-duration: 1.1s;
+    }
+
+    @keyframes rad-fade-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+     
+    .rad-scale-down {
+        will-change: opacity, transform;
+        animation-name: rad-scale-down-fallback;
+        animation-duration: 5s;
+        animation-fill-mode: both;
+        transform-origin: 50% 0;
+    }
+
+    @keyframes rad-scale-down-fallback {
+        0% {
+            opacity: 0;
+            transform: scaleY(0.95);
+        }
+
+        75% {
+            opacity: 0;
+            transform: scaleY(0.95);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+    }
+
+    .fonts-loaded .rad-scale-down.rad-waiting {
+        animation-name: none;
+        opacity: 0;
+        transform: scaleY(0.95);
+    }
+
+    .fonts-loaded .rad-scale-down.rad-animate {
+        animation-name: rad-scale-down;
+        animation-duration: 1.1s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes rad-scale-down {
+        0% {
+            opacity: 0;
+            transform: scaleY(0.95);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+    }
+</style>
+
+
+<link rel="stylesheet" href="/css/main.css"/>
+
+<link rel="stylesheet" href="/css/rad-icons.css"/>
+
+<link rel="stylesheet" href="/css/custom.css"/>
+
 
     
-    <link id="theme-style" rel="stylesheet" href="/assets/css/styles-6.css">
-	
-    
-	
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXX-Y', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </head>
 
 <body>
-    <div class="wrapper">
 
-            <div class="sidebar-wrapper">
+	<header class="header fixed-top rad-animation-group" id="header">
+  <div class="container rad-fade-in">
+    <nav class="navbar navbar-expand-lg navbar-light p-0">
+      <a class="navbar-brand" href="/">
+        <span>Retardigrades </span>
+        <span>Limited </span>
+        
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent, #header"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-		            <div class="profile-container">
-                <img class="profile img-circle" src="/assets/images/taipei.jpg" alt="" />
-                <h1 class="name">Ieva Rozentale</h1>
-                <h3 class="tagline">Research-based innovation for climate crisis and other important problems</h3>
-            </div>
-
-
-		
-
-		
-		            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-				
-                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto:%20ieva@nebetja.eu">ieva@nebetja.eu</a></li>
-				
-                    <li class="phone"><i class="fa fa-phone"></i><a href="#ZgotmplZ">&#43;31 (0) 629620649</a></li>
-				
-                    <li class="website"><i class="fa fa-globe"></i><a href="//nebetja.eu">nebetja | Placemaking &amp; strategic design consultancy</a></li>
-				
-                    <li class="website"><i class="fa fa-globe"></i><a href="//http://www.greenpeace.org/eastasia/campaigns/MINDWORKS-Cognitive-science-research-unit/">Mindworks | Cognitive Science Lab for Greenpeace EA</a></li>
-				
-                    <li class="linkedin"><i class="fa fa-linkedin"></i><a href="//https://www.linkedin.com/in/ieva-rozentale-83446739/">LinkedIn profile</a></li>
-				
-                    <li class="github"><i class="fa fa-github"></i><a href="//github.com/ievasieva">My not-so-impressive github</a></li>
-				
-                    <li class="twitter"><i class="fa fa-twitter"></i><a href="//twitter.com/iev_a">@iev_a</a></li>
-				
-                </ul>
-            </div>
-		
-
-		
-		            <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
-				
-                <div class="item">
-                    <h4 class="degree">Theory U Foundation Programme</h4>
-                    <h5 class="meta">Presencing Institute</h5>
-                    <div class="time">2019</div>
-                </div>
-				
-                <div class="item">
-                    <h4 class="degree">Advanced programming in R</h4>
-                    <h5 class="meta">Coursera</h5>
-                    <div class="time">2018</div>
-                </div>
-				
-                <div class="item">
-                    <h4 class="degree">Advanced Topics in Configurational Research and QCA</h4>
-                    <h5 class="meta">ECPR Winter School</h5>
-                    <div class="time">2016</div>
-                </div>
-				
-                <div class="item">
-                    <h4 class="degree">Intenstive Course in Urban Planning</h4>
-                    <h5 class="meta">University of Latvia</h5>
-                    <div class="time">2006 - 2012</div>
-                </div>
-				
-                <div class="item">
-                    <h4 class="degree">MA in Cultural Economics &amp; Entrepreneurship</h4>
-                    <h5 class="meta">Erasmus University Rotterdam</h5>
-                    <div class="time">2010 - 2012</div>
-                </div>
-				
-                <div class="item">
-                    <h4 class="degree">BA in Intercultural Communication</h4>
-                    <h5 class="meta">Latvian Academy of Culture</h5>
-                    <div class="time">2006 - 2010</div>
-                </div>
-				
-            </div>
-
-		
-
-		
-		            <div class="language-container container-block">
-                <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-				
-                    <li>Latvian <span class="lang-desc">(Native)</span></li>
-				
-                    <li>English <span class="lang-desc">(Professional)</span></li>
-				
-                    <li>Dutch <span class="lang-desc">(Professional)</span></li>
-				
-                    <li>French <span class="lang-desc">(Professional)</span></li>
-				
-                    <li>Russian <span class="lang-desc">(Professional)</span></li>
-				
-                    <li>Spanish <span class="lang-desc">(Basic Conversational)</span></li>
-				
-                </ul>
-            </div>
-
-		
-
-		
-		            <div class="interests-container container-block">
-                <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
-				
-                    <li>Kitesurfing, snowboarding, surfing</li>
-				
-                    <li>Nature and outdoors</li>
-				
-                    <li>Self-sustaining</li>
-				
-                    <li>Zen Buddhism</li>
-				
-                    <li>Fun</li>
-				
-                </ul>
-            </div>
-
-		
-
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">HOME</a>
+          </li>
+          
+          <li class="nav-item">
+            <a data-scroll class="nav-link" href="#about"
+              >ABOUT</a
+            >
+          </li>
+          
+          <li class="nav-item">
+            <a data-scroll class="nav-link" href="#portfolio"
+              >MY WORK</a
+            >
+          </li>
+          
+          <li class="nav-item">
+            <a data-scroll class="nav-link" href="#contact"
+              >CONTACT</a
+            >
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
 
 
-	<div class="main-wrapper">
-
-    
-	            <section class="section summary-section">
-                <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
-                <div class="summary">
-                    <p><p>Hi there!</p>
-
-<p>My name is Ieva. I work on projects that try to create this world a better place using my knwoldege in reserach and data, management and decision-making, and design and innovation.</p>
-
-<p>My current and prior experience can be best explained by these keywords: climate (crisis) psychology, environmental campaigning, strategic design, research and data analytics, chatbots, business models, paradox management, placemaking, creative industries, and urban development.</p>
-
-<p>Send me a message if you&rsquo;re interested to collaborate or simply want to chat about the work I do, or anything else.</p>
-</p>
-                </div>
-            </section>
-
-    
-
-    
-                <section class="section experiences-section">
-                <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
-
-				
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Senior Researcher</h3>
-                            <div class="time">2018 - Present</div>
-                        </div>
-                        <div class="company">Mindworks Greenpeace East Asia, Taipei</div>
-                    </div>
-                    <div class="details">
-                        <p>A cognitive science lab</p>
-                    </div>
-                </div>
-				
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Co-Founder and consultant</h3>
-                            <div class="time">2014 - Present</div>
-                        </div>
-                        <div class="company">nebetja, Riga</div>
-                    </div>
-                    <div class="details">
-                        <p></p>
-                    </div>
-                </div>
-				
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Lecturer and PhD researcher</h3>
-                            <div class="time">2013 - 2018</div>
-                        </div>
-                        <div class="company">University of Amsterdam</div>
-                    </div>
-                    <div class="details">
-                        <p></p>
-                    </div>
-                </div>
-				
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Lecturer</h3>
-                            <div class="time">2012 - 2013</div>
-                        </div>
-                        <div class="company">Erasmus University Rotterdam</div>
-                    </div>
-                    <div class="details">
-                        <p></p>
-                    </div>
-                </div>
-				
-
-            </section>
-
-    
-
-    
-                <section class="section projects-section">
-                <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
-                <div class="intro">
-                    <p>These are the projects and teams I am currently working with. Please do get in touch if you&rsquo;re interested to collaborate.</p>
-                </div>
-				
-                <div class="item">
-                    <span class="project-title"><a href="https://">Mindworks</a></span> - <span class="project-tagline">A Cognitive Science Lab for Greenpeace East Asia. Our team is using insights from climate psychology, cognitive science, and other social science disciplines to protoype and test tools and solutions for climate campaiging that would move people towards accepting the climate crisis and engaging in action. We work in close collaboration and co-creation with many other NGOs, activists and scientists.</span>
-                </div>
-				
-                <div class="item">
-                    <span class="project-title"><a href="https://urbanconnectors.nl">Urban Connectors</a></span> - <span class="project-tagline">A collective for democratic urban innovation, based in Amsterdam. Experience in multi-stakeholder projects that are a bit too new to be put into the usual process frameworks.</span>
-                </div>
-				
-                <div class="item">
-                    <span class="project-title"><a href="https://nebetja.eu">nebetja</a></span> - <span class="project-tagline">Placemaking &amp; strategic deisgn consultancy, based in Cesis, Latvia. We consult, research and educate about planning, design, and management for and by people, respecting nature and it&rsquo;s needs and limits.</span>
-                </div>
-				
-                <div class="item">
-                    <span class="project-title"><a href="https://github.com/ievasieva/">Battle of the Souls</a></span> - <span class="project-tagline">My PhD thesis (in progress) on managang conflicting goals aka paradoxes through business model design in creative service firms.</span>
-                </div>
-				
-            </section>
-
-    
-
-    
-	            <section class="skills-section section">
-                <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
-                <div class="skillset">
-				
-                    <div class="item">
-                        <h3 class="level-title">Coming up with unusual ideas combining weird disciplines</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="98%">
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="item">
-                        <h3 class="level-title">Research</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="95%">
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="item">
-                        <h3 class="level-title">Strategic design</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="95%">
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="item">
-                        <h3 class="level-title">R</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="65%">
-                            </div>
-                        </div>
-                    </div>
-                
-                </div>
-            </section>
-
-    
-
-	</div>
+	
+<section class="rad-showcase rad-showcase--index rad-animation-group rad-fade-down">
+  <div class="rad-showcase__bg">
+    <img
+      class="lozad img-responsive"
+      src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+      data-src="/img/famara.jpg"
+      data-srcset="/img/famara.jpg 1x, /img/famara.jpg 2x"
+      alt="Showcase keyboard and mouse image"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-7 col-xl-6">
+        <h1 class="display-1">
+          Hello, I&#39;m Ieva
+          <br />
+          <span
+            >I work on research- and design-driven innovation for climate crisis and social good.</span
+          >
+        </h1>
+        <p class="lead">
+          I develop concepts and strategies, lead projects, and design research and monitoring processes, as well as learning experiences and workshops.
+        </p>
+        <a
+          href="mailto:ie.rozentale@gmail.com"
+          class="btn btn-primary"
+        >
+          <i class="icon-mail-fill"></i>
+          Contact me
+        </a>
+      </div>
     </div>
+    <div class="row platform-links">
+      <div class="col-12">
+        
+        <a href="https://www.linkedin.com/company/radity/" target="_blank"
+          ><i class="icon-linkedin-line"></i
+        ></a>
+        
+        <a href="https://twitter.com/iev_a" target="_blank"
+          ><i class="icon-twitter-line"></i
+        ></a>
+        
+        <a href="https://www.instagram.com/iev_a/" target="_blank"
+          ><i class="icon-instagram-line"></i
+        ></a>
+        
+        <a href="https://github.com/ievasieva" target="_blank"
+          ><i class="icon-github-line"></i
+        ></a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="rad-showcase__bg rad-showcase__bg--mobile">
+    <img
+      class="lozad img-responsive"
+      src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+      data-src="/img/famara.jpg"
+      alt="Showcase keyboard and mouse image"
+    />
+  </div>
+</section>
 
-	    <footer class="footer">
-        <div class="text-center">
-                
-                <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small><br>
-				<small class="copyright">2019 &copy; Ieva Rozentale 2019</small>
+
+
+	
+<section class="section rad-animation-group pb-0" id="about">
+  <div class="container rad-fade-down">
+    <div class="row d-flex flex-column-reverse flex-md-row">
+      <div class="about__profile-picture col-12 col-md-6">
+        <img
+          class="lozad img-responsive image-left-overflow"
+          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          data-src="/img/who-am-i/ieva.JPG"
+          data-srcset="/img/who-am-i/ieva.JPG 1x, /img/who-am-i/ieva.JPG 2x"
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="col-12 col-md-6 my-auto my-auto">
+        <h2>What do I do?</h2>
+        <p class="lead">
+          <p class="lead"> I mostly work on projects that innovate for making this world a better place. I have worked in diverse fields, so my strength is creating solutions and concepts that are rooted in unusual combinations of ideas. </p> <p class="lead"> My current and prior experience can be best explained by these keywords: climate (crisis) psychology, environmental campaigning, strategic design and design thinking, research and data analytics, chatbots, business models, paradox management, placemaking, creative industries, and urban development. </p> <p class="lead"> I am looking for interesting projects to join during some of my unusued freelancee hours. Currently, I am particularly interested in working on projects that deal with communities and resilience, and scalable solutions in the context of climate change. </p> <p class="lead"> Send me a message if you are interested to collaborate or simply want to chat about the work I do, or anything else. And please check out the pages of the organizations and collectives I am part of (see below). </p>
+        </p>
+        <a
+          href="/"
+          target="_blank"
+          class="btn btn-primary"
+        >
+          <i class=""></i>
+          Check out my projetcs
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+	
+<section class="section section--border-bottom rad-animation-group">
+    <div class="container">
+        <div class="row rad-fade-down">
+            <div class="col-12">
+                <h2>Education</h2>
+                <div class="row pt-2 pt-md-4">
+                    
+                    <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                        <div class="education">
+                            <div class="education__date">2019</div>
+                            <div class="education__title">Theory U Foundation Programme</div>
+                            <div class="education__degree">
+                                Presencing Institute
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                        <div class="education">
+                            <div class="education__date">2018</div>
+                            <div class="education__title">Advanced programming in R</div>
+                            <div class="education__degree">
+                                Coursera
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                        <div class="education">
+                            <div class="education__date">2016</div>
+                            <div class="education__title">Advanced Topics in Configurational Research and QCA</div>
+                            <div class="education__degree">
+                                ECPR Winter School
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                        <div class="education">
+                            <div class="education__date">2012</div>
+                            <div class="education__title">Intenstive Course in Urban Planning</div>
+                            <div class="education__degree">
+                                University of Latvia
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                        <div class="education">
+                            <div class="education__date">2010 - 2012</div>
+                            <div class="education__title">MA in Cultural Economics &amp; Entrepreneurship</div>
+                            <div class="education__degree">
+                                Erasmus University Rotterdam
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                        <div class="education">
+                            <div class="education__date">2006 - 2010</div>
+                            <div class="education__title">BA in Intercultural Communication</div>
+                            <div class="education__degree">
+                                Latvian Academy of Culture
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
 
-                  
-    <script type="text/javascript" src="/assets/plugins/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
+
+	
+<section class="section section--border-bottom rad-animation-group">
+    <div class="container">
+        <div class="row flex-column-reverse flex-md-row rad-fade-down">
+            <div class="col-12 col-sm-6 mt-5 mt-sm-0">
+                
+                <div class="experience">
+                    <div class="experience__date">Nov 2018 - Present</div>
+                    <div class="experience__title">Sr. Researcher and Project Lead</div>
+                    <div class="experience__company">Mindworks, Greenpeace East Asia</div>
+                </div>
+                
+                <div class="experience">
+                    <div class="experience__date">Sep 2013 - Apr 2018</div>
+                    <div class="experience__title">Lecturer &amp; PhD Candidate</div>
+                    <div class="experience__company">Amsterdam Business School</div>
+                </div>
+                
+                <div class="experience">
+                    <div class="experience__date">Dec 2014 - Present</div>
+                    <div class="experience__title">Co-Founder and Strategy Consultant</div>
+                    <div class="experience__company">nēbetjā</div>
+                </div>
+                
+                <div class="experience">
+                    <div class="experience__date">Sep 2012 - Aug 2013</div>
+                    <div class="experience__title">Lecturer</div>
+                    <div class="experience__company">Erasmus University Rotterdam</div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-sm-6">
+                <h2>Experience</h2>
+                <p class="lead">
+                    I have experience working in many different countries and cultures. I speak 5 languages fluently.
+                </p>
+                <a href="https://www.linkedin.com/company/radity/" class="btn btn-primary"
+                   target="_blank">
+                    <i class="icon-linkedin-fill"></i>
+                    Linkedin
+                    <i class="icon-arrow-right"></i></a>
+                <a href="https://www.linkedin.com/company/radity/" class="btn btn-frameless"
+                   target="_blank">
+                    <i class="icon-profile-fill"></i>
+                    Download My Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+	
+<section id="portfolio" class="section section--border-bottom">
+  <div class="container">
+    <h2 class=" rad-animation-group rad-fade-down">
+      My Work
+    </h2>
+    <div class="row row--padded rad-animation-group rad-fade-down">
+      <div class="col-12">
+        <div class="clients">
+          
+        </div>
+      </div>
+    </div>
     
-    <script type="text/javascript" src="/assets/js/main.js"></script> 
+    <div
+      class="row row--padded rad-animation-group rad-fade-down flex-column-reverse flex-md-row"
+    >
+      
+      <div class="col-12 col-md-5 mt-4 mt-md-0 my-md-auto">
+        <h3>Mindworks</h3>
+        <p class="lead">
+          A Cognitive Science Lab for Greenpeace East Asia. Our team is using insights from climate psychology, cognitive science, and other social science disciplines to protoype and test tools and solutions for climate campaiging that would move people towards accepting the climate crisis and engaging in action. We work in close collaboration and co-creation with many other NGOs, activists and scientists.
+        </p>
+        <a href="https://greenpeace.org" class="btn btn-primary"
+          >Website<i class="icon-arrow-right"></i
+        ></a>
+      </div>
+      <div class="col-12 col-md-7 pl-md-0 text-right">
+        <img
+          class='lozad img-responsive img-clip-left-backward'
+          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          data-src="/img/works/mindworks_logo_blue.png"
+          data-srcset="/img/works/mindworks_logo_blue.png 1x, /img/works/mindworks_logo_blue.png 2x"
+          alt="Mindworks"
+        />
+      </div>
+      
+    </div>
+    
+    <div
+      class="row row--padded rad-animation-group rad-fade-down "
+    >
+      
+      <div class="col-12 col-md-7 pl-md-0 text-right">
+        <img
+          class='lozad img-responsive img-clip-right-backward'
+          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          data-src="/img/works/nebetja.png"
+          data-srcset="/img/works/nebetja.png 1x, /img/works/nebetja.png 2x"
+          alt="Chatbots for campaigning and mindset change"
+        />
+      </div>
+      <div class="col-12 col-md-5 mt-4 mt-md-0 my-md-auto">
+        <h3>Chatbots for campaigning and mindset change</h3>
+        <p class="lead">
+          As part of my work with Mindworks, I have designed and led the development of a Facebook-based chatbot, which aims to talk to people about their mobility experiences, try to find out what their needs are in order to become more sustainable, and use that information to improve our future campaigns through narrative analysis and sensemaking. This is still an early pilot, you can go and chat with it follwing the link.
+        </p>
+        <a href="https://messanger.me/greenpeace" class="btn btn-primary"
+          >Chat with our pilot bot<i class="icon-arrow-right"></i
+        ></a>
+      </div>
+      
+    </div>
+    
+    <div
+      class="row row--padded rad-animation-group rad-fade-down flex-column-reverse flex-md-row"
+    >
+      
+      <div class="col-12 col-md-5 mt-4 mt-md-0 my-md-auto">
+        <h3>Battle of the Souls</h3>
+        <p class="lead">
+          My PhD thesis (in progress) on managang conflicting goals aka paradoxes through business model design in creative service firms.
+        </p>
+        <a href="https://ievasieva.github.io/" class="btn btn-primary"
+          >My thesis draft online<i class="icon-arrow-right"></i
+        ></a>
+      </div>
+      <div class="col-12 col-md-7 pl-md-0 text-right">
+        <img
+          class='lozad img-responsive img-clip-left-forward'
+          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          data-src="/img/works/BOTSlogo.jpg"
+          data-srcset="/img/works/BOTSlogo.jpg 1x, /img/works/BOTSlogo.jpg 2x"
+          alt="Battle of the Souls"
+        />
+      </div>
+      
+    </div>
+    
+    <div
+      class="row row--padded rad-animation-group rad-fade-down "
+    >
+      
+      <div class="col-12 col-md-7 pl-md-0 text-right">
+        <img
+          class='lozad img-responsive img-clip-right-forward'
+          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          data-src="/img/works/nebetja.png"
+          data-srcset="/img/works/nebetja.png 1x, /img/works/nebetja.png 2x"
+          alt="nēbetjā placemaking team"
+        />
+      </div>
+      <div class="col-12 col-md-5 mt-4 mt-md-0 my-md-auto">
+        <h3>nēbetjā placemaking team</h3>
+        <p class="lead">
+          Placemaking &amp; strategic deisgn consultancy, based in Cesis, Latvia, but working globally. We consult, research and educate about planning, design, and management for and by people, respecting nature and its needs and limits.
+        </p>
+        <a href="https://nebetja.eu" class="btn btn-primary"
+          >Website<i class="icon-arrow-right"></i
+        ></a>
+      </div>
+      
+    </div>
+    
+    <div
+      class="row row--padded rad-animation-group rad-fade-down flex-column-reverse flex-md-row"
+    >
+      
+      <div class="col-12 col-md-5 mt-4 mt-md-0 my-md-auto">
+        <h3>Urban Connectors</h3>
+        <p class="lead">
+          A collective for democratic urban innovation, based in Amsterdam, The Netherlands. Experience in multi-stakeholder projects that are a bit too new to be put into the usual process frameworks.
+        </p>
+        <a href="https://urbanconnectors.nl" class="btn btn-primary"
+          >Website<i class="icon-arrow-right"></i
+        ></a>
+      </div>
+      <div class="col-12 col-md-7 pl-md-0 text-right">
+        <img
+          class='lozad img-responsive img-clip-left-backward'
+          src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+          data-src="/img/works/nebetja.png"
+          data-srcset="/img/works/nebetja.png 1x, /img/works/nebetja.png 2x"
+          alt="Urban Connectors"
+        />
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+    
+
+
+    
+<section id="contact" class="section section--contact pt-0">
+    <div class="container">
+        <div class="contact">
+            <h2>Contact</h2>
+            <div class="row pt-2">
+                <div class="col-12 col-lg-7">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" name="" id="full_name"
+                                       placeholder="Full Name"/>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="text" name="" id="email"
+                                       placeholder="Email Address"/>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-12">
+                                <textarea name="" id="message"
+                                          cols="30" rows="3" placeholder="Type Your Message Here"></textarea>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="icon-mail-fill"></i>
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-5 contact__info">
+                    <h4>Phone Number</h4>
+                    <span>&#43;31 (0) 629620649</span>
+                    <h4>Email</h4>
+                    <span><a href="mailto:ie.rozentale@gmail.com">ie.rozentale@gmail.com</a></span>
+                    <h4>Address</h4>
+                    <span>Reatrdigrades Main office, Oud-West, Amsterdam, The Netherlands</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+
+	<footer class="footer">
+  <div class="container">
+    <div class="footer__left">
+      <div class="footer__copy">
+        © Retardigrades Ltd. All rights reserved.
+      </div>
+    </div>
+    <div class="footer__links">
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link" href="/">HOME</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/">ABOUT</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/">MY WORK</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/">CONTACT</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="footer__right">
+      <a href="https://radity.com/"
+        ><img
+          src="/"
+          srcset="/ 1x, / 2x"
+          alt=""
+      /></a>
+    </div>
+  </div>
+</footer>
+
+
+    <script src='/js/rad-animations.js'></script>
+<script src='/js/library/lozad.min.js'></script>
+<script>
+  window.addEventListener("load", function() {
+    var observer = window.lozad(".lozad", {
+      rootMargin: window.innerHeight / 2 + "px 0px",
+      threshold: 0.01
+    }); 
+    observer.observe();
+  });
+</script>
+<script src='/js/library/jquery-3.3.1.slim.min.js'></script>
+<script src='/js/library/bootstrap.min.js'></script>
+<script src='/js/sticky-header.js'></script>
+<script src='/js/library/smooth-scroll.polyfills.min.js'></script>
+<script src='/js/library/fontfaceobserver.js'></script>
+<script>
+  (function(w) {
+    
+    if (w.document.documentElement.className.indexOf("fonts-loaded") > -1) {
+      return;
+    }
+    var fontA = new w.FontFaceObserver("Inter", {
+      weight: 300
+    });
+    var fontB = new w.FontFaceObserver("Inter", {
+      weight: 400
+    });
+    var fontC = new w.FontFaceObserver("Inter", {
+      weight: 500
+    });
+    var fontD = new w.FontFaceObserver("Inter", {
+      weight: 600
+    });
+    var fontE = new w.FontFaceObserver("Inter", {
+      weight: 700
+    });
+    var fontF = new w.FontFaceObserver("Inter", {
+      weight: 900
+    });
+    w.Promise.all([fontA.load(), fontC.load(), fontF.load()]).then(function() {
+      w.document.documentElement.className += " fonts-loaded";
+    });
+  })(this);
+</script>
+<script>
+  const scroll = new SmoothScroll('a[href*="#"]');
+    $('a.nav-link').on('click', () => {
+      const navbar = $('.navbar-collapse');
+      if (navbar && navbar.hasClass('show')) {
+        $('.navbar-toggler').click();
+      }
+    })
+</script>
+
 </body>
+
 </html>

@@ -1,0 +1,240 @@
+# showcase
+showcase:
+  enable: true
+  title: "Hello, I'm Ieva"
+  subtitle: "I work on research- and design-driven innovation for climate crisis and social good."
+  description: "I develop concepts and strategies, lead projects, and design research and monitoring processes, as well as learning experiences and workshops."
+  image:
+    x: "img/famara.jpg"
+    _2x: "img/famara.jpg"
+  imageMobile:
+    x: "img/famara.jpg"
+
+  button:
+    icon: "icon-mail-fill"
+    btnText: "Contact me"
+    URL: "mailto:ie.rozentale@gmail.com"
+
+  socialLinks:
+    - icon: "linkedin"
+      URL: "https://www.linkedin.com/company/radity/"
+
+    - icon: "twitter"
+      URL: "https://twitter.com/iev_a"
+
+    - icon: "instagram"
+      URL: "https://www.instagram.com/iev_a/"
+    
+    - icon: "github"
+      URL: "https://github.com/ievasieva"
+
+# about
+about:
+  enable: true
+  title: "What do I do?"
+  content: '<p class="lead">
+    I mostly work on projects that innovate for making this world a better place. 
+    I have worked in diverse fields, so my strength is creating solutions and concepts 
+    that are rooted in unusual combinations of ideas.
+    </p>
+    <p class="lead">
+    My current and prior experience can be best explained by these keywords: 
+    climate (crisis) psychology, environmental campaigning, strategic design and design
+    thinking, research and data analytics, chatbots, business models, paradox management,
+    placemaking, creative industries, and urban development.
+    </p>
+    <p class="lead">
+   I am looking for interesting projects to join during some of my unusued freelancee hours. 
+   Currently, I am particularly interested in working on projects 
+   that deal with communities and resilience, and scalable solutions in the context of 
+   climate change. 
+    </p>
+    <p class="lead">
+   Send me a message if you are interested to collaborate or simply want to chat about the work
+   I do, or anything else. And please check out the pages of the organizations and collectives 
+   I am part of (see below).
+    </p>'
+#icould insert a button here based on the button template that is after the intro module
+  image:
+    x: "img/who-am-i/ieva.JPG"
+    _2x: "img/who-am-i/ieva.JPG"
+    
+  button:
+    btnText: "Check out my projetcs"
+    URL: "#portfolio"
+
+# experience
+experience:
+  enable: true
+  title: "Experience"
+  description: "I have experience working in many different countries and cultures. I speak 5 languages fluently."
+  button:
+    icon: "icon-linkedin-fill"
+    btnText: "Linkedin"
+    URL: "https://www.linkedin.com/company/radity/"
+  button2:
+    icon: "icon-profile-fill"
+    btnText: "Download My Resume"
+    URL: "#"
+
+  items:
+    - title: "Sr. Researcher and Project Lead"
+      company: "Mindworks, Greenpeace East Asia"
+      duration: "Nov 2018 - Present"
+
+    - title: "Lecturer & PhD Candidate"
+      company: "Amsterdam Business School"
+      duration: "Sep 2013 - Apr 2018"
+
+    - title: "Co-Founder and Strategy Consultant"
+      company: "nēbetjā"
+      duration: "Dec 2014 - Present"
+      
+    - title: "Lecturer"
+      company: "Erasmus University Rotterdam"
+      duration: "Sep 2012 - Aug 2013"
+
+# education
+education:
+  enable: true
+  title: "Education"
+  items:
+    - degree: "Presencing Institute"
+      year: "2019"
+      university: "Theory U Foundation Programme"
+
+    - degree: "Coursera"
+      year: "2018"
+      university: "Advanced programming in R"
+      
+    - degree: "ECPR Winter School"
+      year: "2016"
+      university: "Advanced Topics in Configurational Research and QCA"
+      
+    - degree: "University of Latvia"
+      year: "2012"
+      university: "Intenstive Course in Urban Planning"
+            
+    - degree: "Erasmus University Rotterdam"
+      year: "2010 - 2012"
+      university: "MA in Cultural Economics & Entrepreneurship"
+            
+    - degree: "Latvian Academy of Culture"
+      year: "2006 - 2010"
+      university: "BA in Intercultural Communication"
+
+# Client & Work
+client_and_work:
+  title: "My Work"
+  enable: true
+  works:
+    - title: "Mindworks"
+      description: "A Cognitive Science Lab for Greenpeace East Asia. Our team is using insights from climate psychology, cognitive science, and other social science disciplines to protoype and test tools and solutions for climate campaiging that would move people towards accepting the climate crisis and engaging in action. We work in close collaboration and co-creation with many other NGOs, activists and scientists."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Website"
+        URL: "https://greenpeace.org"
+      image:
+        x: "img/works/mindworks_logo_blue.png"
+        _2x: "img/works/mindworks_logo_blue.png"
+      is_even: true
+      
+    - title: "Chatbots for campaigning and mindset change"
+      description: "As part of my work with Mindworks, I have designed and led the development of a Facebook-based chatbot, which aims to talk to people about their mobility experiences, try to find out what their needs are in order to become more sustainable, and use that information to improve our future campaigns through narrative analysis and sensemaking. This is still an early pilot, you can go and chat with it follwing the link."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Chat with our pilot bot"
+        URL: "https://messanger.me/greenpeace"
+      image:
+        x: "img/works/nebetja.png"
+        _2x: "img/works/nebetja.png"
+      is_even: false
+
+    - title: "Battle of the Souls"
+      description: "My PhD thesis (in progress) on managang conflicting goals aka paradoxes through business model design in creative service firms."   
+      button:
+        icon: "icon-arrow-right"
+        btnText: "My thesis draft online"
+        URL: "https://ievasieva.github.io/"
+      image:
+        x: "img/works/BOTSlogo.jpg"
+        _2x: "img/works/BOTSlogo.jpg"
+      is_even: true
+      
+    - title: "nēbetjā placemaking team"
+      description: "Placemaking & strategic deisgn consultancy, based in Cesis, Latvia, but working globally. We consult, research and educate about planning, design, and management for and by people, respecting nature and its needs and limits."      
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Website"
+        URL: "https://nebetja.eu"
+      image:
+        x: "img/works/nebetja.png"
+        _2x: "img/works/nebetja.png"
+      is_even: false
+      
+    - title: "Urban Connectors"
+      description: "A collective for democratic urban innovation, based in Amsterdam, The Netherlands. Experience in multi-stakeholder projects that are a bit too new to be put into the usual process frameworks."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Website"
+        URL: "https://urbanconnectors.nl"
+      image:
+        x: "img/works/nebetja.png"
+        _2x: "img/works/nebetja.png"
+      is_even: true
+
+# testimonial
+testimonial:
+  enable: false
+  title: "Testimonials"
+  items:
+    - name: "Daniel Jordan"
+      position: "Phonet, CEO"
+      content: "Cold calling can be a great way to generate quality leads. You get to speak to the gatekeepers and stakeholders, and you get a great insight into their requirements and influences. But cold calling is an art-form. It can be daunting, it’s always a lot of work, and you always need to make a good impression."
+      image:
+        x: "img/testimonials/daniel-jordan.jpg"
+        _2x: "img/testimonials/daniel-jordan@2x.jpg"
+
+    - name: "Jonathan Peters"
+      position: "Textic, CEO"
+      content: "Whether you or your loved one is encountering the natural decrease in mobility that occurs with the passing of time, or deals with an illness-related lack of physical agility, a stair lift can be the ideal way to put you in charge of your home again. Regardless of the shape or make of your living accommodation."
+      image:
+        x: "img/testimonials/jonathan-peters.jpg"
+        _2x: "img/testimonials/jonathan-peters@2x.jpg"
+
+    - name: "Antonio Willis"
+      position: "Cyberse, CEO"
+      content: "In this digital generation where information can be easily obtained within seconds, business cards still have retained their importance in the achievement of increased business exposure and business sales. If your business already has a bunch of printed cards distributed to a number of potential customers and yet."
+      image:
+        x: "img/testimonials/antonio-willis.jpg"
+        _2x: "img/testimonials/antonio-willis@2x.jpg"
+
+# contact
+contact:
+  enable: true
+  title: "Contact"
+  form:
+    action: "#"
+    full_name: "Full Name"
+    email: "Email Address"
+    message: "Type Your Message Here"
+  phone:
+    title: "Phone Number"
+    number: "+31 (0) 629620649"
+  email:
+    title: "Email"
+    email: '<a href="mailto:ie.rozentale@gmail.com">ie.rozentale@gmail.com</a>'
+  address:
+    title: "Address"
+    address: "Reatrdigrades Main office, Oud-West, Amsterdam, The Netherlands"
+  button:
+    icon: "icon-mail-fill"
+    btnText: "Send Message"
+
+# newsletter
+newsletter:
+  enable: false
+  title: "Newsletter subscription"
+  success_message: "Successfully subscribed"
+  error_message: "Error while subscribing."
+  note: "We'll never share your email with anyone else."

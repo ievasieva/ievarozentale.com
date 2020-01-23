@@ -1,263 +1,69 @@
-# Page settings
+baseURL = "https://ievarozentale.com/"
+languageCode = "en-us"
+theme = "raditian-free-hugo-theme"
 
-baseurl = "http://ievarozentale.com/"
-languageCode = "en-us"  
-title = "Ieva Rozentale CV"  
-theme = "hugo-orbit-theme"
-googleAnalytics = "UA-XXXXXXX-Y"
+# Plugins
+[params.plugins]
 
-# Do not build files for websites. Need them? Set to false
-disableRSS = true
-disableSitemap = true
-disable404 = true
+  # CSS Plugins
+  [[params.plugins.css]]
+  URL = "css/main.css"
+  [[params.plugins.css]]
+  URL = "css/rad-icons.css"
+  [[params.plugins.css]]
+  URL = "css/custom.css"
+
+  # JS Plugins
+  [[params.plugins.js]]
+  URL = "js/rad-animations.js"
+  [[params.plugins.js]]
+  URL = "js/sticky-header.js"
+  [[params.plugins.js]]
+  URL = "js/library/fontfaceobserver.js"
+
+
+# navigation
+[menu]
+
+  [[menu.header]]
+  name = "About"
+  URL = "#about"
+  weight = 2
+
+  [[menu.header]]
+  name = "My work"
+  URL = "#portfolio"
+  weight = 3
+
+  [[menu.header]]
+  name = "Contact"
+  URL = "#contact"
+  weight = 4
+
+
+  [[menu.footer]]
+  name = "About"
+  URL = "#about"
+  weight = 2
+
+  [[menu.footer]]
+  name = "My work"
+  URL = "#portfolio"
+  weight = 3
+
+  [[menu.footer]]
+  name = "Contact"
+  URL = "#contact"
+  weight = 4
+
 
 [params]
 
-# Meta
-    description = "Hugo Responsive Resume/CV Theme for Developers"
-    author = "Pavel Kanyshev"
+  googleTagManagerID = "GTM-000000" # Google Analytics works with Google Tag Manager
 
-# Theme styles
+  [params.logo]
+    text1 = "Retardigrades "
+    text2 = "Limited "
 
-    # The original template comes with 6 colour schemes. You may choose styles below.
-    # "styles.css", "styles-2.css", "styles-3.css", "styles-4.css", "styles-5.css", "styles-6.css"
-    # are available. Also the source LESS files are included so
-    # it’s quick and easy to change the styling and colour scheme.
-
-    styles = "styles-6.css"
-
-# Sidebar sections
-
-    # Profile section
-    [params.profile]
-        name = "Ieva Rozentale"
-        tagline = "Research-based innovation for climate crisis and other important problems"
-        avatar = "taipei.jpg"
-
-    # Contact section
-    [params.contact]
-        enable = true
-
-        [[params.contact.list]]
-        class = "email"
-        icon = "fa-envelope"
-        url = "mailto: ieva@nebetja.eu"
-        title = "ieva@nebetja.eu"
-
-        [[params.contact.list]]
-        class = "phone"
-        icon = "fa-phone"
-        url = "tel:+31629620649"
-        title = "+31 (0) 629620649"
-
-        [[params.contact.list]]
-        class = "website"
-        icon = "fa-globe"
-        url = "//nebetja.eu"
-        title = "nebetja | Placemaking & strategic design consultancy"
-       
-        [[params.contact.list]]
-        class = "website"
-        icon = "fa-globe"
-        url = "//http://www.greenpeace.org/eastasia/campaigns/MINDWORKS-Cognitive-science-research-unit/"
-        title = "Mindworks | Cognitive Science Lab for Greenpeace EA"
-
-        [[params.contact.list]]
-        class = "linkedin"
-        icon = "fa-linkedin"
-        url = "//https://www.linkedin.com/in/ieva-rozentale-83446739/"
-        title = "LinkedIn profile"
-
-        [[params.contact.list]]
-        class = "github"
-        icon = "fa-github"
-        url = "//github.com/ievasieva"
-        title = "My not-so-impressive github"
-
-        [[params.contact.list]]
-        class = "twitter"
-        icon = "fa-twitter"
-        url = "//twitter.com/iev_a"
-        title = "@iev_a"
-
-    # Education section
-    [params.education]
-        enable = true
-        title = "Education"
-
-        [[params.education.list]]
-        degree = "Theory U Foundation Programme"
-        college = "Presencing Institute"
-        dates = "2019"
-        
-        [[params.education.list]]
-        degree = "Advanced programming in R"
-        college = "Coursera"
-        dates = "2018"
-        
-        [[params.education.list]]
-        degree = "Advanced Topics in Configurational Research and QCA"
-        college = "ECPR Winter School"
-        dates = "2016"
-        
-        [[params.education.list]]
-        degree = "Intenstive Course in Urban Planning"
-        college = "University of Latvia"
-        dates = "2006 - 2012"
-        
-        [[params.education.list]]
-        degree = "MA in Cultural Economics & Entrepreneurship"
-        college = "Erasmus University Rotterdam"
-        dates = "2010 - 2012"
-        
-        [[params.education.list]]
-        degree = "BA in Intercultural Communication"
-        college = "Latvian Academy of Culture"
-        dates = "2006 - 2010"
-
-    # Languages section
-    [params.language]
-        enable = true
-        title = "Languages"
-        
-        [[params.language.list]]
-        language = "Latvian"
-        level = "Native"
-        
-        [[params.language.list]]
-        language = "English"
-        level = "Professional"
-        
-        [[params.language.list]]
-        language = "Dutch"
-        level = "Professional"
-
-        [[params.language.list]]
-        language = "French"
-        level = "Professional"
-
-        [[params.language.list]]
-        language = "Russian"
-        level = "Professional"
-        
-        [[params.language.list]]
-        language = "Spanish"
-        level = "Basic Conversational"
-
-    # Interests section
-    [params.interests]
-        enable = true
-        title = "Interests"
-
-        [[params.interests.list]]
-        interest = "Kitesurfing, snowboarding, surfing"
-
-        [[params.interests.list]]
-        interest = "Nature and outdoors"
-
-        [[params.interests.list]]
-        interest = "Self-sustaining"
-        
-        [[params.interests.list]]
-        interest = "Zen Buddhism"
-        
-        [[params.interests.list]]
-        interest = "Fun"
-
-# Main body sections
-
-    # You may use markdown in summary, details and intro fields. But don't overdose, it's resume!:)
-
-    # Summary section
-    [params.summary]
-        enable = true
-        icon = "fa-user"
-        title = "Career Profile"
-        summary = "Hi there!\n\nMy name is Ieva. I work on projects that try to create this world a better place using my knwoldege in reserach and data, management and decision-making, and design and innovation. \n\nMy current and prior experience can be best explained by these keywords: climate (crisis) psychology, environmental campaigning, strategic design, research and data analytics, chatbots, business models, paradox management, placemaking, creative industries, and urban development. \n\n Send me a message if you're interested to collaborate or simply want to chat about the work I do, or anything else."      
-    # Experiences section
-    [params.experiences]
-        enable = true
-        icon = "fa-briefcase"
-        title = "Experiences"
-
-        [[params.jobs.list]]
-        position = "Senior Researcher"
-        dates = "2018 - Present"
-        company = "Mindworks Greenpeace East Asia, Taipei"
-        details = "A cognitive science lab"   
-        
-        [[params.jobs.list]]
-        position = "Co-Founder and consultant"
-        dates = "2014 - Present"
-        company = "nebetja, Riga"  
-        
-        [[params.jobs.list]]
-        position = "Lecturer and PhD researcher"
-        dates = "2013 - 2018"
-        company = "University of Amsterdam"  
-        
-        [[params.jobs.list]]
-        position = "Lecturer"
-        dates = "2012 - 2013"
-        company = "Erasmus University Rotterdam"  
-        
-    # Projects section
-    [params.projects]
-        enable = true
-        icon = "fa-archive"
-        title = "Projects"
-        intro = "These are the projects and teams I am currently working with. Please do get in touch if you're interested to collaborate."   
-        
-        [[params.projects.list]]
-        title = "Mindworks"
-        url = "https://"
-        tagline = "A Cognitive Science Lab for Greenpeace East Asia. Our team is using insights from climate psychology, cognitive science, and other social science disciplines to protoype and test tools and solutions for climate campaiging that would move people towards accepting the climate crisis and engaging in action. We work in close collaboration and co-creation with many other NGOs, activists and scientists."    
-        
-        [[params.projects.list]]
-        title = "Urban Connectors"
-        url = "https://urbanconnectors.nl"
-        tagline = "A collective for democratic urban innovation, based in Amsterdam. Experience in multi-stakeholder projects that are a bit too new to be put into the usual process frameworks."   
-       
-        [[params.projects.list]]
-        title = "nebetja"
-        url = "https://nebetja.eu"
-        tagline = "Placemaking & strategic deisgn consultancy, based in Cesis, Latvia. We consult, research and educate about planning, design, and management for and by people, respecting nature and it's needs and limits."    
-
-        [[params.projects.list]]
-        title = "Battle of the Souls"
-        url = "https://github.com/ievasieva/"
-        tagline = "My PhD thesis (in progress) on managang conflicting goals aka paradoxes through business model design in creative service firms." 
-
-    # Skills section
-    [params.skills]
-        enable = true
-        icon = "fa-rocket"
-        title = "Skills & Proficiency"
-
-        [[params.skills.list]]
-        skill = "Coming up with unusual ideas combining weird disciplines"
-        level = "98%"
-
-        [[params.skills.list]]
-        skill = "Research"
-        level = "95%"
-        
-        [[params.skills.list]]
-        skill = "Strategic design"
-        level = "95%"
-
-        [[params.skills.list]]
-        skill = "R"
-        level = "65%"
-
-    # Footer section
-
-    # The original template is released under the Creative Commons Attribution 3.0 License.
-    # Please keep the original attribution link when using for your own project.
-    # If you'd like to use the template without the attribution,
-    # you can check out other license options via template author's website: themes.3rdwavemedia.com
-    # 
-    # As for Hugo port you may rewrite the "Ported for..." line with setting your name below.
-
-    [params.footer]
-        copyright = "Ieva Rozentale 2019"
+  [params.footer]
+      copyright = "© Retardigrades Ltd. All rights reserved."
