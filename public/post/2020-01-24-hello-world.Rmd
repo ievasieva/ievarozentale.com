@@ -1,0 +1,10 @@
+---
+title: Hello World!
+author: ~
+date: '2020-01-24'
+slug: firstpost
+categories: []
+tags: []
+---
+
+    this is my first post and i am excited where it goes 

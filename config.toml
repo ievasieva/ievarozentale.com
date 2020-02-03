@@ -62,8 +62,8 @@ theme = "raditian-free-hugo-theme"
   googleTagManagerID = "GTM-000000" # Google Analytics works with Google Tag Manager
 
   [params.logo]
-    text1 = "Retardigrades "
-    text2 = "Limited "
+    text1 = "Rozentale"
+    text2 = ""
 
   [params.footer]
-      copyright = "© Retardigrades Ltd. All rights reserved."
+      copyright = "© Rozentale B.V. All rights reserved."
