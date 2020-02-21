@@ -1,7 +1,7 @@
 # showcase
 showcase:
   enable: true
-  title: "Hello, I'm Ieva"
+  title: "Hi, I'm Ieva "
   subtitle: "I work on research- and design-driven innovation for climate crisis and social good."
   description: "I develop concepts and strategies, lead projects, and design research and monitoring processes, as well as learning experiences and workshops."
   image:
@@ -17,65 +17,73 @@ showcase:
 
   socialLinks:
     - icon: "linkedin"
-      URL: "https://www.linkedin.com/company/radity/"
+      URL: "https://www.linkedin.com/in/ieva-rozentale-83446739/"
 
     - icon: "twitter"
       URL: "https://twitter.com/iev_a"
+      
+    - icon: "twitter"
+      URL: "https://twitter.com/nebetja"
 
     - icon: "instagram"
       URL: "https://www.instagram.com/iev_a/"
-    
-    - icon: "github"
-      URL: "https://github.com/ievasieva"
+      
+    - icon: "instagram"
+      URL: "https://www.instagram.com/nebetja/"
 
 # about
 about:
   enable: true
-  title: "What do I do?"
+  title: "What can I do?"
   content: '<p class="lead">
-    I mostly work on projects that innovate for making this world a better place. 
-    I have worked in diverse fields, so my strength is creating solutions and concepts 
-    that are rooted in unusual combinations of ideas.
+    My passion lies in initiatives that innovate for making this world a better place. 
+    I currently work mainly with projects that deal with climate crisis - either <b>finding 
+    scalable solutions to increase climate awareness and action, or developing resilience 
+    and adaptation capacities of (urban) communities.</b>  
     </p>
     <p class="lead">
+    I have worked in diverse fields, so my strength is creating solutions and concepts 
+    that are rooted in unusual combinations of ideas.
     My current and prior experience can be best explained by these keywords: 
     climate (crisis) psychology, environmental campaigning, strategic design and design
     thinking, research and data analytics, chatbots, business models, paradox management,
     placemaking, creative industries, and urban development.
     </p>
     <p class="lead">
-   I am looking for interesting projects to join during some of my unusued freelancee hours. 
-   Currently, I am particularly interested in working on projects 
-   that deal with communities and resilience, and scalable solutions in the context of 
-   climate change. 
+   At the moment, I am looking for interesting projects to join during some of my unused freelancee hours. We are
+   also always looking for partner organizations, funders, and/or freelancers to join our work at Mindworks (see below).
     </p>
     <p class="lead">
    Send me a message if you are interested to collaborate or simply want to chat about the work
    I do, or anything else. And please check out the pages of the organizations and collectives 
-   I am part of (see below).
+   I am part of.
     </p>'
 #icould insert a button here based on the button template that is after the intro module
   image:
-    x: "img/who-am-i/ieva.JPG"
-    _2x: "img/who-am-i/ieva.JPG"
+    x: "img/who-am-i/taiwanvibes.jpg"
+    _2x: "img/who-am-i/taiwanvibes.jpg"
     
   button:
-    btnText: "Check out my projetcs"
+    btnText: "My work"
     URL: "#portfolio"
 
 # experience
 experience:
   enable: true
   title: "Experience"
-  description: "I have experience working in many different countries and cultures. I speak 5 languages fluently."
+  description: "You can find more detailed information about my experience and education on LinkedIn or by looking at my 'idea and research portfolio'."
   button:
     icon: "icon-linkedin-fill"
     btnText: "Linkedin"
-    URL: "https://www.linkedin.com/company/radity/"
+    URL: "https://www.linkedin.com/in/ieva-rozentale-83446739/"
   button2:
     icon: "icon-profile-fill"
-    btnText: "Download My Resume"
+    btnText: "Check out my publications and speeches"
     URL: "#"
+  button3:
+    icon: "icon-instagram-fill"
+    btnText: "Check out my publications and speeches"
+    URL: "https://ievasieva.github.io/"
 
   items:
     - title: "Sr. Researcher and Project Lead"
@@ -133,7 +141,7 @@ client_and_work:
       button:
         icon: "icon-arrow-right"
         btnText: "Website"
-        URL: "https://greenpeace.org"
+        URL: "https://www.greenpeace.org/eastasia/tag/mindworks/"
       image:
         x: "img/works/mindworks_logo_blue.png"
         _2x: "img/works/mindworks_logo_blue.png"
@@ -146,8 +154,8 @@ client_and_work:
         btnText: "Chat with our pilot bot"
         URL: "https://messanger.me/greenpeace"
       image:
-        x: "img/works/nebetja.png"
-        _2x: "img/works/nebetja.png"
+        x: "img/works/greenpeace.jpg"
+        _2x: "img/works/greenpeace.jpg"
       is_even: false
 
     - title: "Battle of the Souls"
@@ -179,8 +187,8 @@ client_and_work:
         btnText: "Website"
         URL: "https://urbanconnectors.nl"
       image:
-        x: "img/works/nebetja.png"
-        _2x: "img/works/nebetja.png"
+        x: "img/works/urbcon.png"
+        _2x: "img/works/urbcon.png"
       is_even: true
 
 # testimonial
@@ -226,7 +234,7 @@ contact:
     email: '<a href="mailto:ie.rozentale@gmail.com">ie.rozentale@gmail.com</a>'
   address:
     title: "Address"
-    address: "Reatrdigrades Main office, Oud-West, Amsterdam, The Netherlands"
+    address: "Oud-West, Amsterdam, The Netherlands"
   button:
     icon: "icon-mail-fill"
     btnText: "Send Message"

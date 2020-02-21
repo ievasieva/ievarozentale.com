@@ -62,8 +62,8 @@ theme = "raditian-free-hugo-theme"
   googleTagManagerID = "GTM-000000" # Google Analytics works with Google Tag Manager
 
   [params.logo]
-    text1 = "Rozentale"
-    text2 = ""
+    text1 = "   "
+    text2 = "Ieva Rozentale"
 
   [params.footer]
-      copyright = "© Rozentale B.V. All rights reserved."
+      copyright = "© Rozentale Consulting. The website was made using the Hugo Raditian theme by Radity."
