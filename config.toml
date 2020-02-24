@@ -40,7 +40,6 @@ theme = "raditian-free-hugo-theme"
   URL = "#contact"
   weight = 4
 
-
   [[menu.footer]]
   name = "About"
   URL = "#about"
@@ -59,7 +58,7 @@ theme = "raditian-free-hugo-theme"
 
 [params]
 
-  googleTagManagerID = "GTM-000000" # Google Analytics works with Google Tag Manager
+  googleTagManagerID = "UA-158986847-1" # Google Analytics works with Google Tag Manager
 
   [params.logo]
     text1 = "   "
@@ -67,3 +66,7 @@ theme = "raditian-free-hugo-theme"
 
   [params.footer]
       copyright = "© Rozentale Consulting. The website was made using the Hugo Raditian theme by Radity."
+              [params.footer.radity_logo]
+        x = "img/general/design-and-code-radity.png"
+        _2x = "img/general/design-and-code-radity@2x.png"
+        alt = "Design & Code - Radity"

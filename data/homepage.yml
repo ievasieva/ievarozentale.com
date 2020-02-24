@@ -3,7 +3,7 @@ showcase:
   enable: true
   title: "Hi, I'm Ieva "
   subtitle: "I work on research- and design-driven innovation for climate crisis and social good."
-  description: "I develop concepts and strategies, lead projects, and design research and monitoring processes, as well as learning experiences and workshops."
+  description: "I develop concepts and strategies, lead projects, and design research and monitoring processes, as well as learning experiences and workshops. I am currently based in Amsterdam."
   image:
     x: "img/famara.jpg"
     _2x: "img/famara.jpg"
@@ -30,6 +30,12 @@ showcase:
       
     - icon: "instagram"
       URL: "https://www.instagram.com/nebetja/"
+    
+    - icon: "facebook"
+      URL: "https://www.nebetja.eu"
+      
+    - icon: "facebook"
+      URL: "https://www.urbanconnectors.nl"
 
 # about
 about:
@@ -37,26 +43,27 @@ about:
   title: "What can I do?"
   content: '<p class="lead">
     My passion lies in initiatives that innovate for making this world a better place. 
-    I currently work mainly with projects that deal with climate crisis - either <b>finding 
-    scalable solutions to increase climate awareness and action, or developing resilience 
+    I currently work mainly with projects that deal with the climate crisis - either <b>finding 
+    scalable, often cross-disciplinary solutions to increase climate awareness and action, or developing resilience 
     and adaptation capacities of (urban) communities.</b>  
     </p>
     <p class="lead">
     I have worked in diverse fields, so my strength is creating solutions and concepts 
     that are rooted in unusual combinations of ideas.
-    My current and prior experience can be best explained by these keywords: 
-    climate (crisis) psychology, environmental campaigning, strategic design and design
-    thinking, research and data analytics, chatbots, business models, paradox management,
-    placemaking, creative industries, and urban development.
+    My current and prior research and cosultancy experience can be best explained by these keywords: 
+    ecopsychology, environmental campaigning, strategic design and design
+    thinking, research and data science, chatbots, business models, paradox management,
+    placemaking, creative industries, and urban economics.
     </p>
     <p class="lead">
-   At the moment, I am looking for interesting projects to join during some of my unused freelancee hours. We are
-   also always looking for partner organizations, funders, and/or freelancers to join our work at Mindworks (see below).
+   At the moment, I am looking for interesting projects to join during some of my unused freelancee hours, individually, as 
+   well as sharing the expertise of the two collectives I am part of - <a target="_blank" href="https://urbanconnectors.nl/">Urban Connectors</a> and <a target="_blank" href="https://www.nebetja.eu/">nēbetjā</a>. 
+   If you are interested in the topic of ecopsychology and climate crisis campaigning, we are 
+   always looking for partner organizations, funders, and/or freelancers to join our work at <a target="_blank" href="https://www.greenpeace.org/eastasia/tag/mindworks/">Mindworks</a>.
     </p>
     <p class="lead">
-   Send me a message if you are interested to collaborate or simply want to chat about the work
-   I do, or anything else. And please check out the pages of the organizations and collectives 
-   I am part of.
+   Do not hesitate to <a target="_blank" href="mailto:ie.rozentale@gmail.com">contact me</a> if you are interested to collaborate or simply want to chat about the work
+   we do, or anything else. 
     </p>'
 #icould insert a button here based on the button template that is after the intro module
   image:
@@ -71,19 +78,11 @@ about:
 experience:
   enable: true
   title: "Experience"
-  description: "You can find more detailed information about my experience and education on LinkedIn or by looking at my 'idea and research portfolio'."
+  description: "If you're interested in more detailed experience and education, we can always connect on LinkedIn. Some of the main project descriptions you can find below."
   button:
     icon: "icon-linkedin-fill"
     btnText: "Linkedin"
     URL: "https://www.linkedin.com/in/ieva-rozentale-83446739/"
-  button2:
-    icon: "icon-profile-fill"
-    btnText: "Check out my publications and speeches"
-    URL: "#"
-  button3:
-    icon: "icon-instagram-fill"
-    btnText: "Check out my publications and speeches"
-    URL: "https://ievasieva.github.io/"
 
   items:
     - title: "Sr. Researcher and Project Lead"
@@ -127,7 +126,7 @@ education:
       year: "2010 - 2012"
       university: "MA in Cultural Economics & Entrepreneurship"
             
-    - degree: "Latvian Academy of Culture"
+    - degree: "Major in French, Latvian Academy of Culture"
       year: "2006 - 2010"
       university: "BA in Intercultural Communication"
 
@@ -190,6 +189,17 @@ client_and_work:
         x: "img/works/urbcon.png"
         _2x: "img/works/urbcon.png"
       is_even: true
+      
+    - title: "Publications and public speaking "
+      description: "An overview of articles, workshops, lecture series, speeches, breakout sessions that I've done over the years."
+      button:
+        icon: "icon-arrow-left."
+        btnText: "Website"
+        URL: "https://ievasieva.github.io/website-links"
+      image:
+        x: "img/works/placemakingweek.jpg"
+        _2x: "img/works/placemakingweek.jpg"
+      is_even: false
 
 # testimonial
 testimonial:
