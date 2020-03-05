@@ -59,7 +59,7 @@ about:
    At the moment, I am looking for interesting projects to join during some of my unused freelancee hours, individually, as 
    well as sharing the expertise of the two collectives I am part of - <a target="_blank" href="https://urbanconnectors.nl/">Urban Connectors</a> and <a target="_blank" href="https://www.nebetja.eu/">nēbetjā</a>. 
    If you are interested in the topic of ecopsychology and climate crisis campaigning, we are 
-   always looking for partner organizations, funders, and/or freelancers to join our work at <a target="_blank" href="https://www.greenpeace.org/eastasia/tag/mindworks/">Mindworks</a>.
+   always looking for partner organizations, funders, and/or freelancers to share our work at <a target="_blank" href="https://www.greenpeace.org/eastasia/tag/mindworks/">Mindworks</a>.
     </p>
     <p class="lead">
    Do not hesitate to <a target="_blank" href="mailto:ie.rozentale@gmail.com">contact me</a> if you are interested to collaborate or simply want to chat about the work
@@ -72,13 +72,13 @@ about:
     
   button:
     btnText: "My work"
-    URL: "#portfolio"
+    URL: "https://www.ievarozentale.com/#portfolio"
 
 # experience
 experience:
   enable: true
   title: "Experience"
-  description: "If you're interested in more detailed experience and education, we can always connect on LinkedIn. Some of the main project descriptions you can find below."
+  description: "If you would like to know more (juicy) details, I am always happy to connect on LinkedIn. Below, I've made a small selection of some interesting projects I've been working on, as well as a link to a list of selected talks and publications."
   button:
     icon: "icon-linkedin-fill"
     btnText: "Linkedin"
@@ -136,7 +136,7 @@ client_and_work:
   enable: true
   works:
     - title: "Mindworks"
-      description: "A Cognitive Science Lab for Greenpeace East Asia. Our team is using insights from climate psychology, cognitive science, and other social science disciplines to protoype and test tools and solutions for climate campaiging that would move people towards accepting the climate crisis and engaging in action. We work in close collaboration and co-creation with many other NGOs, activists and scientists."
+      description: "is a Cognitive Science Lab for Greenpeace East Asia. Our team is using insights from climate psychology, cognitive science, and other social science disciplines to protoype and test tools and solutions for climate campaiging that would move people towards accepting the climate crisis and engaging in action. We work in close collaboration and co-creation with many other NGOs, activists and scientists. We also design and facilitate workshops for capacity building in climate change communication and campaigning."
       button:
         icon: "icon-arrow-right"
         btnText: "Website"
@@ -147,18 +147,18 @@ client_and_work:
       is_even: true
       
     - title: "Chatbots for campaigning and mindset change"
-      description: "As part of my work with Mindworks, I have designed and led the development of a Facebook-based chatbot, which aims to talk to people about their mobility experiences, try to find out what their needs are in order to become more sustainable, and use that information to improve our future campaigns through narrative analysis and sensemaking. This is still an early pilot, you can go and chat with it follwing the link."
+      description: "As part of my work with Mindworks, I have designed and lead the development of a Facebook-based chatbot, which aims to talk to people about their mobility experiences, trying to find out what their needs are in order to become more sustainable, and use that information to improve our future campaigns through narrative analysis and sensemaking. This is still an early pilot, you can go and chat with it follwing the link. We are currently woring on exploring further the usefulness of chatbots for environmental campaigns, so I would love to connect if you happen to be interested in / experienced with the tool."
       button:
         icon: "icon-arrow-right"
-        btnText: "Chat with our pilot bot"
-        URL: "https://messanger.me/greenpeace"
+        btnText: "Chat with Robin, our little mobility bot"
+        URL: "https://m.me/greenpeace.international"
       image:
-        x: "img/works/greenpeace.jpg"
-        _2x: "img/works/greenpeace.jpg"
+        x: "img/works/greenpeaceblack.png"
+        _2x: "img/works/greenpeaceblack.png"
       is_even: false
 
     - title: "Battle of the Souls"
-      description: "My PhD thesis (in progress) on managang conflicting goals aka paradoxes through business model design in creative service firms."   
+      description: "is the larger research project that my PhD research has been part of. My thesis describes how leaders can simultaneously manage conflicting goals (i.e. strategic paradoxes, such as creativity vs money) through business model design in creative service firms. The manuscript is still very much a work in progress (#phdlife)  but still might be interesting. If you want to reference it, please do ask how to."   
       button:
         icon: "icon-arrow-right"
         btnText: "My thesis draft online"
@@ -169,7 +169,7 @@ client_and_work:
       is_even: true
       
     - title: "nēbetjā placemaking team"
-      description: "Placemaking & strategic deisgn consultancy, based in Cesis, Latvia, but working globally. We consult, research and educate about planning, design, and management for and by people, respecting nature and its needs and limits."      
+      description: "Latvian for no-but-yes, nēbetjā is a placemaking & strategic design consultancy originated in Latvia, but working globally. We consult, create concepts, research, and educate about (urban) planning, place design, and the management of specific local-economies for and by people, respecting the nature and its needs and limits."      
       button:
         icon: "icon-arrow-right"
         btnText: "Website"
@@ -180,7 +180,7 @@ client_and_work:
       is_even: false
       
     - title: "Urban Connectors"
-      description: "A collective for democratic urban innovation, based in Amsterdam, The Netherlands. Experience in multi-stakeholder projects that are a bit too new to be put into the usual process frameworks."
+      description: "A collective for democratic urban innovation, based in Amsterdam, The Netherlands. We have experience in multi-stakeholder projects that are a bit too new (and ambitious in the good way) to be put into the usual process frameworks."
       button:
         icon: "icon-arrow-right"
         btnText: "Website"
@@ -190,8 +190,8 @@ client_and_work:
         _2x: "img/works/urbcon.png"
       is_even: true
       
-    - title: "Publications and public speaking "
-      description: "An overview of articles, workshops, lecture series, speeches, breakout sessions that I've done over the years."
+    - title: "Publications and talks "
+      description: "Here, I've put together an overview of articles, workshops, lecture series, speeches, breakout sessions etc. I've done over the past years."
       button:
         icon: "icon-arrow-left."
         btnText: "Website"
@@ -230,9 +230,9 @@ testimonial:
 # contact
 contact:
   enable: true
-  title: "Contact"
+  title: "Drop me a line (:"
   form:
-    action: "#"
+    action: "mailto:ie.rozentale@gmail.com"
     full_name: "Full Name"
     email: "Email Address"
     message: "Type Your Message Here"
