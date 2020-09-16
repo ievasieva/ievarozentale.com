@@ -3,7 +3,7 @@ showcase:
   enable: true
   title: "Hi, I'm Ieva "
   subtitle: "I work on research- and design-driven innovation for climate crisis and social good."
-  description: "I develop concepts and strategies, lead projects, and design research and monitoring processes, as well as learning experiences and workshops. I am currently based in Amsterdam."
+  description: "I develop concepts, prototypes and strategies, co-lead projects, and design research and monitoring processes, as well as learning experiences and workshops. I am currently based in Amsterdam."
   image:
     x: "img/famara.jpg"
     _2x: "img/famara.jpg"
@@ -21,20 +21,20 @@ showcase:
 
     - icon: "twitter"
       URL: "https://twitter.com/iev_a"
-      
-    - icon: "twitter"
-      URL: "https://twitter.com/nebetja"
-
+    
     - icon: "instagram"
       URL: "https://www.instagram.com/iev_a/"
+    
+    - icon: "twitter"
+      URL: "https://twitter.com/nebetja"
       
     - icon: "instagram"
       URL: "https://www.instagram.com/nebetja/"
     
-    - icon: "facebook"
-      URL: "https://www.nebetja.eu"
+    - icon: "codepen" 
+      URL: "https://www.nebetja.eu" 
       
-    - icon: "facebook"
+    - icon: "dribbble" 
       URL: "https://www.urbanconnectors.nl"
 
 # about
@@ -52,14 +52,15 @@ about:
     that are rooted in unusual combinations of ideas.
     My current and prior research and cosultancy experience can be best explained by these keywords: 
     ecopsychology, environmental campaigning, strategic design and design
-    thinking, research and data science, chatbots, business models, paradox management,
+    thinking, research and data science (I am a dedicated R fan <3), chatbots, business models, paradox management,
     placemaking, creative industries, and urban economics.
     </p>
     <p class="lead">
-   At the moment, I am looking for interesting projects to join during some of my unused freelancee hours, individually, as 
-   well as sharing the expertise of the two collectives I am part of - <a target="_blank" href="https://urbanconnectors.nl/">Urban Connectors</a> and <a target="_blank" href="https://www.nebetja.eu/">nēbetjā</a>. 
-   If you are interested in the topic of ecopsychology and climate crisis campaigning, we are 
-   always looking for partner organizations, funders, and/or freelancers to share our work at <a target="_blank" href="https://www.greenpeace.org/eastasia/tag/mindworks/">Mindworks</a>.
+   At the moment, I am spending most of my time working as a senior researcher and project lead at <a target="_blank" href="https://www.mindworkslab.org/">Mindworks</a> - 
+   a cognitive science lab for Greenpeace EA. We work at the instersection of climate action, psychology and campaigning, and we are 
+   frequently looking for partner organizations, funders, and/or freelancers to share our work with.  
+   I am also always happpy to consider any interesting projects to join during some of my unused freelancee hours, individually, as 
+   well as sharing the expertise of the two collectives I am part of - <a target="_blank" href="https://urbanconnectors.nl/">Urban Connectors</a> (democratic urban transitions and innovation) and <a target="_blank" href="https://www.nebetja.eu/">nēbetjā</a> (placemaking, redirective practices, nomadic universities).
     </p>
     <p class="lead">
    Do not hesitate to <a target="_blank" href="mailto:ie.rozentale@gmail.com">contact me</a> if you are interested to collaborate or simply want to chat about the work
@@ -140,7 +141,7 @@ client_and_work:
       button:
         icon: "icon-arrow-right"
         btnText: "Website"
-        URL: "https://www.greenpeace.org/eastasia/tag/mindworks/"
+        URL: "https://www.mindworkslab.org"
       image:
         x: "img/works/mindworks_logo_blue.png"
         _2x: "img/works/mindworks_logo_blue.png"
@@ -191,11 +192,11 @@ client_and_work:
       is_even: true
       
     - title: "Publications and talks "
-      description: "Here, I've put together an overview of articles, workshops, lecture series, speeches, breakout sessions etc. I've done over the past years."
+      description: "Here, I've put together an quick list of articles, workshops, lecture series, speeches, breakout sessions etc. which I've done over the past years, or I have found inspiring by friends and colleagues."
       button:
         icon: "icon-arrow-left."
         btnText: "Website"
-        URL: "https://ievasieva.github.io/website-links"
+        URL: "https://ievasieva.github.io/talks-and-scribbles"
       image:
         x: "img/works/placemakingweek.jpg"
         _2x: "img/works/placemakingweek.jpg"
