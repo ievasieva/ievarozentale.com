@@ -2,13 +2,13 @@
 showcase:
   enable: true
   title: "Hi, I'm Ieva "
-  subtitle: "I work on research- and design-driven innovation for climate crisis and social good."
-  description: "I develop concepts, prototypes and strategies, co-lead projects, and design research and monitoring processes, as well as learning experiences and workshops. I am currently employed by Greenpeace EA and  based in Amsterdam."
+  subtitle: "I am a social scientist working on systemic change and innovation for climate crisis and social good."
+  description: "I develop concepts, prototypes and strategies, co-lead projects, and design research and monitoring processes, as well as learning experiences and workshops."
   image:
-    x: "img/famara.jpg"
-    _2x: "img/famara.jpg"
+    x:  "img/famara.JPG"
+    _2x:  "img/famara.JPG"
   imageMobile:
-    x: "img/famara.jpg"
+    x: "img/famara.JPG"
 
   button:
     icon: "icon-mail-fill"
@@ -21,44 +21,41 @@ showcase:
 
     - icon: "twitter"
       URL: "https://twitter.com/iev_a"
+      
+    - icon: "twitter"
+      URL: "https://twitter.com/mindworkslab"
     
     - icon: "instagram"
       URL: "https://www.instagram.com/iev_a/"
-    
-    - icon: "twitter"
-      URL: "https://twitter.com/nebetja"
       
     - icon: "instagram"
       URL: "https://www.instagram.com/nebetja/"
-    
-    - icon: "codepen" 
-      URL: "https://www.nebetja.eu" 
-      
-    - icon: "dribbble" 
-      URL: "https://www.urbanconnectors.nl"
+
 
 # about
 about:
   enable: true
   title: "What can I do?"
   content: '<p class="lead">
-    My passion lies in initiatives that innovate for making this world a better place. 
+    My passion lies in initiatives that make this world a better place (as cheesy as it sounds), and do so through a lense of compassion and inclusive observation.
     I am presently focusing on projects that somehow deal with the climate crisis - either <b>finding 
-    scalable, often cross-disciplinary solutions to increase climate awareness and action, or developing resilience 
+    scalable, often cross-disciplinary communication-based solutions to increase climate awareness and action, or developing resilience 
     and adaptation capacities of (urban) communities.</b>  
     </p>
     <p class="lead">
    At the moment, I am spending most of my time working as a senior researcher and project lead at <a target="_blank" href="https://www.mindworkslab.org/">Mindworks</a> - 
    a cognitive science lab for Greenpeace EA. We work at the instersection of climate action, psychology and campaigning, and we are 
    frequently looking for partner organizations, funders, and/or freelancers to share our work with.  
-   I am also always happpy to consider any interesting projects to join during some of my unused freelancee hours, individually, as 
-   well as sharing the expertise of the two collectives I am part of - <a target="_blank" href="https://urbanconnectors.nl/">Urban Connectors</a> (democratic urban transitions and innovation) and <a target="_blank" href="https://www.nebetja.eu/">nēbetjā</a> (placemaking, redirective practices, nomadic universities).
+      </p>
+   <p class="lead">
+   I am always happpy to consider any interesting projects to join during some of my unused freelancee hours - individually or 
+   sharing the expertise of the two collectives I am part of - <a target="_blank" href="https://urbanconnectors.nl/">Urban Connectors</a> (democratic urban transitions, community building, stakeholder management) and <a target="_blank" href="https://www.nebetja.eu/">nēbetjā</a> (placemaking, redirective practices, nomadic universities).
     </p>
     <p class="lead">
-    I have worked in diverse fields, so my strength is creating solutions and concepts 
+    I have worked in and thought about diverse fields, so my strength is creating solutions and concepts 
     that are rooted in unusual combinations of ideas.
-    My research and cosultancy experience can be best explained as a mix of these keywords: 
-    ecopsychology, environmental campaigning, strategic design and design
+    My research and cosultancy experience can be explained as a mix of these keywords: 
+    social psychology, environmental campaigning, strategic design and design
     thinking, research and data science (I am a dedicated R fan <3), chatbots, business models, paradox management,
     placemaking, creative industries, urban economics, and pedagogy.
     </p>
@@ -89,23 +86,39 @@ experience:
       company: "Mindworks, Greenpeace East Asia"
       duration: "Nov 2018 - Present"
 
+    - title: "Co-Founder and Consultant"
+      company: "nēbetjā | nobutyes"
+      duration: "Dec 2014 - Present"
+
     - title: "Lecturer & PhD Candidate"
       company: "Amsterdam Business School"
       duration: "Sep 2013 - Apr 2018"
-
-    - title: "Co-Founder and Strategy Consultant"
-      company: "nēbetjā"
-      duration: "Dec 2014 - Present"
       
     - title: "Lecturer"
       company: "Erasmus University Rotterdam"
       duration: "Sep 2012 - Aug 2013"
+      
+    - title: "Teacher and educator"
+      company: "Various schools and events"
+      duration: "Sep 2008 - Aug 2010"
 
 # education
 education:
   enable: true
   title: "Education"
   items:
+    - degree: "DataCamp.com"
+      year: "2020-2021"
+      university: "Data Scientist with R (in progress)"
+      
+    - degree: "with a certified team coach"
+      year: "2020-2021"
+      university: "Agile Project Management & SCRUM"
+
+    - degree: "International Kiteboarding Organization"
+      year: "2020"
+      university: "Assistant Instructor Kiteboarding"
+
     - degree: "Presencing Institute"
       year: "2019"
       university: "Theory U Foundation Programme"
@@ -135,27 +148,60 @@ client_and_work:
   title: "My Work"
   enable: true
   works:
-    - title: "Mindworks"
-      description: "is a Cognitive Science Lab for Greenpeace East Asia. Our team is using insights from climate psychology, cognitive science, and other social science disciplines to protoype and test tools and solutions for climate campaiging that would move people towards accepting the climate crisis and engaging in action. We work in close collaboration and co-creation with many other NGOs, activists and scientists. We also design and facilitate workshops for capacity building in climate change communication and campaigning."
+    - title: "Mindworks Lab"
+      description: "is a cognitive and social science unit for Greenpeace East Asia. Our team is using insights from social and cognitive sciences to protoype and test tools and solutions for climate campaiging that would move people towards action and away from denial and other defense mechanisms and narratives. We hope to create impact on mindsets that are needed for averting the climate crisis and creating a more just, equal and thriving planet. We work in close collaboration and co-creation with many other NGOs, activists and scientists. We are inspired by research of others, and do our own research. We also design and facilitate workshops for capacity building in climate change communication and campaigning."
       button:
         icon: "icon-arrow-right"
         btnText: "Website"
         URL: "https://www.mindworkslab.org"
       image:
-        x: "img/works/mindworks_logo_blue.png"
-        _2x: "img/works/mindworks_logo_blue.png"
+        x: "img/cover-mw.png"
+        _2x: "img/cover-mw.png"
       is_even: true
       
-    - title: "Chatbots for campaigning and mindset change"
-      description: "As part of my work with Mindworks, I have designed and lead the development of a Facebook-based chatbot, which aims to talk to people about their mobility experiences, trying to find out what their needs are in order to become more sustainable, and use that information to improve our future campaigns through narrative analysis and sensemaking. This is still an early pilot, you can go and chat with it follwing the link. We are currently woring on exploring further the usefulness of chatbots for environmental campaigns, so I would love to connect if you happen to be interested in / experienced with the tool."
+    - title: "The Disrupted Mind"
+      description: "The most recent series of insights and tools we have created with the Mindworks Lab. As reaction to the looming climate collapse and 'inspired' by the pandemic, we realize that the crisis state will most likely be the 'new normal'. What do we know about how humans work in crises? How can that knowledge help changemakers to accelerate the creation of positive societal mindset shifts? What tools and examples can help communicators, innovators, system changers?"
+      button:
+        icon: "icon-smile-fill"
+        btnText: "Explore!"
+        URL: "https://mindworkslab.org/the-disrupted-mind"
+      image:
+        x: "img/cover-dm.jpg"
+        _2x: "img/cover-dm.jpg"
+      is_even: false
+
+    - title: "Cēsis Pluriversity"
+      description: "A glocal life long learning project aiming to re-practice (while re-thinking) what learning is and what knowledge we need in the world that is unfolding. Pluriversityis an ever-expanding community of like-minded humans. We organize an annual summer school in Rucka, Cēsis (LV), online and offline events in between, catalyze change projects and converse."
       button:
         icon: "icon-arrow-right"
-        btnText: "Chat with Robin, our little mobility bot"
-        URL: "https://m.me/greenpeace.international"
+        btnText: "Connect"
+        URL: "https://www.instagram.com/cesis.pluriversity/"
       image:
-        x: "img/works/greenpeaceblack.png"
-        _2x: "img/works/greenpeaceblack.png"
+        x: "img/pluri-rucka.png"
+        _2x: "img/pluri-rucka.png"
+      is_even: true
+
+    - title: "Publications and talks "
+      description: "Here, I've put together an quick list of articles, workshops, lecture series, speeches, breakout sessions etc. which I've done over the past years, or I have found inspiring by friends and colleagues."
+      button:
+        icon: "icon-arrow-left."
+        btnText: "More links here"
+        URL: "https://ievasieva.github.io/talks-and-scribbles"
+      image:
+        x: "img/works/placemakingweek.jpg"
+        _2x: "img/works/placemakingweek.jpg"
       is_even: false
+      
+    - title: "Research design and management"
+      description: "A significant amount of my work has involved designing, executing, managing, evaluating, and thinking about research. I have experience in making complex phenomena observable through research. I have experience with mixed methods and like to learn about and apply methodic innovation (e.f. configurational research methods). I am an aspiring self-taught #rstats nerd."      
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Explore"
+        URL: "https://ievasieva.github.io/talks-and-scribbles"
+      image:
+        x: "img/research.png"
+        _2x: "img/research.png"
+      is_even: true
 
     - title: "Battle of the Souls"
       description: "is the larger research project that my PhD research has been part of. My thesis describes how leaders can simultaneously manage conflicting goals (i.e. strategic paradoxes, such as creativity vs money) through business model design in creative service firms. The manuscript is still very much a work in progress (#phdlife)  but still might be interesting. If you want to reference it, please do ask how to."   
@@ -166,6 +212,18 @@ client_and_work:
       image:
         x: "img/works/BOTSlogo.jpg"
         _2x: "img/works/BOTSlogo.jpg"
+      is_even: false
+      
+      
+    - title: "Chatbots for campaigning and mindset change"
+      description: "As part of my work with Mindworks, I have designed and lead the development of a Facebook-based chatbot, which aims to talk to people about their mobility experiences, trying to find out what their needs are in order to become more sustainable, and use that information to improve our future campaigns through narrative analysis and sensemaking. This is still an early pilot, you can go and chat with it follwing the link. We are currently woring on exploring further the usefulness of chatbots for environmental campaigns, so I would love to connect if you happen to be interested in / experienced with the tool."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Chat with Robin, our little mobility bot"
+        URL: "https://m.me/greenpeace.international"
+      image:
+        x: "img/chatbot.PNG"
+        _2x: "img/chatbot.PNG"
       is_even: true
       
     - title: "nēbetjā placemaking team"
@@ -189,17 +247,6 @@ client_and_work:
         x: "img/works/urbcon.png"
         _2x: "img/works/urbcon.png"
       is_even: true
-      
-    - title: "Publications and talks "
-      description: "Here, I've put together an quick list of articles, workshops, lecture series, speeches, breakout sessions etc. which I've done over the past years, or I have found inspiring by friends and colleagues."
-      button:
-        icon: "icon-arrow-left."
-        btnText: "Website"
-        URL: "https://ievasieva.github.io/talks-and-scribbles"
-      image:
-        x: "img/works/placemakingweek.jpg"
-        _2x: "img/works/placemakingweek.jpg"
-      is_even: false
 
 # testimonial
 testimonial:

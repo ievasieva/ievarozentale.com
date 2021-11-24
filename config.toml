@@ -3,6 +3,8 @@ baseURL = "https://ievarozentale.com/"
 languageCode = "en-us"
 theme = "raditian-free-hugo-theme"
 
+#### If images are not working, copy the img folder from public/static to theme image folder
+
 # Plugins
 [params.plugins]
 
@@ -59,7 +61,7 @@ theme = "raditian-free-hugo-theme"
 
 [params]
 
-  #googleTagManagerID = "UA-158986847-1" # Google Analytics works with Google Tag Manager
+  googleTagManagerID = "UA-158986847-1" # Google Analytics works with Google Tag Manager
 
   [params.logo]
     text1 = "   "
