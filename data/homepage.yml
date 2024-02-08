@@ -148,8 +148,8 @@ client_and_work:
         btnText: "Website"
         URL: "https://www.thinkchangeresolve.com"
       image:
-        x: "img/cover-tcr.png"
-        _2x: "img/cover-tcr.png"
+        x: "img/cover-mw.png"
+        _2x: "img/cover-mw.png"
       is_even: false
       
     - title: "Mindworks Lab"
