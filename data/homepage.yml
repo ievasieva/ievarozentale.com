@@ -3,7 +3,7 @@ showcase:
   enable: true
   title: "Hi, my name is Ieva "
   subtitle: "I am a social scientist, strategist, and facilitator."
-  description: "Working on systemic change and innovation for climate crisis and social good, I develop and evaluate policies, prototypes, and strategies, manage projects, and design research and monitoring processes, as well as learning experiences and workshops."
+  description: "I work on systemic change and innovation for climate crisis and social good. I develop and evaluate policies, prototypes, and strategies, manage projects, and design research and monitoring processes, as well as learning experiences and workshops."
   image:
     x:  "img/famara.JPG"
     _2x:  "img/famara.JPG"
@@ -20,7 +20,7 @@ showcase:
       URL: "https://www.linkedin.com/in/ieva-rozentale-83446739/"
       
     - icon: "linkedin"
-      URL: "https://www.linkedin.com/in/ieva-rozentale-83446739/"
+      URL: "https://www.linkedin.com/company/think-change-resolve"
 
     - icon: "twitter"
       URL: "https://twitter.com/iev_a"
@@ -31,32 +31,27 @@ about:
   title: "What can I do?"
   content: '<p class="lead">
     My passion lies in initiatives that make this world a better place (as cheesy as it sounds), and do so through a lense of compassion and inclusive observation.
-    I am presently focusing on projects that somehow deal with the climate crisis - either <b>finding 
-    scalable, often cross-disciplinary communication-based solutions to increase climate awareness and action, or developing resilience 
-    and adaptation capacities of (urban) communities.</b>  
+    My work addresses the human aspects of climate crisis and systemic social change, intersecting an evidence-based understanding of how and why we do things, strategy design, and hands-on collaborative solution crafting.  
     </p>
     <p class="lead">
-   At the moment, I am spending most of my time working as a senior researcher and project lead at <a target="_blank" href="https://www.mindworkslab.org/">Mindworks</a> - 
-   a cognitive science lab for Greenpeace EA. We work at the instersection of climate action, psychology and campaigning, and we are 
-   frequently looking for partner organizations, funders, and/or freelancers to share our work with.  
-      </p>
-   <p class="lead">
-   I am always happpy to consider any interesting projects to join during some of my unused freelancee hours - individually or 
-   sharing the expertise of the two collectives I am part of - <a target="_blank" href="https://urbanconnectors.nl/">Urban Connectors</a> (democratic urban transitions, community building, stakeholder management) and <a target="_blank" href="https://www.nebetja.eu/">nēbetjā</a> (placemaking, redirective practices, nomadic universities).
+    Currently, as a Managing Consultant at Think Change Resolve in Sydney, Australia, I spearhead strategic consulting projects that address complex organizational and policy challenges in domains such as health, education, social policy, and sustainability. 
+    We help teams and organisations to face and embrace difficult but needed change.
     </p>
     <p class="lead">
-    I have worked in and thought about diverse fields, so my strength is creating solutions and concepts 
-    that are rooted in unusual combinations of ideas.
+    Previously, as a Senior Researcher and Agile Project Owner at <a target="_blank" href="https://www.mindworkslab.org/">Mindworks</a>, I designed and managed campaign innovations aimed at mindset shifts for climate crisis mitigation and adaptation, translating complex social and cognitive science insights into actionable strategies and tools. These included capacity building learning experiences, research designs for mindset monitoring, campaigning tools, strategising support etc. 
+    </p>
+    <p class="lead">
+    My work has always been about bridging gaps—whether between disciplines, ideas, or people—to foster resilient and adaptive communities.  I have worked in and thought about diverse fields, so my strength is creating solutions and concepts that are rooted in unusual combinations of ideas.
     My research and cosultancy experience can be explained as a mix of these keywords: 
-    social psychology, environmental campaigning, strategic design and design
-    thinking, research and data science (I am a dedicated R fan <3), chatbots, business models, paradox management,
-    placemaking, creative industries, urban economics, and pedagogy.
+    social psychology, environmental campaigning, strategy and innovation management, research and data science (I am a dedicated R fan <3), business models, paradox management,
+    placemaking, creative industries, urban economics, and learning experiences.
     </p>
     <p class="lead">
-   Do not hesitate to <a target="_blank" href="mailto:ie.rozentale@gmail.com">contact me</a> or find me on <a target="_blank" href="https://www.linkedin.com/in/ieva-rozentale-83446739/">LinkedIn</a> if you are interested to collaborate or simply want to chat about the work
+    I am actively seeking collaborations that align with my passion for creating scalable solutions for environmental and social resilience, whether through consulting opportunities, partnerships, or voluteering. 
+    Do not hesitate to <a target="_blank" href="mailto:ie.rozentale@gmail.com">contact me</a> or find me on <a target="_blank" href="https://www.linkedin.com/in/ieva-rozentale-83446739/">LinkedIn</a> if you are interested to collaborate or simply want to chat about the work
    we do, or anything else. 
     </p>
-    I help teams to face and embrace difficult but needed change.'
+    '
 #icould insert a button here based on the button template that is after the intro module
   image:
     x: "img/who-am-i/taiwanvibes.jpg"
