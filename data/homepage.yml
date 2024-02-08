@@ -3,7 +3,7 @@ showcase:
   enable: true
   title: "Hi, my name is Ieva "
   subtitle: "I am a social scientist, strategist, and facilitator."
-  description: "I work on systemic change and innovation for climate crisis and social good. I develop and evaluate policies, prototypes, and strategies, manage projects, and design research and monitoring processes, as well as learning experiences and workshops."
+  description: "I work on systemic change and innovation for climate crisis and social good. I develop and evaluate strategies, prototypes, and policies , manage projects, and design research and monitoring processes, as well as learning experiences and workshops."
   image:
     x:  "img/famara.JPG"
     _2x:  "img/famara.JPG"
@@ -34,7 +34,7 @@ about:
     My work addresses the human aspects of climate crisis and systemic social change, intersecting an evidence-based understanding of how and why we do things, strategy design, and hands-on collaborative solution crafting.  
     </p>
     <p class="lead">
-    Currently, as a Managing Consultant at Think Change Resolve in Sydney, Australia, I spearhead strategic consulting projects that address complex organizational and policy challenges in domains such as health, education, social policy, and sustainability. 
+    Currently, as a Managing Consultant at <a target="_blank" href="https://www.thinkchangeresolve.com/">Think Change Resolve</a> in Sydney, Australia, I spearhead strategic consulting projects that address complex organizational and policy challenges in domains such as health, education, social policy, and sustainability. 
     We help teams and organisations to face and embrace difficult but needed change.
     </p>
     <p class="lead">
