@@ -1,9 +1,9 @@
 # showcase
 showcase:
   enable: true
-  title: "Hi, I'm Ieva "
-  subtitle: "I am a social scientist working on systemic change and innovation for climate crisis and social good."
-  description: "I develop concepts, prototypes and strategies, co-lead projects, and design research and monitoring processes, as well as learning experiences and workshops."
+  title: "Hi, my name is Ieva "
+  subtitle: "I am a social scientist, strategist, and facilitator."
+  description: "Working on systemic change and innovation for climate crisis and social good, I develop and evaluate policies, prototypes, and strategies, manage projects, and design research and monitoring processes, as well as learning experiences and workshops."
   image:
     x:  "img/famara.JPG"
     _2x:  "img/famara.JPG"
@@ -18,19 +18,12 @@ showcase:
   socialLinks:
     - icon: "linkedin"
       URL: "https://www.linkedin.com/in/ieva-rozentale-83446739/"
+      
+    - icon: "linkedin"
+      URL: "https://www.linkedin.com/in/ieva-rozentale-83446739/"
 
     - icon: "twitter"
       URL: "https://twitter.com/iev_a"
-      
-    - icon: "twitter"
-      URL: "https://twitter.com/mindworkslab"
-    
-    - icon: "instagram"
-      URL: "https://www.instagram.com/iev_a/"
-      
-    - icon: "instagram"
-      URL: "https://www.instagram.com/nebetja/"
-
 
 # about
 about:
@@ -62,7 +55,8 @@ about:
     <p class="lead">
    Do not hesitate to <a target="_blank" href="mailto:ie.rozentale@gmail.com">contact me</a> or find me on <a target="_blank" href="https://www.linkedin.com/in/ieva-rozentale-83446739/">LinkedIn</a> if you are interested to collaborate or simply want to chat about the work
    we do, or anything else. 
-    </p>'
+    </p>
+    I help teams to face and embrace difficult but needed change.'
 #icould insert a button here based on the button template that is after the intro module
   image:
     x: "img/who-am-i/taiwanvibes.jpg"
