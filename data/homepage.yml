@@ -141,16 +141,6 @@ client_and_work:
   title: "My Work"
   enable: true
   works:
-   - title: "Think Change Resolve"
-      description: "We offer strategic and organisational consulting, facilitation, and mediation services. We support organisations to successfully create, navigate and respond to change or disruption and thrive on their own terms. With bespoke and nuanced solutions that reflect our clients’ unique challenges, our aim is to help them achieve their goals."
-      button:
-        icon: "icon-arrow-right"
-        btnText: "Website"
-        URL: "https://www.thinkchangeresolve.com"
-      image:
-        x: "img/cover-mw.png"
-        _2x: "img/cover-mw.png"
-      is_even: false
       
     - title: "Mindworks Lab"
       description: "is a cognitive and social science unit for Greenpeace East Asia. Our team is using insights from social and cognitive sciences to protoype and test tools and solutions for climate campaiging that would move people towards action and away from denial and other defense mechanisms and narratives. We hope to create impact on mindsets that are needed for averting the climate crisis and creating a more just, equal and thriving planet. We work in close collaboration and co-creation with many other NGOs, activists and scientists. We are inspired by research of others, and do our own research. We also design and facilitate workshops for capacity building in climate change communication and campaigning."
