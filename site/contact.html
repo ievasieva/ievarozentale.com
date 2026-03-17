@@ -7,19 +7,20 @@
   <meta name="description" content="Get in touch to discuss facilitation, workshops, or collaborative processes. Based in Central Coast, NSW, Australia. Working with organisations across Australia and internationally." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .contact-form-section {
-      padding: 56px 0;
-      border-bottom: 1px solid var(--color-border);
+      padding: 72px 0;
+      border-bottom: 1px solid var(--color-border-soft);
+      background: var(--color-surface);
     }
     .contact-form {
       max-width: 560px;
-      margin-top: 32px;
+      margin-top: 36px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
     }
     .form-group {
       display: flex;
@@ -27,38 +28,39 @@
       gap: 6px;
     }
     .form-group label {
-      font-size: 0.82rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-muted);
     }
     .form-group input,
     .form-group textarea {
       border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      padding: 12px 14px;
+      border-radius: 8px;
+      padding: 13px 16px;
       font-size: 1rem;
       font-family: var(--font-sans);
       color: var(--color-text);
       background: var(--color-bg);
-      transition: border-color 0.15s;
+      transition: border-color 0.2s, box-shadow 0.2s;
       width: 100%;
     }
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(47,79,70,0.08);
     }
     .form-group textarea {
       resize: vertical;
-      min-height: 140px;
+      min-height: 150px;
     }
     .form-submit {
       align-self: flex-start;
     }
     .contact-details-section {
-      padding: 56px 0;
+      padding: 72px 0;
     }
   </style>
 </head>
@@ -168,7 +170,8 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <p class="footer-copy">© Ieva Rozentale. Central Coast, NSW, Australia.</p>
+      <p class="footer-copy">© Ieva Rozentale · Central Coast, NSW, Australia · <a href="mailto:ie.rozentale@gmail.com" style="color:inherit;opacity:0.7;">ie.rozentale@gmail.com</a> · <a href="https://www.linkedin.com/in/ieva-rozentale-83446739/" target="_blank" rel="noopener" style="color:inherit;opacity:0.7;">LinkedIn</a></p>
+      <p class="footer-note">Made somewhere between forest and ocean.</p>
     </div>
   </footer>
 
