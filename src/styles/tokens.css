@@ -1,32 +1,33 @@
 /*
   Design tokens — ievarozentale.com
-  Edit this file to update colours and fonts across the entire site.
-
-  Fonts (loaded from Google Fonts in Base.astro):
-    --font-heading      Fraunces  — display serif, used for all h1–h4
-    --font-body         Inter     — clean sans-serif, body copy
-    --font-handwritten  Caveat    — informal handwritten, accent use only
-
-  Colours:
-    --color-paper       #F4EEE2   warm off-white, main background
-    --color-ink         #1A1A1A   near-black, default text
-    --color-clay        #D8624A   warm terracotta, professional/facilitation wing
-    --color-royal-blue  #003399   deep blue, meditation wing
+  Single source of truth. All CSS variables defined here and imported
+  globally via Base.astro → global.css.
 */
 
 :root {
-  /* --- Typography --- */
-  --font-heading:     'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body:        'Inter', system-ui, -apple-system, sans-serif;
-  --font-handwritten: 'Caveat', cursive;
+  /* Palette */
+  --paper:    #F4EEE2;   /* warm off-white, main background */
+  --ecru:     #ECE3D1;   /* slightly darker, footer / surface */
+  --ink:      #1A1A1A;   /* near-black, headings & UI */
+  --body:     #38352F;   /* warm dark brown, body copy */
+  --muted:    #756F63;   /* medium warm grey, secondary text */
+  --hairline: #DCD3C0;   /* very light, borders & dividers */
+  --clay:     #D8624A;   /* terracotta, professional wing accent */
+  --royal:    #003399;   /* deep blue, meditation wing accent */
 
-  /* --- Colour: shared --- */
-  --color-paper:      #F4EEE2;
-  --color-ink:        #1A1A1A;
+  /* Typography */
+  --font-head: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
 
-  /* --- Colour: professional wing (Facilitation + Research & Strategy) --- */
-  --color-clay:       #D8624A;
+  /* Layout */
+  --maxw: 1140px;
 
-  /* --- Colour: meditation wing --- */
-  --color-royal-blue: #003399;
+  /* Aliases kept from sprint-1 scaffold (do not remove) */
+  --font-heading:     var(--font-head);
+  --font-handwritten: var(--font-hand);
+  --color-paper:      var(--paper);
+  --color-ink:        var(--ink);
+  --color-clay:       var(--clay);
+  --color-royal-blue: var(--royal);
 }

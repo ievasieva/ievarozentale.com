@@ -1,0 +1,30 @@
+---
+// Nav items: the third item gets the royal-blue underline (via CSS nth-child(3)).
+// Keep Meditation last so the selector stays correct.
+const navItems = [
+  { label: 'Facilitation',         href: '/facilitation/' },
+  { label: 'Research & Strategy',  href: '/research-strategy/' },
+  { label: 'Meditation',           href: '/meditation/' },
+];
+
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+---
+
+<header class="site">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="/">Ieva Rozentale</a>
+    <div class="navlinks">
+      {navItems.map(({ label, href }) => (
+        <a
+          href={href}
+          aria-current={currentPath.startsWith(href) ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>

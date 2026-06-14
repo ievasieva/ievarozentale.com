@@ -1,0 +1,80 @@
+---
+/**
+ * CutOut — a single collage fragment.
+ *
+ * Usage A — predefined CSS variant (handles its own responsive sizing via global.css):
+ *   <CutOut cssVariant="cut1" />
+ *   <CutOut cssVariant="cut2" />
+ *   <CutOut cssVariant="accent-clay" />
+ *   <CutOut cssVariant="accent-royal" />
+ *
+ * Usage B — fully custom (inline styles, used for non-hero clusters):
+ *   <CutOut
+ *     top="10px" right="0" width="150px" height="118px"
+ *     rotation={-3}
+ *     clipPath="polygon(0 4%, 97% 0, 100% 94%, 3% 100%)"
+ *     background="#fbf7ee"
+ *   />
+ *
+ * Pass `image` (URL string) in either mode to fill the cut shape with a real
+ * photo instead of the placeholder gradient. Pass `alt` for the img alt text.
+ */
+
+interface Props {
+  // Mode A: use a pre-styled CSS class from global.css
+  cssVariant?: 'cut1' | 'cut2' | 'accent-clay' | 'accent-royal';
+
+  // Mode B: fully custom (ignored when cssVariant is set for clip/bg/size/pos)
+  top?:        string;
+  right?:      string;
+  bottom?:     string;
+  left?:       string;
+  width?:      string;
+  height?:     string;
+  rotation?:   number;   // degrees, e.g. -3
+  clipPath?:   string;   // CSS polygon() string
+  background?: string;   // CSS background value
+
+  // Shared: optional real image
+  image?: string;        // URL
+  alt?:   string;
+}
+
+const {
+  cssVariant,
+  top, right, bottom, left, width, height, rotation,
+  clipPath, background,
+  image, alt = '',
+} = Astro.props;
+
+// Build inline style only for Mode B (custom fragments).
+// In Mode A the CSS class handles everything; we only bolt on the image.
+const customStyle = !cssVariant ? [
+  top        && `top:${top}`,
+  right      && `right:${right}`,
+  bottom     && `bottom:${bottom}`,
+  left       && `left:${left}`,
+  width      && `width:${width}`,
+  height     && `height:${height}`,
+  rotation !== undefined && `transform:rotate(${rotation}deg)`,
+  clipPath   && `clip-path:${clipPath}`,
+  !image && background && `background:${background}`,
+].filter(Boolean).join(';') : undefined;
+
+// When image provided on a variant, we still need to override the background.
+const variantImageStyle = cssVariant && image ? 'background:transparent;' : undefined;
+---
+
+<div
+  class:list={['frag', 'cut', cssVariant]}
+  style={customStyle ?? variantImageStyle}
+  aria-hidden="true"
+>
+  {image && (
+    <img
+      src={image}
+      alt={alt}
+      style="width:100%;height:100%;object-fit:cover;display:block;"
+    />
+  )}
+</div>

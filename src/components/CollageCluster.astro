@@ -1,0 +1,83 @@
+---
+/**
+ * CollageCluster — a positioned group of CutOut fragments.
+ *
+ * Pass a `fragments` array; each item maps 1-to-1 to CutOut props.
+ * Pass `annotation` for the handwritten label.
+ *
+ * Example — hero cluster (uses CSS variants, responsive via global.css):
+ *   <CollageCluster
+ *     height="330px"
+ *     fragments={[
+ *       { cssVariant: 'cut1' },
+ *       { cssVariant: 'cut2' },
+ *       { cssVariant: 'accent-clay' },
+ *       { cssVariant: 'accent-royal' },
+ *     ]}
+ *     annotation={{ text: 'thinking, together & alone', style: '' }}
+ *   />
+ *
+ * Example — about aside (inline-positioned, no responsive overrides needed):
+ *   <CollageCluster height="200px" fragments={[torn2Config, photoConfig]}
+ *     annotation={{ text: 'between forest & ocean', style: 'left:0;bottom:0;color:var(--royal);transform:rotate(6deg)' }}
+ *   />
+ */
+import CutOut from './CutOut.astro';
+
+interface FragmentConfig {
+  cssVariant?: 'cut1' | 'cut2' | 'accent-clay' | 'accent-royal';
+  top?: string;
+  right?: string;
+  bottom?: string;
+  left?: string;
+  width?: string;
+  height?: string;
+  rotation?: number;
+  clipPath?: string;
+  background?: string;
+  image?: string;
+  alt?: string;
+}
+
+interface AnnotationConfig {
+  text: string;
+  style?: string; // inline style; defaults to the hero annotation position/style
+}
+
+interface Props {
+  height: string;
+  fragments: FragmentConfig[];
+  annotation?: AnnotationConfig;
+  class?: string;
+}
+
+const { height, fragments, annotation } = Astro.props;
+---
+
+<div
+  class:list={['collage', Astro.props.class]}
+  style={`height:${height}`}
+  aria-hidden="true"
+>
+  {fragments.map((f) => (
+    <CutOut
+      cssVariant={f.cssVariant}
+      top={f.top}
+      right={f.right}
+      bottom={f.bottom}
+      left={f.left}
+      width={f.width}
+      height={f.height}
+      rotation={f.rotation}
+      clipPath={f.clipPath}
+      background={f.background}
+      image={f.image}
+      alt={f.alt}
+    />
+  ))}
+  {annotation && (
+    <div class="annot hand" style={annotation.style}>
+      {annotation.text}
+    </div>
+  )}
+</div>

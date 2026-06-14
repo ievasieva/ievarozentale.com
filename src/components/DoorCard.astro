@@ -1,0 +1,43 @@
+---
+/**
+ * DoorCard — a routing card linking to one of the site's wings.
+ *
+ * wing="professional"  → clay accent (#D8624A), tag label "Professional"
+ * wing="meditation"    → royal accent (#003399), tag label "Meditation", CSS class .med
+ *
+ * <DoorCard
+ *   wing="professional"
+ *   href="/facilitation/"
+ *   heading="Facilitation"
+ *   body="Workshops and collaborative processes that help groups explore complex challenges."
+ * />
+ */
+
+interface Props {
+  wing:    'professional' | 'meditation';
+  href:    string;
+  tag?:    string;   // overrides default tag label
+  heading: string;
+  body:    string;
+  go?:     string;   // CTA text, default "Enter"
+}
+
+const {
+  wing,
+  href,
+  tag,
+  heading,
+  body,
+  go = 'Enter',
+} = Astro.props;
+
+const isMed = wing === 'meditation';
+const defaultTag = isMed ? 'Meditation' : 'Professional';
+---
+
+<a class:list={['door', { med: isMed }, 'reveal']} href={href}>
+  <span class="tag">{tag ?? defaultTag}</span>
+  <h3>{heading}</h3>
+  <p>{body}</p>
+  <span class="go">{go} <span class="arr" aria-hidden="true">&rarr;</span></span>
+</a>
