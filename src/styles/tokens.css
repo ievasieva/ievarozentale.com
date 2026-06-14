@@ -1,0 +1,32 @@
+/*
+  Design tokens — ievarozentale.com
+  Edit this file to update colours and fonts across the entire site.
+
+  Fonts (loaded from Google Fonts in Base.astro):
+    --font-heading      Fraunces  — display serif, used for all h1–h4
+    --font-body         Inter     — clean sans-serif, body copy
+    --font-handwritten  Caveat    — informal handwritten, accent use only
+
+  Colours:
+    --color-paper       #F4EEE2   warm off-white, main background
+    --color-ink         #1A1A1A   near-black, default text
+    --color-clay        #D8624A   warm terracotta, professional/facilitation wing
+    --color-royal-blue  #003399   deep blue, meditation wing
+*/
+
+:root {
+  /* --- Typography --- */
+  --font-heading:     'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:        'Inter', system-ui, -apple-system, sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+
+  /* --- Colour: shared --- */
+  --color-paper:      #F4EEE2;
+  --color-ink:        #1A1A1A;
+
+  /* --- Colour: professional wing (Facilitation + Research & Strategy) --- */
+  --color-clay:       #D8624A;
+
+  /* --- Colour: meditation wing --- */
+  --color-royal-blue: #003399;
+}
