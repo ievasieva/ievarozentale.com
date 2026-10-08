@@ -1,0 +1,21 @@
+{
+  "features": {
+    "insightTimer": false,
+    "instagram": false,
+    "cv": false,
+    "practices": false,
+    "workshopBooking": false
+  },
+  "links": {
+    "insightTimerUrl": "",
+    "instagramUrl": "",
+    "cvUrl": "",
+    "kitCheckoutUrl": "",
+    "workshopBookingUrl": ""
+  },
+  "content": {
+    "workshopDate": "",
+    "workshopVenue": "",
+    "kitAccessText": "Pay what feels right. A free download is available, no questions asked."
+  }
+}
